@@ -8,6 +8,9 @@ body:
     attributes:
       label: Which skill?
       options:
+        - israeli-restaurant-ops
+        - israeli-grocery-price-intelligence
+        - israeli-food-business-compliance
         - Other
     validations:
       required: true

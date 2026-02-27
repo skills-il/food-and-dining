@@ -1,1 +1,13 @@
 # Labels are added automatically when PRs touch skill directories
+
+israeli-restaurant-ops:
+  - changed-files:
+    - any-glob-to-any-file: 'israeli-restaurant-ops/**'
+
+israeli-grocery-price-intelligence:
+  - changed-files:
+    - any-glob-to-any-file: 'israeli-grocery-price-intelligence/**'
+
+israeli-food-business-compliance:
+  - changed-files:
+    - any-glob-to-any-file: 'israeli-food-business-compliance/**'
