@@ -201,3 +201,4 @@ Solution: Verify all 12 mandatory fields are present (see Step 4). Common issues
 ### Error: "Health inspection violation notice"
 Cause: Critical violation found during inspection (temperature abuse, pest evidence, expired products).
 Solution: Address critical violations immediately. Temperature abuse: discard affected food, recalibrate thermometers, document corrective action. Pest evidence: call licensed pest control immediately, document treatment. Expired products: remove and document disposal. Inspector typically allows 7-30 days for correction depending on severity.
+
