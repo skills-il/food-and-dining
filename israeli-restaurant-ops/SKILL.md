@@ -19,12 +19,20 @@ metadata:
   version: 1.0.0
   category: food-and-dining
   tags:
-    - restaurant
-    - food-delivery
-    - wolt
-    - 10bis
-    - mishlocha
-    - israel
+    he:
+      - מסעדה
+      - משלוח-מזון
+      - Wolt
+      - תן-ביס
+      - משלוחה
+      - ישראל
+    en:
+      - restaurant
+      - food-delivery
+      - wolt
+      - 10bis
+      - mishlocha
+      - israel
   display_name:
     he: ניהול תפעול מסעדה ישראלית
     en: Israeli Restaurant Operations
