@@ -20,12 +20,20 @@ metadata:
   version: 1.0.0
   category: food-and-dining
   tags:
-    - food-safety
-    - kashrut
-    - health-ministry
-    - licensing
-    - labeling
-    - israel
+    he:
+      - בטיחות-מזון
+      - כשרות
+      - משרד-הבריאות
+      - רישוי
+      - תיוג
+      - ישראל
+    en:
+      - food-safety
+      - kashrut
+      - health-ministry
+      - licensing
+      - labeling
+      - israel
   display_name:
     he: תאימות רגולטורית לעסקי מזון ישראליים
     en: Israeli Food Business Compliance
