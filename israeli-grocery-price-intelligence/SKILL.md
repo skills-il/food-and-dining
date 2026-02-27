@@ -19,13 +19,22 @@ metadata:
   version: 1.0.0
   category: food-and-dining
   tags:
-    - grocery
-    - supermarket
-    - prices
-    - price-comparison
-    - shufersal
-    - rami-levy
-    - israel
+    he:
+      - מכולת
+      - סופרמרקט
+      - מחירים
+      - השוואת-מחירים
+      - שופרסל
+      - רמי-לוי
+      - ישראל
+    en:
+      - grocery
+      - supermarket
+      - prices
+      - price-comparison
+      - shufersal
+      - rami-levy
+      - israel
   display_name:
     he: מודיעין מחירי מכולת ישראלי
     en: Israeli Grocery Price Intelligence
