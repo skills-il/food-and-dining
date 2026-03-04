@@ -102,7 +102,7 @@ For each order track:
 - Platform commission (%)
 - Net revenue (what restaurant receives)
 - Delivery fee (paid by customer or restaurant, varies)
-- VAT component (17%)
+- VAT component (18%)
 
 Generate daily/weekly/monthly reports:
 - Total orders by platform
