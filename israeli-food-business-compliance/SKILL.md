@@ -1,53 +1,61 @@
 ---
 name: israeli-food-business-compliance
 description: >-
-  Guide Israeli food business regulatory compliance — business licensing,
-  kashrut certification, health ministry requirements, and food labeling. Use
-  when user asks about "food business license Israel", "Misrad HaBriut
-  requirements", "kashrut certification process", "food labeling Hebrew",
-  "restaurant permit Israel", "food import regulations", or "רישיון עסק מזון".
-  Covers Ministry of Health licensing by business type, Rabbanut kashrut
-  application process, certification renewal tracking, Hebrew food label
-  generation, and health inspection preparation. Do NOT use for restaurant
-  daily operations (use israeli-restaurant-ops) or general business compliance.
+  Guide Israeli food business regulatory compliance — business licensing, kashrut
+  certification, health ministry requirements, and food labeling. Use when user asks
+  about "food business license Israel", "Misrad HaBriut requirements", "kashrut certification
+  process", "food labeling Hebrew", "restaurant permit Israel", "food import regulations",
+  or "רישיון עסק מזון". Covers Ministry of Health licensing by business type, Rabbanut
+  kashrut application process, certification renewal tracking, Hebrew food label generation,
+  and health inspection preparation. Do NOT use for restaurant daily operations (use
+  israeli-restaurant-ops) or general business compliance.
 license: MIT
-allowed-tools: "Bash(python:*) WebFetch"
+allowed-tools: Bash(python:*) WebFetch
 compatibility: >-
-  Works with Claude Code, OpenClaw, Cursor. OpenClaw recommended for
-  certification renewal tracking and scheduled compliance alerts.
+  Works with Claude Code, OpenClaw, Cursor. OpenClaw recommended for certification
+  renewal tracking and scheduled compliance alerts.
 metadata:
   author: skills-il
   version: 1.0.0
   category: food-and-dining
   tags:
     he:
-      - בטיחות-מזון
-      - כשרות
-      - משרד-הבריאות
-      - רישוי
-      - תיוג
-      - ישראל
+    - בטיחות-מזון
+    - כשרות
+    - משרד-הבריאות
+    - רישוי
+    - תיוג
+    - ישראל
     en:
-      - food-safety
-      - kashrut
-      - health-ministry
-      - licensing
-      - labeling
-      - israel
+    - food-safety
+    - kashrut
+    - health-ministry
+    - licensing
+    - labeling
+    - israel
   display_name:
     he: תאימות רגולטורית לעסקי מזון ישראליים
     en: Israeli Food Business Compliance
   display_description:
-    he: ליווי עסקי מזון ישראליים ברגולציה — רישוי עסקים, כשרות, משרד הבריאות ותיוג מזון
+    he: ליווי עסקי מזון ישראליים ברגולציה — רישוי עסקים, כשרות, משרד הבריאות ותיוג
+      מזון
     en: >-
-      Guide Israeli food business regulatory compliance — business licensing,
-      kashrut certification, health ministry requirements, and food labeling.
+      Guide Israeli food business regulatory compliance — business licensing, kashrut
+      certification, health ministry requirements, and food labeling. Use when user
+      asks about "food business license Israel", "Misrad HaBriut requirements", "kashrut
+      certification process", "food labeling Hebrew", "restaurant permit Israel",
+      "food import regulations", or "רישיון עסק מזון". Covers Ministry of Health licensing
+      by business type, Rabbanut kashrut application process, certification renewal
+      tracking, Hebrew food label generation, and health inspection preparation. Do
+      NOT use for restaurant daily operations (use israeli-restaurant-ops) or general
+      business compliance.
   openclaw:
     requires:
       bins: []
       env: []
-    emoji: "🏥"
+    emoji: 🏥
 ---
+
 
 # Israeli Food Business Compliance
 
@@ -209,4 +217,3 @@ Solution: Verify all 12 mandatory fields are present (see Step 4). Common issues
 ### Error: "Health inspection violation notice"
 Cause: Critical violation found during inspection (temperature abuse, pest evidence, expired products).
 Solution: Address critical violations immediately. Temperature abuse: discard affected food, recalibrate thermometers, document corrective action. Pest evidence: call licensed pest control immediately, document treatment. Expired products: remove and document disposal. Inspector typically allows 7-30 days for correction depending on severity.
-
