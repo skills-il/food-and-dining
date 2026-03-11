@@ -1,52 +1,57 @@
 ---
 name: israeli-restaurant-ops
 description: >-
-  Manage Israeli restaurant operations across delivery platforms — Wolt, 10bis,
-  and Mishlocha. Use when user asks about "restaurant management Israel",
-  "Wolt integration", "10bis", "Mishlocha", "food delivery platform",
-  "menu sync", "restaurant orders", "delivery commission", or "ניהול מסעדה".
-  Covers menu synchronization, order monitoring, revenue tracking with
-  commission breakdowns, review management, and delivery performance analytics.
-  Do NOT use for cooking recipes, personal meal planning, or non-Israeli
+  Manage Israeli restaurant operations across delivery platforms — Wolt, 10bis, and
+  Mishlocha. Use when user asks about "restaurant management Israel", "Wolt integration",
+  "10bis", "Mishlocha", "food delivery platform", "menu sync", "restaurant orders",
+  "delivery commission", or "ניהול מסעדה". Covers menu synchronization, order monitoring,
+  revenue tracking with commission breakdowns, review management, and delivery performance
+  analytics. Do NOT use for cooking recipes, personal meal planning, or non-Israeli
   delivery platforms.
 license: MIT
-allowed-tools: "Bash(python:*) WebFetch"
+allowed-tools: Bash(python:*) WebFetch
 compatibility: >-
-  Works with Claude Code, OpenClaw, Cursor. OpenClaw recommended for real-time
-  order monitoring, scheduled revenue reports, and review alert notifications.
+  Works with Claude Code, OpenClaw, Cursor. OpenClaw recommended for real-time order
+  monitoring, scheduled revenue reports, and review alert notifications.
 metadata:
   author: skills-il
   version: 1.0.0
   category: food-and-dining
   tags:
     he:
-      - מסעדה
-      - משלוח-מזון
-      - Wolt
-      - תן-ביס
-      - משלוחה
-      - ישראל
+    - מסעדה
+    - משלוח-מזון
+    - Wolt
+    - תן-ביס
+    - משלוחה
+    - ישראל
     en:
-      - restaurant
-      - food-delivery
-      - wolt
-      - 10bis
-      - mishlocha
-      - israel
+    - restaurant
+    - food-delivery
+    - wolt
+    - 10bis
+    - mishlocha
+    - israel
   display_name:
     he: ניהול תפעול מסעדה ישראלית
     en: Israeli Restaurant Operations
   display_description:
     he: ניהול תפעול יומיומי למסעדות ישראליות מול פלטפורמות משלוח — וולט, תן ביס ומשלוחה
     en: >-
-      Manage Israeli restaurant operations across delivery platforms — Wolt,
-      10bis, and Mishlocha.
+      Manage Israeli restaurant operations across delivery platforms — Wolt, 10bis,
+      and Mishlocha. Use when user asks about "restaurant management Israel", "Wolt
+      integration", "10bis", "Mishlocha", "food delivery platform", "menu sync", "restaurant
+      orders", "delivery commission", or "ניהול מסעדה". Covers menu synchronization,
+      order monitoring, revenue tracking with commission breakdowns, review management,
+      and delivery performance analytics. Do NOT use for cooking recipes, personal
+      meal planning, or non-Israeli delivery platforms.
   openclaw:
     requires:
       bins: []
       env: []
-    emoji: "🍽️"
+    emoji: 🍽️
 ---
+
 
 # Israeli Restaurant Operations
 
