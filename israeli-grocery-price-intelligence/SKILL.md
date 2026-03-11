@@ -1,54 +1,62 @@
 ---
 name: israeli-grocery-price-intelligence
 description: >-
-  Access and compare Israeli supermarket prices using mandatory Price
-  Transparency Law data feeds. Use when user asks about "supermarket prices
-  Israel", "price comparison Shufersal", "Rami Levy prices", "grocery prices",
-  "Price Transparency Law", "shopping list optimizer", "food costs Israel",
-  or "השוואת מחירי סופר". Covers chain-specific XML feed parsing, cross-chain
-  price comparison, shopping list optimization, price trend tracking, and
-  restaurant ingredient cost analysis. Do NOT use for restaurant operations
-  (use israeli-restaurant-ops) or non-food retail prices.
+  Access and compare Israeli supermarket prices using mandatory Price Transparency
+  Law data feeds. Use when user asks about "supermarket prices Israel", "price comparison
+  Shufersal", "Rami Levy prices", "grocery prices", "Price Transparency Law", "shopping
+  list optimizer", "food costs Israel", or "השוואת מחירי סופר". Covers chain-specific
+  XML feed parsing, cross-chain price comparison, shopping list optimization, price
+  trend tracking, and restaurant ingredient cost analysis. Do NOT use for restaurant
+  operations (use israeli-restaurant-ops) or non-food retail prices.
 license: MIT
-allowed-tools: "Bash(python:*) WebFetch"
+allowed-tools: Bash(python:*) WebFetch
 compatibility: >-
-  Works with Claude Code, OpenClaw, Cursor. OpenClaw recommended for scheduled
-  price monitoring and automated shopping list optimization.
+  Works with Claude Code, OpenClaw, Cursor. OpenClaw recommended for scheduled price
+  monitoring and automated shopping list optimization.
 metadata:
   author: skills-il
   version: 1.0.0
   category: food-and-dining
   tags:
     he:
-      - מכולת
-      - סופרמרקט
-      - מחירים
-      - השוואת-מחירים
-      - שופרסל
-      - רמי-לוי
-      - ישראל
+    - מכולת
+    - סופרמרקט
+    - מחירים
+    - השוואת-מחירים
+    - שופרסל
+    - רמי-לוי
+    - ישראל
     en:
-      - grocery
-      - supermarket
-      - prices
-      - price-comparison
-      - shufersal
-      - rami-levy
-      - israel
+    - grocery
+    - supermarket
+    - prices
+    - price-comparison
+    - shufersal
+    - rami-levy
+    - israel
   display_name:
     he: מודיעין מחירי מכולת ישראלי
     en: Israeli Grocery Price Intelligence
   display_description:
-    he: השוואת מחירי סופרמרקטים ישראליים באמצעות נתוני חוק שקיפות מחירים — שופרסל, רמי לוי, יוחננוף ועוד
+    he: >-
+      השוואת מחירי סופרמרקטים ישראליים באמצעות נתוני חוק שקיפות מחירים — שופרסל, רמי
+      לוי, יוחננוף ועוד
     en: >-
-      Access and compare Israeli supermarket prices using mandatory Price
-      Transparency Law data feeds.
+      Access and compare Israeli supermarket prices using mandatory Price Transparency
+      Law data feeds. Use when user asks about "supermarket prices Israel", "price
+      comparison Shufersal", "Rami Levy prices", "grocery prices", "Price Transparency
+      Law", "shopping list optimizer", "food costs Israel", or "השוואת מחירי סופר".
+      Covers chain-specific XML feed parsing, cross-chain price comparison, shopping
+      list optimization, price trend tracking, and restaurant ingredient cost analysis.
+      Do NOT use for restaurant operations (use israeli-restaurant-ops) or non-food
+      retail prices.
   openclaw:
     requires:
       bins: []
       env: []
-    emoji: "🏷️"
+    emoji: 🏷️
 ---
+
 
 # Israeli Grocery Price Intelligence
 
