@@ -16,7 +16,7 @@ compatibility: >-
   renewal tracking and scheduled compliance alerts.
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: food-and-dining
   tags:
     he:
@@ -199,6 +199,14 @@ Result: 32-item inspection checklist organized by priority. Top 5 critical items
 ### References
 - `references/health-ministry-requirements.md` — Ministry of Health licensing requirements by food business type: required documents, facility standards, inspection criteria, and renewal schedules. Consult when determining licensing needs in Step 1 or preparing for inspections in Step 6.
 - `references/labeling-requirements.md` — Israeli food labeling regulations: mandatory fields, allergen declaration requirements, nutritional information format, Hebrew label template, and import labeling rules. Consult when generating food labels in Step 4 or guiding import regulations in Step 5.
+
+## Gotchas
+
+- Kashrut certification levels (Rabbanut, Mehadrin, Badatz) are not interchangeable. Agents may treat them as equivalent, but each has different supervision requirements, costs, and market implications.
+- Israeli food labeling regulations require allergen declarations in a specific bold/highlighted format that differs from EU and US standards. Agents trained on international labeling norms will produce non-compliant labels.
+- The Ministry of Health business licensing categories changed in recent years, and the classification of food trucks (rechev mazon) now requires a different permit path than a fixed restaurant. Agents may use outdated classification rules.
+- Israeli food import regulations require Hebrew label approval before the goods enter the country, not after. Agents familiar with US/EU import flows may sequence this step incorrectly.
+- Pest control documentation in Israel must come from a licensed company registered with the Ministry of Environmental Protection. Agents may suggest generic pest control solutions that do not meet Israeli regulatory requirements.
 
 ## Troubleshooting
 

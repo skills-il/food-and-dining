@@ -15,7 +15,7 @@ compatibility: >-
   monitoring and automated shopping list optimization.
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: food-and-dining
   tags:
     he:
@@ -159,6 +159,14 @@ Result: Current cost per serving: 8.40 NIS (cheapest chain combination). Eggs ar
 
 ### Scripts
 - `scripts/parse_price_xml.py` — Parses Israeli supermarket XML price feeds into normalized JSON. Supports Shufersal, Rami Levy, and other chain formats. Handles gzipped XML files and character encoding. Run: `python scripts/parse_price_xml.py --help`
+
+## Gotchas
+
+- Israeli supermarket chain URLs and XML feed schemas change without notice. Agents relying on cached or training-data URLs will hit broken endpoints. Always verify feed URLs from `references/chain-feeds.md` before querying.
+- Prices in Israel include VAT (18%) by default, unlike US prices which are pre-tax. Agents may perform cost comparisons that double-count or ignore VAT depending on their training data assumptions.
+- Israeli product barcodes use the 729 country prefix, but some imported products retain their original country barcode. Agents may fail cross-chain matching when the same product has different barcode formats across chains.
+- The chain "Victory" and "Mega" merged under the Alon group, but their price feeds may still appear as separate entities. Agents may treat them as independent competitors when they share pricing policies.
+- Promotions in Israeli supermarkets often have conditions agents miss: "buy 2 get discount" (2 b-X shekel), club-member-only pricing, or regional promotions that apply only to specific store locations.
 
 ## Troubleshooting
 

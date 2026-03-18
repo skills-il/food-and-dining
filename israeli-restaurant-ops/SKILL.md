@@ -15,7 +15,7 @@ compatibility: >-
   monitoring, scheduled revenue reports, and review alert notifications.
 metadata:
   author: skills-il
-  version: 1.0.0
+  version: 1.0.1
   category: food-and-dining
   tags:
     he:
@@ -190,6 +190,14 @@ Result: Professional Hebrew response posted: "שלום [שם], מצטערים מ
 
 ### References
 - `references/platform-guides.md` — Integration guides for Wolt Israel, 10bis, and Mishlocha restaurant portals. Covers portal URLs, login methods, menu management features, order tracking, and analytics dashboards. Consult when connecting to a specific platform in Step 1 or syncing menus in Step 2.
+
+## Gotchas
+
+- Israeli delivery platform commission rates (Wolt 25-35%, 10bis 10-15%, Mishlocha 15-25%) differ significantly from US platforms like DoorDash or UberEats. Agents trained on US data will use wrong commission assumptions for revenue calculations.
+- VAT in Israel is 18%, not 20% (UK) or 0% (some US states). Agents must use the correct rate when calculating net revenue from gross order values.
+- Israeli restaurants commonly close Friday afternoon through Saturday evening for Shabbat. Agents scheduling operations, promotions, or report generation must account for this weekly downtime pattern.
+- 10bis (Tenbis) operates as both a corporate meal benefit platform and a consumer delivery service. The commission structure and order flow differ between the two modes. Agents may conflate them.
+- Hebrew text in menu items requires RTL handling. When syncing menus across platforms, agents may produce garbled item names or descriptions if they do not account for RTL text direction and Hebrew character encoding (UTF-8).
 
 ## Troubleshooting
 
