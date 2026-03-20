@@ -61,7 +61,7 @@ metadata:
 Set up connections to Israeli delivery platforms via browser automation (CDP):
 - **Wolt Israel** (wolt.com) — Restaurant Portal access for menu, orders, analytics
 - **10bis (תן ביס)** (10bis.co.il) — Restaurant dashboard for orders and menu management
-- **Mishlocha (משלוחה)** (mishlocha.co.il) — Partner portal for orders and menu updates
+- **Mishlocha (משלוחה)** (mishloha.co.il) — Partner portal for orders and menu updates
 
 For each platform:
 1. Navigate to restaurant portal/dashboard

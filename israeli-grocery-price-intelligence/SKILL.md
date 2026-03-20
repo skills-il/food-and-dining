@@ -79,8 +79,9 @@ Each chain publishes in a slightly different XML schema. Supported chains and th
 |-------|-------------|------------------|-------|
 | Shufersal | שופרסל | prices.shufersal.co.il | Largest chain, most structured data |
 | Rami Levy | רמי לוי | prices.rframi.co.il | Known for low prices |
-| Yochananof | יוחננוף | prices.ybitan.co.il | Central Israel focus |
-| Victory / Mega | ויקטורי / מגה | prices.mega.co.il | Merged under Alon group |
+| Yochananof | יוחננוף | See references/chain-feeds.md | Central Israel focus |
+| Victory | ויקטורי | prices.victory.co.il | Publicly traded, separate from Carrefour Israel |
+| Carrefour Israel (formerly Mega/Yeinot Bitan) | קרפור ישראל | prices.mega.co.il | Rebranded from Mega/Yeinot Bitan in 2022-2023 |
 | Osher Ad | אושר עד | prices.osherad.co.il | Discount chain |
 | Tiv Taam | טיב טעם | prices.tivtaam.co.il | Non-kosher items available |
 
@@ -165,7 +166,7 @@ Result: Current cost per serving: 8.40 NIS (cheapest chain combination). Eggs ar
 - Israeli supermarket chain URLs and XML feed schemas change without notice. Agents relying on cached or training-data URLs will hit broken endpoints. Always verify feed URLs from `references/chain-feeds.md` before querying.
 - Prices in Israel include VAT (18%) by default, unlike US prices which are pre-tax. Agents may perform cost comparisons that double-count or ignore VAT depending on their training data assumptions.
 - Israeli product barcodes use the 729 country prefix, but some imported products retain their original country barcode. Agents may fail cross-chain matching when the same product has different barcode formats across chains.
-- The chain "Victory" and "Mega" merged under the Alon group, but their price feeds may still appear as separate entities. Agents may treat them as independent competitors when they share pricing policies.
+- "Mega" and "Yeinot Bitan" rebranded to Carrefour Israel in 2022-2023. "Victory" is a separate publicly traded company. Agents may still refer to the outdated "Victory / Mega" grouping or assume they share pricing policies.
 - Promotions in Israeli supermarkets often have conditions agents miss: "buy 2 get discount" (2 b-X shekel), club-member-only pricing, or regional promotions that apply only to specific store locations.
 
 ## Troubleshooting
