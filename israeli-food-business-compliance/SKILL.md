@@ -1,59 +1,9 @@
 ---
 name: israeli-food-business-compliance
-description: >-
-  Guide Israeli food business regulatory compliance — business licensing, kashrut
-  certification, health ministry requirements, and food labeling. Use when user asks
-  about "food business license Israel", "Misrad HaBriut requirements", "kashrut certification
-  process", "food labeling Hebrew", "restaurant permit Israel", "food import regulations",
-  or "רישיון עסק מזון". Covers Ministry of Health licensing by business type, Rabbanut
-  kashrut application process, certification renewal tracking, Hebrew food label generation,
-  and health inspection preparation. Do NOT use for restaurant daily operations (use
-  israeli-restaurant-ops) or general business compliance.
+description: Guide Israeli food business regulatory compliance — business licensing, kashrut certification, health ministry requirements, and food labeling. Use when user asks about "food business license Israel", "Misrad HaBriut requirements", "kashrut certification process", "food labeling Hebrew", "restaurant permit Israel", "food import regulations", or "רישיון עסק מזון". Covers Ministry of Health licensing by business type, Rabbanut kashrut application process, certification renewal tracking, Hebrew food label generation, and health inspection preparation. Do NOT use for restaurant daily operations (use israeli-restaurant-ops) or general business compliance.
 license: MIT
 allowed-tools: Bash(python:*) WebFetch
-compatibility: >-
-  Works with Claude Code, OpenClaw, Cursor. OpenClaw recommended for certification
-  renewal tracking and scheduled compliance alerts.
-metadata:
-  author: skills-il
-  version: 1.0.1
-  category: food-and-dining
-  tags:
-    he:
-    - בטיחות-מזון
-    - כשרות
-    - משרד-הבריאות
-    - רישוי
-    - תיוג
-    - ישראל
-    en:
-    - food-safety
-    - kashrut
-    - health-ministry
-    - licensing
-    - labeling
-    - israel
-  display_name:
-    he: תאימות רגולטורית לעסקי מזון ישראליים
-    en: Israeli Food Business Compliance
-  display_description:
-    he: ליווי עסקי מזון ישראליים ברגולציה — רישוי עסקים, כשרות, משרד הבריאות ותיוג
-      מזון
-    en: >-
-      Guide Israeli food business regulatory compliance — business licensing, kashrut
-      certification, health ministry requirements, and food labeling. Use when user
-      asks about "food business license Israel", "Misrad HaBriut requirements", "kashrut
-      certification process", "food labeling Hebrew", "restaurant permit Israel",
-      "food import regulations", or "רישיון עסק מזון". Covers Ministry of Health licensing
-      by business type, Rabbanut kashrut application process, certification renewal
-      tracking, Hebrew food label generation, and health inspection preparation. Do
-      NOT use for restaurant daily operations (use israeli-restaurant-ops) or general
-      business compliance.
-  openclaw:
-    requires:
-      bins: []
-      env: []
-    emoji: 🏥
+compatibility: Works with Claude Code, OpenClaw, Cursor. OpenClaw recommended for certification renewal tracking and scheduled compliance alerts.
 ---
 
 
