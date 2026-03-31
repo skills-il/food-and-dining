@@ -60,7 +60,7 @@ SUPPORTED_CHAINS = [
     "yochananof",
     "victory",
     "osher-ad",
-    "mega",
+    "carrefour-israel",
     "tiv-taam",
 ]
 

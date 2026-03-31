@@ -13,33 +13,41 @@ compatibility: Works with Claude Code, OpenClaw, Cursor. OpenClaw recommended fo
 
 ### Step 1: Access Supermarket XML Feeds
 Under the 2015 Price Transparency Law (חוק שקיפות מחירים), Israeli supermarket chains with 3+ stores must publish product prices as XML files.
-- Data published at: prices.shufersal.co.il, and similar portals per chain
-- Available data files:
-  - **PricesFull** — complete product catalog with prices
-  - **PricesPromotions** — current sales and promotions
-  - **Stores** — store locations and details
+- Available data files per chain:
+  - **PricesFull** -- complete product catalog with prices
+  - **PricesPromotions** -- current sales and promotions
+  - **Stores** -- store locations and details
 - Files updated daily (typically overnight)
 - See `references/chain-feeds.md` for per-chain URLs and access methods
 
-### Step 2: Parse Chain-Specific Data Formats
-Each chain publishes in a slightly different XML schema. Supported chains and their format:
+Chains publish through three platforms (not individual domains):
 
-| Chain | Hebrew Name | Feed URL Pattern | Notes |
-|-------|-------------|------------------|-------|
-| Shufersal | שופרסל | prices.shufersal.co.il | Largest chain, most structured data |
-| Rami Levy | רמי לוי | prices.rframi.co.il | Known for low prices |
-| Yochananof | יוחננוף | See references/chain-feeds.md | Central Israel focus |
-| Victory | ויקטורי | prices.victory.co.il | Publicly traded, separate from Carrefour Israel |
-| Carrefour Israel (formerly Mega/Yeinot Bitan) | קרפור ישראל | prices.mega.co.il | Rebranded from Mega/Yeinot Bitan in 2022-2023 |
-| Osher Ad | אושר עד | prices.osherad.co.il | Discount chain |
-| Tiv Taam | טיב טעם | prices.tivtaam.co.il | Non-kosher items available |
+| Platform | URL | Chains |
+|----------|-----|--------|
+| Shufersal Direct | http://prices.shufersal.co.il | Shufersal |
+| Cerberus | https://url.retail.publishedprices.co.il | Rami Levy, Yochananof, Osher Ad, Tiv Taam, and smaller chains |
+| Nibit (Matrix) | http://matrixcatalog.co.il/NBCompetitionRegulations.aspx | Victory |
+| Carrefour Israel Direct | https://prices.carrefour.co.il | Carrefour Israel (formerly Mega/Yeinot Bitan) |
+
+### Step 2: Parse Chain-Specific Data Formats
+Each chain publishes in a slightly different XML schema. Major chains:
+
+| Chain | Hebrew Name | Platform | Notes |
+|-------|-------------|----------|-------|
+| Shufersal | שופרסל | Direct (prices.shufersal.co.il) | Largest chain (850+ stores), most structured data |
+| Rami Levy | רמי לוי | Cerberus | Known for low prices, 30+ stores |
+| Yochananof | יוחננוף | Cerberus | Central Israel focus |
+| Victory | ויקטורי | Nibit (Matrix) | Independently owned (Ravid family, publicly traded VCTR.TA) |
+| Carrefour Israel | קרפור ישראל | Direct (prices.carrefour.co.il) | Operates under Carrefour, Mega, and Yeinot Bitan brands |
+| Osher Ad | אושר עד | Cerberus | Discount chain, 20+ large-format stores |
+| Tiv Taam | טיב טעם | Cerberus | Non-kosher items available |
 
 Use `scripts/parse_price_xml.py` to parse feeds into normalized JSON format.
 Key fields: item_code, item_name, manufacturer, price, unit_price, quantity, unit_of_measure, update_date
 
 ### Step 3: Cross-Chain Price Comparison
 Match products across chains by:
-- **Barcode** (most reliable — Israeli standard barcode)
+- **Barcode** (most reliable, Israeli standard barcode prefix 729)
 - **Item name + manufacturer** (fuzzy matching for naming differences)
 - **Item code** (chain-specific, less reliable for cross-chain)
 
@@ -93,36 +101,36 @@ Actions:
 Result: Best single-store: Rami Levy at 285 NIS. Optimal split: Rami Levy (10 items, 195 NIS) + Shufersal (5 items with promos, 67 NIS) = 262 NIS. Total savings vs single-store: 23 NIS.
 
 ### Example 3: Track Ingredient Costs for Restaurant Menu
-User says: "Track the cost of ingredients for my shakshuka dish — tomatoes, eggs, onions, peppers, spices"
+User says: "Track the cost of ingredients for my shakshuka dish, tomatoes, eggs, onions, peppers, spices"
 Actions:
 1. Identify matching products in price feeds (fresh tomatoes, eggs size L, yellow onions, bell peppers, cumin, paprika)
 2. Find cheapest per ingredient across chains
 3. Calculate cost per serving (2 eggs, 3 tomatoes, 1 onion, 1 pepper, spices)
 4. Set up weekly price monitoring for these ingredients
 5. Generate baseline cost report
-Result: Current cost per serving: 8.40 NIS (cheapest chain combination). Eggs are 32% of cost. Price alert configured — you'll be notified if any ingredient price changes >10%.
+Result: Current cost per serving: 8.40 NIS (cheapest chain combination). Eggs are 32% of cost. Price alert configured, you'll be notified if any ingredient price changes >10%.
 
 ## Bundled Resources
 
 ### References
-- `references/chain-feeds.md` — URLs and access methods for each Israeli supermarket chain's price transparency feeds. Includes XML schema documentation, update schedules, and known format variations. Consult when accessing chain data in Steps 1-2.
+- `references/chain-feeds.md` -- Per-chain feed URLs organized by platform (Shufersal Direct, Cerberus, Nibit, Carrefour Direct). Includes XML schema documentation, update schedules, and known format variations. Consult when accessing chain data in Steps 1-2.
 
 ### Scripts
-- `scripts/parse_price_xml.py` — Parses Israeli supermarket XML price feeds into normalized JSON. Supports Shufersal, Rami Levy, and other chain formats. Handles gzipped XML files and character encoding. Run: `python scripts/parse_price_xml.py --help`
+- `scripts/parse_price_xml.py` -- Parses Israeli supermarket XML price feeds into normalized JSON. Supports Shufersal, Rami Levy, and other chain formats. Handles gzipped XML files and character encoding. Run: `python scripts/parse_price_xml.py --help`
 
 ## Gotchas
 
-- Israeli supermarket chain URLs and XML feed schemas change without notice. Agents relying on cached or training-data URLs will hit broken endpoints. Always verify feed URLs from `references/chain-feeds.md` before querying.
-- Prices in Israel include VAT (18%) by default, unlike US prices which are pre-tax. Agents may perform cost comparisons that double-count or ignore VAT depending on their training data assumptions.
+- Most chains do NOT have their own `prices.X.co.il` domain. Rami Levy, Yochananof, Osher Ad, and Tiv Taam all publish through the Cerberus platform at `publishedprices.co.il`. Victory publishes through Nibit at `matrixcatalog.co.il`. Agents that fabricate per-chain URLs will get connection errors. Always consult `references/chain-feeds.md` for verified endpoints.
+- Prices in Israel include VAT (18% as of 2025) by default, unlike US prices which are pre-tax. Agents may perform cost comparisons that double-count or ignore VAT depending on their training data assumptions.
 - Israeli product barcodes use the 729 country prefix, but some imported products retain their original country barcode. Agents may fail cross-chain matching when the same product has different barcode formats across chains.
-- "Mega" and "Yeinot Bitan" rebranded to Carrefour Israel in 2022-2023. "Victory" is a separate publicly traded company. Agents may still refer to the outdated "Victory / Mega" grouping or assume they share pricing policies.
+- "Mega" and "Yeinot Bitan" rebranded to Carrefour Israel (Electra Consumer Products franchise). The old feed domain `publishprice.mega.co.il` redirects to `prices.carrefour.co.il`. "Victory" is a completely separate, independently owned company (Ravid family). Agents may still confuse these as related entities.
 - Promotions in Israeli supermarkets often have conditions agents miss: "buy 2 get discount" (2 b-X shekel), club-member-only pricing, or regional promotions that apply only to specific store locations.
 
 ## Troubleshooting
 
 ### Error: "XML feed download failed"
 Cause: Chain's price transparency server is temporarily down or URL has changed.
-Solution: Check if the chain updated their feed URL (this happens occasionally). Try accessing the feed manually in a browser. Feeds are typically most reliable in the morning hours (updated overnight). See `references/chain-feeds.md` for current URLs.
+Solution: Check if the chain updated their feed URL (this happens occasionally). Cerberus and Nibit platforms may have SSL certificate issues; try HTTP if HTTPS fails. Feeds are typically most reliable in the morning hours (updated overnight). See `references/chain-feeds.md` for current URLs.
 
 ### Error: "Product not found in cross-chain comparison"
 Cause: Product naming or barcode differs across chains.
@@ -135,3 +143,7 @@ Solution: Check the UpdateDate field in the XML feed. Most chains update overnig
 ### Error: "Shopping list optimization slow"
 Cause: Comparing all items across all chains and all stores is computationally expensive.
 Solution: Limit comparison to chains with stores within a configurable radius (default: 5 km). Pre-filter by chains the user actually shops at. Use cached price data instead of fetching fresh for every optimization.
+
+### Error: "Cerberus/Nibit platform returns empty page or login prompt"
+Cause: Platform may require chain selection before listing files, or may block automated requests.
+Solution: When accessing Cerberus, pass the chain identifier in the request (each chain has a code). For Nibit, select the chain from the dropdown. If blocked, add a delay between requests and use standard browser headers. Check `references/chain-feeds.md` for platform-specific access notes.

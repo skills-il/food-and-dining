@@ -1,6 +1,6 @@
 {
   "author": "skills-il",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "category": "food-and-dining",
   "tags": {
     "he": [
@@ -27,7 +27,7 @@
     "en": "Israeli Grocery Price Intelligence"
   },
   "display_description": {
-    "he": "השוואת מחירי סופרמרקטים ישראליים באמצעות נתוני חוק שקיפות מחירים — שופרסל, רמי לוי, יוחננוף ועוד",
+    "he": "גישה והשוואת מחירי סופרמרקטים ישראליים באמצעות פידי XML של חוק שקיפות מחירים. השתמשו כשהמשתמש שואל על השוואת מחירי סופר, מחירי שופרסל, מחירי רמי לוי, אופטימיזציה של רשימת קניות, עלויות מזון בישראל, או מעקב מחירים. מכסה ניתוח פידים של שלוש פלטפורמות (Shufersal Direct, Cerberus, Nibit), השוואת מחירים חוצת-רשתות, אופטימיזציה של סל קניות, מעקב מגמות מחירים וניתוח עלויות מרכיבים למסעדות. אין להשתמש לתפעול מסעדות (ראו israeli-restaurant-ops) או מחירי קמעונאות שאינם מזון.",
     "en": "Access and compare Israeli supermarket prices using mandatory Price Transparency Law data feeds. Use when user asks about \"supermarket prices Israel\", \"price comparison Shufersal\", \"Rami Levy prices\", \"grocery prices\", \"Price Transparency Law\", \"shopping list optimizer\", \"food costs Israel\", or \"השוואת מחירי סופר\". Covers chain-specific XML feed parsing, cross-chain price comparison, shopping list optimization, price trend tracking, and restaurant ingredient cost analysis. Do NOT use for restaurant operations (use israeli-restaurant-ops) or non-food retail prices."
   },
   "openclaw": {
