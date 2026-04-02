@@ -1,6 +1,6 @@
 {
   "author": "skills-il",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "category": "food-and-dining",
   "tags": {
     "he": [
@@ -25,8 +25,8 @@
     "en": "Israeli Restaurant Operations"
   },
   "display_description": {
-    "he": "ניהול תפעול יומיומי למסעדות ישראליות מול פלטפורמות משלוח — וולט, תן ביס ומשלוחה",
-    "en": "Manage Israeli restaurant operations across delivery platforms — Wolt, 10bis, and Mishlocha. Use when user asks about \"restaurant management Israel\", \"Wolt integration\", \"10bis\", \"Mishlocha\", \"food delivery platform\", \"menu sync\", \"restaurant orders\", \"delivery commission\", or \"ניהול מסעדה\". Covers menu synchronization, order monitoring, revenue tracking with commission breakdowns, review management, and delivery performance analytics. Do NOT use for cooking recipes, personal meal planning, or non-Israeli delivery platforms."
+    "he": "כלי עזר לבעלי מסעדות ישראליות: אופטימיזציית תפריט, תמחור עם מודעות לעמלות, ניסוח תגובות לביקורות, השוואת פלטפורמות משלוח, ניתוח עלויות מזון ותכנון תפעול יומי",
+    "en": "Help Israeli restaurant owners optimize menus, pricing, and daily operations for delivery platforms. Use when user asks about \"restaurant management Israel\", \"Wolt commission\", \"10bis pricing\", \"Mishlocha\", \"menu optimization\", \"food cost analysis\", \"delivery commission\", \"review response\", or \"ניהול מסעדה\". Covers menu copy optimization, pricing with commission awareness, review response drafting, platform comparison, food cost analysis, and daily operations. Do NOT use for cooking recipes, personal meal planning, or non-Israeli delivery platforms."
   },
   "openclaw": {
     "requires": {
