@@ -1,6 +1,6 @@
 {
   "author": "skills-il",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "category": "food-and-dining",
   "tags": {
     "he": [
@@ -21,12 +21,12 @@
     ]
   },
   "display_name": {
-    "he": "תאימות רגולטורית לעסקי מזון ישראליים",
-    "en": "Israeli Food Business Compliance"
+    "he": "מדריך רגולציה לעסקי מזון בישראל",
+    "en": "Israeli Food Business Compliance Guide"
   },
   "display_description": {
-    "he": "ליווי עסקי מזון ישראליים ברגולציה — רישוי עסקים, כשרות, משרד הבריאות ותיוג מזון",
-    "en": "Guide Israeli food business regulatory compliance — business licensing, kashrut certification, health ministry requirements, and food labeling. Use when user asks about \"food business license Israel\", \"Misrad HaBriut requirements\", \"kashrut certification process\", \"food labeling Hebrew\", \"restaurant permit Israel\", \"food import regulations\", or \"רישיון עסק מזון\". Covers Ministry of Health licensing by business type, Rabbanut kashrut application process, certification renewal tracking, Hebrew food label generation, and health inspection preparation. Do NOT use for restaurant daily operations (use israeli-restaurant-ops) or general business compliance."
+    "he": "מדריך עזר לרגולציה של עסקי מזון בישראל: רישוי עסקים, כשרות, דרישות משרד הבריאות ותיוג מזון. מרכז מידע על תהליכים, טפסים ודרישות רגולטוריות.",
+    "en": "Reference guide for Israeli food business regulatory compliance: business licensing, kashrut certification, health ministry requirements, and food labeling. Use when user asks about \"food business license Israel\", \"Misrad HaBriut requirements\", \"kashrut certification process\", \"food labeling Hebrew\", \"restaurant permit Israel\", \"food import regulations\", or \"רישיון עסק מזון\". Covers Ministry of Health licensing by business type, Rabbanut kashrut application process, certification renewal tracking, Hebrew food label requirements, and health inspection preparation. Do NOT use for restaurant daily operations (use israeli-restaurant-ops) or general business compliance."
   },
   "openclaw": {
     "requires": {
