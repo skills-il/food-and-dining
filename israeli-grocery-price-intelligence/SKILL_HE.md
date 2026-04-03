@@ -16,7 +16,7 @@
 | פלטפורמה | כתובת | רשתות |
 |-----------|--------|-------|
 | שופרסל ישיר | http://prices.shufersal.co.il | שופרסל |
-| Cerberus | https://url.retail.publishedprices.co.il | רמי לוי, יוחננוף, אושר עד, טיב טעם ורשתות נוספות |
+| Cerberus (PublishedPrices) | https://url.publishedprices.co.il/login | רמי לוי, יוחננוף, אושר עד, טיב טעם ורשתות נוספות |
 | Nibit (Matrix) | http://matrixcatalog.co.il/NBCompetitionRegulations.aspx | ויקטורי |
 | קרפור ישראל ישיר | https://prices.carrefour.co.il | קרפור ישראל (לשעבר מגה/יינות ביתן) |
 
@@ -30,7 +30,7 @@
 | יוחננוף | Cerberus | מרכז הארץ |
 | ויקטורי | Nibit (Matrix) | חברה עצמאית (משפחת רביד, נסחרת בבורסה VCTR.TA) |
 | קרפור ישראל | ישיר (prices.carrefour.co.il) | פועלת תחת מותגי קרפור, מגה ויינות ביתן |
-| אושר עד | Cerberus | רשת דיסקאונט, 20+ חנויות גדולות |
+| אושר עד | Cerberus (שם משתמש: `osherad`, ללא סיסמה) | רשת דיסקאונט, 20+ חנויות גדולות |
 | טיב טעם | Cerberus | מוצרים לא כשרים זמינים |
 
 השתמשו ב-`scripts/parse_price_xml.py` לניתוח פידים לפורמט JSON מנורמל.

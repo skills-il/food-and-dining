@@ -21,7 +21,7 @@ Not every chain runs its own server. Most chains publish through one of three ce
 | Platform | URL | Chains Using It |
 |----------|-----|-----------------|
 | Shufersal Direct | http://prices.shufersal.co.il | Shufersal only |
-| Cerberus (PublishedPrices) | https://url.retail.publishedprices.co.il | Rami Levy, Yochananof, Osher Ad, Tiv Taam, Hazi Hinam, Keshet Teamim, Super Dosh, Doralon |
+| Cerberus (PublishedPrices) | https://url.publishedprices.co.il/login | Rami Levy, Yochananof, Osher Ad, Tiv Taam, Hazi Hinam, Keshet Teamim, Super Dosh, Doralon |
 | Nibit (Matrix Catalog) | http://matrixcatalog.co.il/NBCompetitionRegulations.aspx | Victory, Mahsanei Lahav, Mahsanei Hashuk |
 | Carrefour Israel Direct | https://prices.carrefour.co.il | Carrefour Israel (formerly Mega/Yeinot Bitan) |
 
@@ -41,7 +41,7 @@ Cerberus chains require selecting the chain name from a dropdown or passing a ch
 
 ### Rami Levy (רמי לוי)
 - **Platform:** Cerberus
-- **Feed Portal:** https://url.retail.publishedprices.co.il (select "Rami Levy")
+- **Feed Portal:** https://url.publishedprices.co.il/login (select "Rami Levy")
 - **Access:** Public, no authentication required
 - **Format:** Gzipped XML (.xml.gz)
 - **Schema:** Standard format. Uses `ItemNm` instead of `ItemName` in some feeds.
@@ -50,7 +50,7 @@ Cerberus chains require selecting the chain name from a dropdown or passing a ch
 
 ### Yochananof (יוחננוף)
 - **Platform:** Cerberus
-- **Feed Portal:** https://url.retail.publishedprices.co.il (select "Yochananof")
+- **Feed Portal:** https://url.publishedprices.co.il/login (select "Yochananof")
 - **Access:** Public, no authentication required
 - **Format:** Gzipped XML (.xml.gz)
 - **Schema:** Standard format
@@ -77,8 +77,8 @@ Cerberus chains require selecting the chain name from a dropdown or passing a ch
 
 ### Osher Ad (אושר עד)
 - **Platform:** Cerberus
-- **Feed Portal:** https://url.retail.publishedprices.co.il (select "Osher Ad")
-- **Access:** Public, no authentication required
+- **Feed Portal:** https://url.publishedprices.co.il/login
+- **Access:** Username: `osherad`, no password required
 - **Format:** Gzipped XML (.xml.gz)
 - **Schema:** Standard format, minimal extensions
 - **Update time:** Typically 01:00-03:00 Israel time
@@ -86,7 +86,7 @@ Cerberus chains require selecting the chain name from a dropdown or passing a ch
 
 ### Tiv Taam (טיב טעם)
 - **Platform:** Cerberus
-- **Feed Portal:** https://url.retail.publishedprices.co.il (select "Tiv Taam")
+- **Feed Portal:** https://url.publishedprices.co.il/login (select "Tiv Taam")
 - **Access:** Public, no authentication required
 - **Format:** Gzipped XML (.xml.gz)
 - **Schema:** Standard format
@@ -94,7 +94,7 @@ Cerberus chains require selecting the chain name from a dropdown or passing a ch
 - **Notes:** Includes non-kosher products. Product categories may differ from kosher-only chains.
 
 ### Additional Chains on Cerberus
-The following smaller chains also publish via `https://url.retail.publishedprices.co.il`:
+The following smaller chains also publish via `https://url.publishedprices.co.il/login`:
 - **Hazi Hinam (חצי חינם)**
 - **Keshet Teamim (קשת טעמים)**
 - **Super Dosh (סופר דוש)**

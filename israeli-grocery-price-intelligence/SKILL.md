@@ -25,7 +25,7 @@ Chains publish through three platforms (not individual domains):
 | Platform | URL | Chains |
 |----------|-----|--------|
 | Shufersal Direct | http://prices.shufersal.co.il | Shufersal |
-| Cerberus | https://url.retail.publishedprices.co.il | Rami Levy, Yochananof, Osher Ad, Tiv Taam, and smaller chains |
+| Cerberus (PublishedPrices) | https://url.publishedprices.co.il/login | Rami Levy, Yochananof, Osher Ad, Tiv Taam, and smaller chains |
 | Nibit (Matrix) | http://matrixcatalog.co.il/NBCompetitionRegulations.aspx | Victory |
 | Carrefour Israel Direct | https://prices.carrefour.co.il | Carrefour Israel (formerly Mega/Yeinot Bitan) |
 
@@ -39,7 +39,7 @@ Each chain publishes in a slightly different XML schema. Major chains:
 | Yochananof | יוחננוף | Cerberus | Central Israel focus |
 | Victory | ויקטורי | Nibit (Matrix) | Independently owned (Ravid family, publicly traded VCTR.TA) |
 | Carrefour Israel | קרפור ישראל | Direct (prices.carrefour.co.il) | Operates under Carrefour, Mega, and Yeinot Bitan brands |
-| Osher Ad | אושר עד | Cerberus | Discount chain, 20+ large-format stores |
+| Osher Ad | אושר עד | Cerberus (username: `osherad`, no password) | Discount chain, 20+ large-format stores |
 | Tiv Taam | טיב טעם | Cerberus | Non-kosher items available |
 
 Use `scripts/parse_price_xml.py` to parse feeds into normalized JSON format.
