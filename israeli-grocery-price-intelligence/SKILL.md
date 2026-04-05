@@ -11,7 +11,23 @@ compatibility: Works with Claude Code, OpenClaw, Cursor. OpenClaw recommended fo
 
 ## Instructions
 
-### Step 1: Access Supermarket XML Feeds
+### Preferred: Use the Supermarket Prices MCP Server
+
+If the user has the **supermarket-prices** MCP server installed, use it instead of manually fetching XML feeds. The MCP handles authentication, CSRF tokens, SSL issues, and platform quirks automatically.
+
+Install: `npx github:skills-il/mcps/supermarket-prices-mcp`
+
+Available MCP tools:
+- `list_chains` -- list all 35+ chains with data source info
+- `search_products` -- search by product name or barcode
+- `compare_prices` -- cross-chain price comparison, sorted cheapest first
+- `get_promotions` -- current sales and promotions per chain
+- `get_store_data` -- store locations, filterable by city
+- `get_chain_files` -- browse raw XML price files
+
+If the MCP is available, skip Steps 1-2 and use MCP tools directly for Steps 3-6. If the MCP is not installed, fall back to the manual XML feed approach below.
+
+### Step 1: Access Supermarket XML Feeds (Manual Fallback)
 Under the 2015 Price Transparency Law (חוק שקיפות מחירים), Israeli supermarket chains with 3+ stores must publish product prices as XML files.
 - Available data files per chain:
   - **PricesFull** -- complete product catalog with prices
