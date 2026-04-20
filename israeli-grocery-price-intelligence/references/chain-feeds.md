@@ -20,18 +20,19 @@ Not every chain runs its own server. Most chains publish through one of three ce
 
 | Platform | URL | Chains Using It |
 |----------|-----|-----------------|
-| Shufersal Direct | http://prices.shufersal.co.il | Shufersal only |
-| Cerberus (PublishedPrices) | https://url.publishedprices.co.il/login | Rami Levy, Yochananof, Osher Ad, Tiv Taam, Hazi Hinam, Keshet Teamim, Super Dosh, Doralon |
-| Nibit (Matrix Catalog) | http://matrixcatalog.co.il/NBCompetitionRegulations.aspx | Victory, Mahsanei Lahav, Mahsanei Hashuk |
+| Shufersal Direct | https://prices.shufersal.co.il | Shufersal only |
 | Carrefour Israel Direct | https://prices.carrefour.co.il | Carrefour Israel (formerly Mega/Yeinot Bitan) |
+| Cerberus (PublishedPrices) | https://url.publishedprices.co.il/login | Rami Levy, Yochananof, Victory, Osher Ad, Tiv Taam, Hazi Hinam, Mega (legacy), Dor Alon, Bareket, Keshet Taamim, Fresh Market / Super Dosh, Mahsani A'Shuk, Cofix, Super-Pharm, Good Pharm, and ~20 more smaller chains |
 
-Cerberus chains require selecting the chain name from a dropdown or passing a chain identifier. Nibit chains similarly require selecting the chain from a list. Shufersal and Carrefour Israel have dedicated portals with per-store file downloads.
+Cerberus chains require passing a chain identifier (each chain has a registered code). Some chains (e.g., Osher Ad with username `osherad`) require a username with no password. Shufersal and Carrefour Israel have dedicated portals with per-store file downloads.
+
+The previously separate "Nibit (Matrix Catalog)" platform at `matrixcatalog.co.il/NBCompetitionRegulations.aspx` is no longer reachable as of April 2026. Victory and other formerly-Nibit chains have migrated to Cerberus.
 
 ## Per-Chain Feed Access
 
 ### Shufersal (שופרסל)
 - **Platform:** Direct
-- **Feed Portal:** http://prices.shufersal.co.il
+- **Feed Portal:** https://prices.shufersal.co.il
 - **Access:** Public, no authentication required
 - **Format:** Gzipped XML (.xml.gz)
 - **File naming:** `PriceFull{StoreId}-{FileId}.xml.gz`
@@ -58,13 +59,13 @@ Cerberus chains require selecting the chain name from a dropdown or passing a ch
 - **Notes:** Central Israel focus. Fewer stores means faster full downloads.
 
 ### Victory (ויקטורי)
-- **Platform:** Nibit (Matrix)
-- **Feed Portal:** http://matrixcatalog.co.il/NBCompetitionRegulations.aspx (select "Victory")
+- **Platform:** Cerberus
+- **Feed Portal:** https://url.publishedprices.co.il/login (chain identifier `Victory`)
 - **Access:** Public, no authentication required
 - **Format:** Gzipped XML (.xml.gz)
 - **Schema:** Standard format
 - **Update time:** Typically 02:00-05:00 Israel time
-- **Notes:** Independently owned (Ravid family, publicly traded VCTR.TA). 20+ discount stores. Completely separate from Carrefour Israel.
+- **Notes:** Independently owned (Ravid family, publicly traded VCTR.TA). 60+ stores nationwide. Completely separate from Carrefour Israel. Migrated from the (now-defunct) Nibit / matrixcatalog.co.il platform to Cerberus.
 
 ### Carrefour Israel (קרפור ישראל, formerly Mega/Yeinot Bitan)
 - **Platform:** Direct
@@ -96,13 +97,18 @@ Cerberus chains require selecting the chain name from a dropdown or passing a ch
 ### Additional Chains on Cerberus
 The following smaller chains also publish via `https://url.publishedprices.co.il/login`:
 - **Hazi Hinam (חצי חינם)**
-- **Keshet Teamim (קשת טעמים)**
-- **Super Dosh (סופר דוש)**
-- **Doralon (דורלון)**
+- **Keshet Taamim (קשת טעמים)**
+- **Fresh Market / Super Dosh (פרש מרקט / סופר דוש)**
+- **Dor Alon (דור אלון)**
+- **Bareket (ברקת)**
+- **Mahsani A'Shuk (מחסני השוק)**
+- **Cofix (קופיקס)**
+- **Super-Pharm (סופר-פארם)**
+- **Good Pharm (גוד פארם)**
+- **Mega (מגה)** -- legacy feed; current Mega/Yeinot Bitan stores publish via Carrefour Israel Direct
+- Plus ~20 additional smaller chains and convenience stores
 
-### Additional Chains on Nibit (Matrix)
-- **Mahsanei Lahav (מחסני להב)** via http://matrixcatalog.co.il/NBCompetitionRegulations.aspx
-- **Mahsanei Hashuk (מחסני השוק)** via http://matrixcatalog.co.il/NBCompetitionRegulations.aspx
+The previously-listed "Mahsanei Lahav" / "Mahsanei Hashuk" Nibit endpoints are no longer active. These chains either consolidated under other brands or moved to Cerberus.
 
 ## XML Schema Reference
 
@@ -150,4 +156,4 @@ The following smaller chains also publish via `https://url.publishedprices.co.il
 - **Weighted items:** Price for weighted items (bIsWeighted=1) is per kg; actual cost depends on purchase weight
 - **Barcode formats:** Israeli barcodes typically start with 729. Some store-brand items use internal codes starting with 2
 - **Promotion overlap:** A product may appear in both PricesFull (regular price) and PricesPromotions (sale price). Always check promotions feed for the effective price
-- **Platform differences:** Cerberus and Nibit wrap XML files in their own download pages. The underlying XML schema is the same government standard, but the download method differs per platform.
+- **Platform differences:** Cerberus wraps XML files in its own download page (login + chain selection + file listing). The underlying XML schema is the same government standard across Shufersal Direct, Carrefour Direct, and Cerberus, but the download method differs per platform.
