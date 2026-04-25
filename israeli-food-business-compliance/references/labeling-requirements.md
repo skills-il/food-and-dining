@@ -49,7 +49,7 @@ Israeli regulations require mandatory declaration of these allergens:
 ### Declaration Format
 - **In ingredients list:** Allergen name in **bold** or UPPERCASE or highlighted
 - **Separate warning:** "מכיל: [allergen list]" below ingredients list
-- **May contain (cross-contamination):** "עלול להכיל: [allergen list]" — only when genuine cross-contamination risk exists after preventive measures
+- **May contain (cross-contamination):** "עלול להכיל: [allergen list]", only when genuine cross-contamination risk exists after preventive measures
 
 ## Nutritional Information Table Format
 
@@ -71,6 +71,35 @@ Standard format per Israeli regulations:
 סיבים / Fiber       X.X g         X.X g
 נתרן / Sodium       X.X mg        X.X mg
 ```
+
+## Front-of-Package Red/Green Warning Labels
+
+Mandatory since January 1, 2020. Applies to packaged food sold in Israel. Updated periodically by the Ministry of Health Scientific Committee (three formal updates between 2020 and 2024).
+
+### Red Label Thresholds
+
+| Nutrient | Solid foods (per 100g) | Liquids (per 100ml) |
+|----------|------------------------|---------------------|
+| Sodium (נתרן) | > 500 mg | > 400 mg |
+| Total sugars (סוכרים) | > 13.5 g | > 5 g |
+| Saturated fat (שומן רווי) | > 5 g | > 3 g |
+
+Each exceeded nutrient gets its own red icon. Place on the principal display panel (front of package), not on the back.
+
+### Green Label (Voluntary)
+
+Granted only to products that:
+- Do not carry any red label
+- Meet uniform sodium maximum
+- Meet processing and additive limits per the 2020-2024 Scientific Committee criteria (categories include bread, legumes, dairy)
+
+### Excluded Categories
+
+Infant food, fresh produce, water, alcohol, single-ingredient unprocessed foods.
+
+### Restaurants and Ready-to-Eat
+
+Restaurants are not required to display red labels on prepared dishes served to customers. Packaged take-home items follow the regulation.
 
 ## Hebrew Font and Size Requirements
 

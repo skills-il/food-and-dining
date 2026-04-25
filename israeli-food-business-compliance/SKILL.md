@@ -1,6 +1,6 @@
 ---
 name: israeli-food-business-compliance
-description: Guide Israeli food business regulatory compliance — business licensing, kashrut certification, health ministry requirements, and food labeling. Use when user asks about "food business license Israel", "Misrad HaBriut requirements", "kashrut certification process", "food labeling Hebrew", "restaurant permit Israel", "food import regulations", or "רישיון עסק מזון". Covers Ministry of Health licensing by business type, Rabbanut kashrut application process, certification renewal tracking, Hebrew food label generation, and health inspection preparation. Do NOT use for restaurant daily operations (use israeli-restaurant-ops) or general business compliance.
+description: Guide Israeli food business regulatory compliance, including business licensing, kashrut certification, health ministry requirements, food labeling (with red/green front-of-package labels), and 18% VAT rules. Use when user asks about "food business license Israel", "Misrad HaBriut requirements", "kashrut certification process", "food labeling Hebrew", "restaurant permit Israel", "food import regulations", "red label sugar salt fat", or "רישיון עסק מזון". Covers Ministry of Health licensing by business type, Rabbanut and Tzohar kashrut application process, certification renewal tracking, Hebrew food label generation, front-of-package red/green warning labels, and health inspection preparation. Do NOT use for restaurant daily operations (use israeli-restaurant-ops) or general business compliance.
 license: MIT
 allowed-tools: Bash(python:*) WebFetch
 compatibility: Works with Claude Code, OpenClaw, Cursor. OpenClaw recommended for certification renewal tracking and scheduled compliance alerts.
@@ -31,13 +31,16 @@ Most Israeli restaurants and food businesses seek kosher certification from the 
 Process:
 1. Contact local Rabbanut office (varies by municipality)
 2. Submit application with: business license, menu, list of suppliers, kitchen layout
-3. Mashgiach (kosher supervisor) visit — inspects ingredients, equipment, procedures
+3. Mashgiach (kosher supervisor) visit, which inspects ingredients, equipment, procedures
 4. Ongoing: mashgiach visits (frequency depends on kashrut level)
 
 Kashrut levels:
-- Standard kosher (כשר) — basic supervision
-- Mehadrin (מהדרין) — stricter standards, more frequent supervision
-- Badatz (בד"ץ) — ultra-strict, private certification bodies
+- Standard kosher (כשר), basic supervision
+- Mehadrin (מהדרין), stricter standards and more frequent supervision
+- Badatz (בד"ץ), ultra-strict, private certification bodies
+- Tzohar Food Inspection (צהר), an alternative national kashrut authority operating since 2019; absorbed Hashgacha Pratit's businesses. Also recognized under the Kahana 2022 reform that allows certified private corporations to provide kashrut supervision under Chief Rabbinate oversight (rolling implementation from 2023).
+
+Note: Since the 2022 kashrut reform, businesses can choose between Rabbanut, Tzohar, or any approved private supervision corporation; supervision certificates must follow the standardized format set by the Chief Rabbinate.
 
 Prepare for mashgiach inspection:
 - All ingredient labels visible with kosher certification marks
@@ -72,6 +75,26 @@ Israeli food labeling requirements (based on regulations from the Ministry of He
 - Barcode (Israeli standard)
 
 See `references/labeling-requirements.md` for detailed format specifications and example label template.
+
+### Step 4.5: Apply Front-of-Package Red/Green Warning Labels (סימון אדום/ירוק)
+Since January 1, 2020, packaged food products sold in Israel must carry red warning labels on the front of the package when they exceed nutrient thresholds for sodium, sugar, or saturated fat. A voluntary green positive label is also available for products meeting national dietary guidelines. The Scientific Committee at the Ministry of Health updates these criteria periodically (three formal updates between 2020 and 2024).
+
+Red label thresholds (as of 2024, per Ministry of Health regulations):
+
+| Nutrient | Solid foods (per 100g) | Liquids (per 100ml) |
+|----------|------------------------|---------------------|
+| Sodium (נתרן) | > 500 mg | > 400 mg |
+| Total sugars (סוכרים) | > 13.5 g | > 5 g |
+| Saturated fat (שומן רווי) | > 5 g | > 3 g |
+
+Implementation notes:
+- The label is a black-and-red stop-sign-style icon placed on the principal display panel (not on the back).
+- Each exceeded nutrient requires its own separate red label.
+- Some categories (infant food, fresh produce, water, alcohol) are excluded.
+- Restaurants and ready-to-eat establishments are not required to apply red labels on prepared dishes, but packaged take-home items follow the regulation.
+- Green positive label is voluntary and is granted only to products that carry no red label and meet additional sodium and processing limits.
+
+When generating a label or evaluating a product, check thresholds against the table above and recommend reformulation if a borderline product can be moved below the threshold (e.g., reducing sodium from 510 to 490 mg/100g eliminates the red label).
 
 ### Step 5: Guide Food Import Regulations
 Importing food to Israel requires:
@@ -109,12 +132,25 @@ Additional for restaurants:
 - [ ] Separate prep areas for raw and cooked food
 - [ ] Allergen information available for customers
 
+### Step 7: Apply VAT Rules (Maam) for Food Businesses
+Israel's standard VAT (maam, מע"מ) rate rose to 18% on January 1, 2025 (from 17%). Food businesses must register with the Tax Authority as osek murshe and charge 18% on most sales.
+
+Key rules:
+- Standard rate: 18% on cooked food, packaged food, beverages, restaurant service, catering, delivery fees.
+- Zero rate (0%): sale of fresh fruits and vegetables (whole, unprocessed). Once processed, packaged, or sold as a prepared dish, the standard 18% rate applies.
+- Restaurant service is fully taxed at 18%, including the food component (no split between fresh-produce ingredient and prepared-dish output).
+- Imported food: 18% VAT applies at customs clearance, on top of any customs duties.
+- Tipping: not subject to VAT when paid voluntarily by the customer; service charges added to the bill are taxed at 18%.
+- A VAT-registered food business issues a tax invoice (חשבונית מס) and files monthly or bi-monthly VAT reports (Doch Maam).
+
+For invoice and reporting workflow, refer the user to the `israeli-vat-reporting` skill.
+
 ## Examples
 
 ### Example 1: New Restaurant Seeking Business License and Kashrut
 User says: "I'm opening a restaurant in Jerusalem and need all the permits"
 Actions:
-1. Determine business type: restaurant (מסעדה) — identify MOH requirements
+1. Determine business type: restaurant (מסעדה), then identify MOH requirements
 2. List required permits: business license, kashrut from Jerusalem Rabbanut, fire safety, health inspection
 3. Generate document checklist: kitchen layout, ventilation plan, supplier list, menu
 4. Guide kashrut application process for Jerusalem Rabbanut
@@ -147,8 +183,17 @@ Result: 32-item inspection checklist organized by priority. Top 5 critical items
 ## Bundled Resources
 
 ### References
-- `references/health-ministry-requirements.md` — Ministry of Health licensing requirements by food business type: required documents, facility standards, inspection criteria, and renewal schedules. Consult when determining licensing needs in Step 1 or preparing for inspections in Step 6.
-- `references/labeling-requirements.md` — Israeli food labeling regulations: mandatory fields, allergen declaration requirements, nutritional information format, Hebrew label template, and import labeling rules. Consult when generating food labels in Step 4 or guiding import regulations in Step 5.
+- `references/health-ministry-requirements.md`: Ministry of Health licensing requirements by food business type, including required documents, facility standards, inspection criteria, and renewal schedules. Consult when determining licensing needs in Step 1 or preparing for inspections in Step 6.
+- `references/labeling-requirements.md`: Israeli food labeling regulations, including mandatory fields, allergen declaration requirements, nutritional information format, red/green front-of-package thresholds, Hebrew label template, and import labeling rules. Consult when generating food labels in Step 4 or guiding import regulations in Step 5.
+
+### Reference Links
+- Ministry of Health, Food Service: https://www.health.gov.il/Subjects/FoodAndNutrition/
+- Front-of-package labeling regulations (Efsharibari): https://efsharibari.health.gov.il/en/governance/legislation/unhealthy-food-labeling-law/
+- Chief Rabbinate of Israel (kashrut): https://www.gov.il/he/departments/the_chief_rabbinate_of_israel
+- Tzohar Food Inspection: https://www.tzohar.org.il/
+- Business Licensing Authority (rishyon esek): https://www.gov.il/he/departments/topics/business_licensing
+- Israel Tax Authority (VAT / maam): https://www.gov.il/he/departments/israel_tax_authority
+- Israel Standards Institute (תקני מזון): https://www.sii.org.il/
 
 ## Gotchas
 
