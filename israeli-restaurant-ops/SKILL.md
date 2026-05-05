@@ -122,6 +122,9 @@ Help restaurant owners decide which platforms to join based on their restaurant 
 **Important note about 10bis dual model:**
 10bis operates as both a consumer delivery service and a corporate meal benefit platform (ארוחת עובדים). The corporate side has lower commissions but different order patterns (weekday lunches, set budget per employee). Make sure the owner understands which 10bis program they are joining.
 
+**Cibus / Pluxee (corporate meal-benefit alternative):**
+Cibus (rebranded under Pluxee globally in 2024) is the main corporate meal-benefit competitor to 10bis in Israel. If the restaurant is targeting office workers, evaluate both — restaurants frequently join both platforms because employee benefit cards are not interchangeable. Commission and onboarding terms differ from 10bis; consult cibus.co.il directly for current rates.
+
 ### Step 5: Analyze Food Costs and Menu Engineering
 Help with recipe costing, margin analysis, and menu optimization using the menu engineering matrix:
 
@@ -256,6 +259,16 @@ Additional advice to the owner:
 - Hebrew menu item text requires RTL handling. When generating or editing menu descriptions, agents must produce valid Hebrew text without mixing LTR characters in ways that break display on delivery platforms.
 - Menu prices in Israel are always in NIS (New Israeli Shekel). Agents should never convert to or assume USD/EUR pricing. Rounding should be to the nearest whole shekel (no agorot on delivery platforms).
 - Kosher certification levels matter: "כשר" (regular kosher), "כשר למהדרין" (mehadrin/strictly kosher), and "כשר לפסח" (kosher for Passover) are all different. Mislabeling can cause serious trust and legal issues.
+
+## Reference Links
+
+| Source | URL | What to Check |
+|--------|-----|---------------|
+| 10bis (Tenbis) | https://www.10bis.co.il/ | Current commission rates, corporate meal-benefit onboarding, payment cycle |
+| Mishlocha | https://www.mishlocha.co.il/ | City-specific coverage, partner courier terms, regional commission |
+| Wolt for Restaurants | https://restaurants.wolt.com/he | Commission tiers, onboarding requirements, analytics dashboard |
+| Cibus / Pluxee Israel | https://www.cibus.co.il/ | Corporate meal-benefit competitor to 10bis; verify current rates |
+| Ministry of Health: Food Safety | https://www.health.gov.il/English/Topics/FoodAndNutrition/food/Pages/default.aspx | Current Israeli food-safety regulations and licensing requirements |
 
 ## Troubleshooting
 

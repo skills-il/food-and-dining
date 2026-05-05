@@ -1,6 +1,6 @@
 {
   "author": "skills-il",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "category": "food-and-dining",
   "tags": {
     "he": [
@@ -25,7 +25,7 @@
     "en": "Israeli Restaurant Operations"
   },
   "display_description": {
-    "he": "כלי לבעלי מסעדות בישראל: אופטימיזציית תפריט, תמחור עם מודעות לעמלות, ניסוח תגובות לביקורות, השוואה בין פלטפורמות משלוח, ניתוח עלויות מזון ותכנון תפעול יומי.",
+    "he": "עזרה לבעלי מסעדות בישראל באופטימיזציית תפריט, תמחור ותפעול יומי לפלטפורמות משלוחים. השתמש כשמשתמש שואל על ניהול מסעדה בישראל, עמלות וולט, תמחור תן ביס, משלוחה, אופטימיזציית תפריט, ניתוח עלויות מזון, עמלות משלוחים, תגובה לביקורות או ניהול מסעדה. מכסה כתיבת תיאורי תפריט, תמחור עם מודעות לעמלות, ניסוח תגובות לביקורות, השוואה בין פלטפורמות (כולל Cibus/Pluxee), ניתוח עלויות ותפעול יומי. אל תשתמש למתכוני בישול, תכנון ארוחות אישי או פלטפורמות משלוחים מחוץ לישראל.",
     "en": "Help Israeli restaurant owners optimize menus, pricing, and daily operations for delivery platforms. Use when user asks about \"restaurant management Israel\", \"Wolt commission\", \"10bis pricing\", \"Mishlocha\", \"menu optimization\", \"food cost analysis\", \"delivery commission\", \"review response\", or \"ניהול מסעדה\". Covers menu copy optimization, pricing with commission awareness, review response drafting, platform comparison, food cost analysis, and daily operations. Do NOT use for cooking recipes, personal meal planning, or non-Israeli delivery platforms."
   },
   "openclaw": {
