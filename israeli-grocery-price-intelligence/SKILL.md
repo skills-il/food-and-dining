@@ -29,39 +29,46 @@ Available MCP tools:
 If the MCP is available, skip Steps 1-2 and use MCP tools directly for Steps 3-6. If the MCP is not installed, fall back to the manual XML feed approach below.
 
 ### Step 1: Access Supermarket XML Feeds (Manual Fallback)
-Under the 2015 Price Transparency Law (חוק שקיפות מחירים), Israeli supermarket chains with 3+ stores must publish product prices as XML files.
-- Available data files per chain:
-  - **PricesFull** -- complete product catalog with prices
-  - **PricesPromotions** -- current sales and promotions
-  - **Stores** -- store locations and details
-- Files updated daily (typically overnight)
-- See `references/chain-feeds.md` for per-chain endpoints and access methods
+Under the Promotion of Competition in the Food and Pharma Sector Law (חוק קידום התחרות בענפי המזון והפארם, 2014, in force since 2015), Israeli supermarket and pharmacy chains with 3+ stores must publish product prices as XML files. The "Pharma" in the law name is why Super-Pharm and Good Pharm publish too, but pharmacy feeds cover drugstore SKUs (toiletries, OTC, baby food) only, not fresh produce or dairy.
+
+- Available data files per chain (filename prefixes per the government spec):
+  - **PriceFull** -- full snapshot of the product catalog with prices
+  - **Price** -- delta updates between full snapshots
+  - **PromoFull** + **Promo** -- full snapshot and deltas of current sales and promotions
+  - **StoresFull** + **Stores** -- store locations and details
+- File naming format: `Price{Full}<ChainId>-<StoreId>-<yyyyMMddHHmm>.xml.gz` where ChainId is the 13-digit Israeli EAN prefix and the timestamp is the file generation moment in Israel time
+- Full snapshots typically refreshed daily (overnight, 01:00-05:00 IL time); delta files may be pushed several times per day
+- See `references/chain-feeds.md` for per-chain endpoints, access methods, and Cerberus authentication
 
 Chains publish through three platforms (not individual domains):
 
 | Platform | URL | Chains |
 |----------|-----|--------|
 | Shufersal Direct | https://prices.shufersal.co.il | Shufersal |
-| Carrefour Israel Direct | https://prices.carrefour.co.il | Carrefour Israel (formerly Mega/Yeinot Bitan) |
-| Cerberus (PublishedPrices) | https://url.publishedprices.co.il/login | Rami Levy, Yochananof, Victory, Osher Ad, Tiv Taam, Hazi Hinam, Mega (legacy), Dor Alon, and ~25 smaller chains |
+| Carrefour Israel Direct | https://prices.carrefour.co.il | Carrefour Israel (operates Carrefour, Mega, and Yeinot Bitan branded stores under one Electra franchise) |
+| Cerberus (PublishedPrices) | https://url.publishedprices.co.il/login | Rami Levy, Yochananof, Victory, Osher Ad, Tiv Taam, Hazi Hinam, Mega (legacy feed), Dor Alon, Super-Pharm, Good Pharm, and ~20 more smaller chains. Total ~30 chains across this platform |
 
-The previously separate "Nibit (Matrix)" platform at `matrixcatalog.co.il` is no longer reachable. Victory and other chains formerly published there now publish through the Cerberus platform.
+The previously separate "Nibit (Matrix)" platform at `matrixcatalog.co.il` is no longer reachable (the host times out as of May 2026). Victory and other chains formerly published there now publish through the Cerberus platform.
+
+**Cerberus requires real authentication, not just a URL fetch.** A GET on the file directory without an active session returns the login HTML, not data. The flow is: GET `/login` → parse the `<meta name="csrftoken">` value AND keep the response cookie → POST `/login` with `username=<chain-code>`, `password=<password-or-empty>`, `csrftoken=<value>` → reuse the cookie for `/file/json/dir` to list files and `/file/d/<filename>` to download. See `references/chain-feeds.md` for the full flow and per-chain credentials.
 
 ### Step 2: Parse Chain-Specific Data Formats
 Each chain publishes in a slightly different XML schema. Major chains:
 
 | Chain | Hebrew Name | Platform | Notes |
 |-------|-------------|----------|-------|
-| Shufersal | שופרסל | Direct (prices.shufersal.co.il) | Largest chain (850+ stores), most structured data |
-| Rami Levy | רמי לוי | Cerberus | Known for low prices, 30+ stores |
+| Shufersal | שופרסל | Direct (prices.shufersal.co.il) | Largest chain (~400 stores across Shufersal Deal, Sheli, Yesh, and Express banners), most structured data |
+| Rami Levy | רמי לוי | Cerberus | Known for low prices, 50+ stores |
 | Yochananof | יוחננוף | Cerberus | Central Israel focus |
-| Victory | ויקטורי | Cerberus | Independently owned (Ravid family, publicly traded VCTR.TA) |
-| Carrefour Israel | קרפור ישראל | Direct (prices.carrefour.co.il) | Operates under Carrefour, Mega, and Yeinot Bitan brands |
+| Victory | ויקטורי | Cerberus | Independently owned (Ravid family, publicly traded VCTR.TA), 60+ stores; completely separate from Carrefour Israel |
+| Carrefour Israel | קרפור ישראל | Direct (prices.carrefour.co.il) | Electra Consumer Products franchise; operates Carrefour, Mega, and Yeinot Bitan branded stores in parallel (not all stores converted to Carrefour) |
 | Osher Ad | אושר עד | Cerberus (username: `osherad`, no password) | Discount chain, 20+ large-format stores |
-| Tiv Taam | טיב טעם | Cerberus | Non-kosher items available |
+| Tiv Taam | טיב טעם | Cerberus | Non-kosher items available; merged with East & West Import & Marketing Dec 2024 |
 
 Use `scripts/parse_price_xml.py` to parse feeds into normalized JSON format.
-Key fields: item_code, item_name, manufacturer, price, unit_price, quantity, unit_of_measure, update_date
+Key fields: item_code, item_name, manufacturer, price, unit_price, quantity, unit_of_measure, is_weighted, update_date
+
+**Weighted-item math:** when `bIsWeighted=1`, `ItemPrice` is the price per kilogram, NOT the price of the package on the shelf. `Quantity` may be empty or fractional. Cross-chain comparisons must compare per-kg unit prices for these items, otherwise a 250g pack at 12 NIS/kg (= 3 NIS at the till) looks more expensive than a 1kg pack at 11 NIS/kg.
 
 ### Step 3: Cross-Chain Price Comparison
 Match products across chains by:
@@ -78,7 +85,7 @@ Given a shopping list, find the cheapest option:
 - **Single-store:** cheapest store for entire basket
 - **Multi-store:** optimal split across 2-3 nearby stores (minimize cost + travel)
 
-Factor in current promotions (PricesPromotions feed). Handle substitutions: suggest cheaper alternatives for similar products.
+Factor in current promotions from the `PromoFull` feed. Each promotion has a `RewardType` that controls how the discount applies (1 = flat discounted price, 2 = fixed price for N units, 3 = Nth-item discount, etc.), plus `MinQty` / `MaxQty` thresholds, an optional `MinPurchaseAmnt`, and a `ClubId`. A non-zero `ClubId` means the discount applies only to chain club members (Shufersal Sofash, Rami Levy club, etc.) and should NOT be applied to a guest basket. Handle substitutions: suggest cheaper alternatives for similar products.
 
 Calculate total basket cost per scenario. Consider user preferences: kosher requirements, organic options, brand preferences.
 
@@ -145,12 +152,15 @@ Result: Current cost per serving: 8.40 NIS (cheapest chain combination). Eggs ar
 
 ## Gotchas
 
-- Most chains do NOT have their own `prices.X.co.il` domain. Rami Levy, Yochananof, Victory, Osher Ad, Tiv Taam, and ~25 other chains all publish through the Cerberus platform at `url.publishedprices.co.il`. Agents that fabricate per-chain URLs will get connection errors. Always consult `references/chain-feeds.md` for verified endpoints.
-- The legacy "Nibit (Matrix)" platform at `matrixcatalog.co.il/NBCompetitionRegulations.aspx` is no longer reachable as of April 2026. Victory and other chains that previously published there now use Cerberus. Skills or agents still pointing at matrixcatalog.co.il will fail.
-- Prices in Israel include VAT (18%) by default, unlike US prices which are pre-tax. Agents may perform cost comparisons that double-count or ignore VAT depending on their training data assumptions.
-- Israeli product barcodes use the 729 country prefix, but some imported products retain their original country barcode. Agents may fail cross-chain matching when the same product has different barcode formats across chains.
-- "Mega" and "Yeinot Bitan" rebranded to Carrefour Israel (Electra Consumer Products franchise). The old feed domain `publishprice.mega.co.il` redirects to `prices.carrefour.co.il`. A legacy "Mega" feed still exists on Cerberus separately. "Victory" is a completely separate, independently owned company (Ravid family). Agents may still confuse these as related entities.
-- Promotions in Israeli supermarkets often have conditions agents miss: "buy 2 get discount" (2 b-X shekel), club-member-only pricing, or regional promotions that apply only to specific store locations.
+- Most chains do NOT have their own `prices.X.co.il` domain. Rami Levy, Yochananof, Victory, Osher Ad, Tiv Taam, and ~20 other chains all publish through the Cerberus platform at `url.publishedprices.co.il`. Agents that fabricate per-chain URLs will get connection errors. Always consult `references/chain-feeds.md` for verified endpoints.
+- Cerberus is NOT a static file server. A naive `curl https://url.publishedprices.co.il/file/d/PriceFull...xml.gz` returns the login page (HTTP 200 with HTML, not the file). You must first GET `/login`, parse the `csrftoken` from the `<meta name="csrftoken">` tag, keep the response cookie, then POST `/login` with the chain username, an empty password if the chain is public, and the csrftoken. Only then do file listing and download endpoints return data.
+- The legacy "Nibit (Matrix)" platform at `matrixcatalog.co.il/NBCompetitionRegulations.aspx` is no longer reachable as of May 2026 (curl times out after 10s). Victory and other chains that previously published there now use Cerberus. Skills or agents still pointing at matrixcatalog.co.il will fail.
+- Prices in Israel include VAT (18%) by default, unlike US prices which are pre-tax. The 18% rate has been in effect since 1 Jan 2025 (raised from 17%); a proposed Jan 2026 increase to 19% was rejected in the Knesset budget vote. Agents trained before 2025 may "correct" 18% back to 17% — they should not. Agents may also perform cost comparisons that double-count or ignore VAT depending on their training data assumptions.
+- Israeli product barcodes use the 729 country prefix, but some imported products retain their original country barcode. Agents may fail cross-chain matching when the same product has different barcode formats across chains. Store-brand items often use internal codes starting with `2` and cannot be cross-matched at all.
+- Promotions with `ClubId != 0` are restricted to chain club members (Shufersal Sofash, Rami Levy club, Yochananof Club, etc.) and should NOT be applied to a generic basket-cost estimate. Many naive agents ignore `ClubId` and report inflated savings.
+- "Mega" and "Yeinot Bitan" did not fully rebrand to Carrefour. The Electra Consumer Products franchise (April 2022, 20-year term) operates all three banners in parallel; some stores were converted to Carrefour, others retained the Mega or Yeinot Bitan banner. A legacy "Mega" feed still exists on Cerberus alongside the Carrefour Direct portal. "Victory" is a completely separate, independently owned company (Ravid family, VCTR.TA). Agents may still confuse these as related entities.
+- Pharmacy chains (Super-Pharm, Good Pharm) ARE covered by the law and publish through Cerberus, but their SKU range is drugstore items (toiletries, OTC, baby food) without fresh produce, dairy, or meat. Don't try to price-compare milk at Super-Pharm.
+- Promotions in Israeli supermarkets often have conditions agents miss: "buy 2 get discount" (2 b-X shekel) is `RewardType=2` with `MinQty=2`; "buy 3 pay for 2" is `RewardType=3`; some have `MinPurchaseAmnt` thresholds; regional promotions apply only to specific store IDs.
 
 ## Reference Links
 
@@ -161,7 +171,8 @@ Result: Current cost per serving: 8.40 NIS (cheapest chain combination). Eggs ar
 | Shufersal Direct Portal | https://prices.shufersal.co.il | Live PriceFull/PricesPromotions/Stores feeds for Shufersal |
 | Cerberus PublishedPrices Portal | https://url.publishedprices.co.il/login | Live feeds for Rami Levy, Yochananof, Victory, Tiv Taam, Osher Ad, Mega, and ~25 other chains |
 | Carrefour Israel Direct Portal | https://prices.carrefour.co.il | Live feeds for Carrefour / Mega / Yeinot Bitan stores |
-| OpenIsraeliSupermarkets, community parsers | https://github.com/OpenIsraeliSupermarkets | Reference Python scrapers and parsers used by the community |
+| OpenIsraeliSupermarkets, community parsers | https://github.com/OpenIsraeliSupermarkets | Reference Python scrapers and parsers used by the community. The active library is `il-supermarket-scraper` (PyPI), which handles Cerberus CSRF login, chain-code lookup, file listing, and decompression |
+| Wikipedia, Taxation in Israel | https://en.wikipedia.org/wiki/Taxation_in_Israel | Current Israeli VAT rate (18% since 1 Jan 2025), includes historical rate changes |
 
 ## Troubleshooting
 
@@ -182,5 +193,5 @@ Cause: Comparing all items across all chains and all stores is computationally e
 Solution: Limit comparison to chains with stores within a configurable radius (default: 5 km). Pre-filter by chains the user actually shops at. Use cached price data instead of fetching fresh for every optimization.
 
 ### Error: "Cerberus platform returns empty page or login prompt"
-Cause: Platform may require chain selection before listing files, or may block automated requests.
-Solution: When accessing Cerberus, pass the chain identifier in the request (each chain has a code). Some chains (e.g., Osher Ad) require a username with no password. If blocked, add a delay between requests and use standard browser headers. Check `references/chain-feeds.md` for platform-specific access notes.
+Cause: Cerberus requires an authenticated session, not a one-shot URL fetch. The most common failure mode is omitting the CSRF token or the session cookie.
+Solution: Follow the full Cerberus auth flow documented in `references/chain-feeds.md`: GET `/login`, extract the `csrftoken` `<meta>` value AND save the cookie from the response, POST `/login` with `username=<chain-code>`, `password=` (empty for public chains), and `csrftoken=<value>`, reuse the cookie for `/file/json/dir` and `/file/d/<filename>`. Add a ≥1s delay between requests and use a realistic User-Agent header — Cerberus throttles aggressive listing.

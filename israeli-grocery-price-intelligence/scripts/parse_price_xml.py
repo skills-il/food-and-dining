@@ -133,16 +133,24 @@ def parse_items(root: ET.Element, chain: str) -> list[dict]:
         except ValueError:
             unit_price = 0.0
 
+        is_weighted = extract_text(item_el, field_map["is_weighted"]) == "1"
+
+        # Weighted items: ItemPrice is per kilogram. Surface this explicitly
+        # so downstream code can compare per-kg unit prices across chains
+        # instead of treating it as a per-package price.
+        price_per_kg = price if is_weighted else None
+
         normalized = {
             "item_code": extract_text(item_el, field_map["item_code"]),
             "item_name": extract_text(item_el, field_map["item_name"]),
             "manufacturer": extract_text(item_el, field_map["manufacturer"]),
             "price": price,
             "unit_price": unit_price,
+            "price_per_kg": price_per_kg,
             "quantity": extract_text(item_el, field_map["quantity"]),
             "unit_of_measure": extract_text(item_el, field_map["unit_of_measure"]),
             "update_date": extract_text(item_el, field_map["update_date"]),
-            "is_weighted": extract_text(item_el, field_map["is_weighted"]) == "1",
+            "is_weighted": is_weighted,
             "chain": chain,
         }
         items.append(normalized)
