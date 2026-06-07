@@ -1,6 +1,6 @@
 # Delivery Platform Integration Guides
 
-## Wolt Israel — Restaurant Portal
+## Wolt Israel - Restaurant Portal
 
 - **Portal URL:** https://restaurant-portal.wolt.com
 - **Login:** Email + password. Some accounts require SMS-based 2FA.
@@ -22,12 +22,12 @@
 - **Payment Cycle:** Weekly bank transfer (Thursday for previous week)
 - **Review Responses:** Available directly from portal. Character limit: 500. Moderation delay: up to 24 hours.
 
-## 10bis (תן ביס) — Restaurant Dashboard
+## 10bis (תן ביס) - Restaurant Dashboard
 
 - **Portal URL:** https://restaurant.10bis.co.il
 - **Login:** Business phone number + SMS OTP (no password-based login).
 - **Menu Management:**
-  - Simpler flat structure — categories and items
+  - Simpler flat structure - categories and items
   - Limited modifier support (up to 3 modifier groups per item)
   - Photos optional but recommended
   - Price in NIS, including VAT
@@ -44,9 +44,9 @@
 - **Payment Cycle:** Monthly bank transfer (15th of following month)
 - **Review Responses:** Available via dashboard. No character limit. Published immediately.
 
-## Mishlocha (משלוחה) — Partner Portal
+## Mishlocha (משלוחה) - Partner Portal
 
-- **Portal URL:** https://partner.mishlocha.co.il
+- **Portal URL:** https://partner.mishloha.co.il (official domain mishloha.co.il; sometimes transliterated "Mishlocha")
 - **Login:** Email + password. Optional 2FA via authenticator app.
 - **Menu Management:**
   - Category-based menu structure
@@ -72,13 +72,13 @@
 - Use headless Chromium with CDP for portal access
 - Store session cookies to avoid re-authentication on every run
 - Handle rate limiting: wait 2-3 seconds between page navigations
-- Monitor for portal UI changes — selectors may break after platform updates
+- Monitor for portal UI changes - selectors may break after platform updates
 - Set viewport to desktop size (1280x800 minimum) to avoid mobile layouts
 
 ### Hebrew Encoding
 - All portals expect UTF-8 for Hebrew text
 - When syncing menus, normalize Unicode (NFC form) before comparing
-- Some portals strip RTL markers — avoid relying on directional characters
+- Some portals strip RTL markers - avoid relying on directional characters
 
 ### Error Recovery
 - On login failure: clear cookies, retry with fresh session

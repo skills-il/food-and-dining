@@ -123,7 +123,7 @@ Help restaurant owners decide which platforms to join based on their restaurant 
 10bis operates as both a consumer delivery service and a corporate meal benefit platform (ארוחת עובדים). The corporate side has lower commissions but different order patterns (weekday lunches, set budget per employee). Make sure the owner understands which 10bis program they are joining.
 
 **Cibus / Pluxee (corporate meal-benefit alternative):**
-Cibus (rebranded under Pluxee globally in 2024) is the main corporate meal-benefit competitor to 10bis in Israel. If the restaurant is targeting office workers, evaluate both — restaurants frequently join both platforms because employee benefit cards are not interchangeable. Commission and onboarding terms differ from 10bis; consult cibus.co.il directly for current rates.
+Cibus (rebranded under Pluxee globally in 2024) is the main corporate meal-benefit competitor to 10bis in Israel. If the restaurant is targeting office workers, evaluate both - restaurants frequently join both platforms because employee benefit cards are not interchangeable. Commission and onboarding terms differ from 10bis; consult cibus.co.il directly for current rates.
 
 ### Step 5: Analyze Food Costs and Menu Engineering
 Help with recipe costing, margin analysis, and menu optimization using the menu engineering matrix:
@@ -265,10 +265,10 @@ Additional advice to the owner:
 | Source | URL | What to Check |
 |--------|-----|---------------|
 | 10bis (Tenbis) | https://www.10bis.co.il/ | Current commission rates, corporate meal-benefit onboarding, payment cycle |
-| Mishlocha | https://www.mishlocha.co.il/ | City-specific coverage, partner courier terms, regional commission |
-| Wolt for Restaurants | https://restaurants.wolt.com/he | Commission tiers, onboarding requirements, analytics dashboard |
-| Cibus / Pluxee Israel | https://www.cibus.co.il/ | Corporate meal-benefit competitor to 10bis; verify current rates |
-| Ministry of Health: Food Safety | https://www.health.gov.il/English/Topics/FoodAndNutrition/food/Pages/default.aspx | Current Israeli food-safety regulations and licensing requirements |
+| Mishloha (משלוחה, sometimes transliterated Mishlocha) | https://www.mishloha.co.il/ | City-specific coverage, partner courier terms, regional commission |
+| Wolt for Restaurants | https://explore.wolt.com/en/isr/merchant/business/restaurants | Commission tiers, onboarding requirements, analytics dashboard |
+| Cibus / Pluxee Israel | https://www.cibus.co.il/ | Corporate meal-benefit competitor to 10bis (now branded Cibus Pluxee); verify current rates |
+| National Food Service (Ministry of Health) | https://www.gov.il/he/departments/national_food_service | Current Israeli food-safety regulations and business-licensing requirements |
 
 ## Troubleshooting
 

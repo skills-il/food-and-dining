@@ -258,10 +258,10 @@ Cibus (עברה מיתוג חדש תחת Pluxee גלובלית ב-2024) היא �
 | מקור | קישור | מה לבדוק |
 |------|-------|---------|
 | תן ביס | https://www.10bis.co.il/ | שיעורי עמלה נוכחיים, הצטרפות להטבת ארוחות לעובדים, מחזור תשלומים |
-| משלוחה | https://www.mishlocha.co.il/ | כיסוי ספציפי לערים, תנאי שליחים שותפים, עמלות אזוריות |
-| Wolt for Restaurants | https://restaurants.wolt.com/he | מדרגי עמלות, דרישות הצטרפות, לוח ניתוח נתונים |
+| משלוחה (Mishloha) | https://www.mishloha.co.il/ | כיסוי ספציפי לערים, תנאי שליחים שותפים, עמלות אזוריות |
+| Wolt for Restaurants | https://explore.wolt.com/en/isr/merchant/business/restaurants | מדרגי עמלות, דרישות הצטרפות, לוח ניתוח נתונים |
 | Cibus / Pluxee Israel | https://www.cibus.co.il/ | מתחרה הטבת ארוחות לעובדים מול תן ביס, אמתו תעריפים נוכחיים |
-| משרד הבריאות: בטיחות מזון | https://www.health.gov.il/Subjects/FoodAndNutrition/food/Pages/default.aspx | רגולציות בטיחות מזון נוכחיות בישראל ודרישות רישוי |
+| שירות המזון הארצי (משרד הבריאות) | https://www.gov.il/he/departments/national_food_service | רגולציות בטיחות מזון נוכחיות בישראל ודרישות רישוי עסק |
 
 ## פתרון בעיות
 
