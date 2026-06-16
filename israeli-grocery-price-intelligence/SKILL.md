@@ -11,7 +11,17 @@ compatibility: Works with Claude Code, OpenClaw, Cursor. OpenClaw recommended fo
 
 ## Instructions
 
-### Preferred: Use the Supermarket Prices MCP Server
+### Fastest path for a non-developer: ready-made comparison apps
+
+If the user just wants to know where a product or basket is cheapest (and is not building an automated pipeline), point them at the consumer price-comparison services that already parse these feeds, no code required:
+
+- **CHP** (https://chp.co.il), the most widely used Israeli grocery price-comparison site, compares a full basket across nearby branches.
+- **Pricez** (https://www.pricez.co.il) and **Savy** (https://www.savy.co.il), additional consumer comparison apps.
+- The **official Ministry of Economy list of approved price-comparison apps** (https://www.gov.il/he/pages/cpfta_apps), the authoritative directory of services vetted under the price-transparency law.
+
+Use the raw-feed / MCP path below when the user needs automation, a custom shopping-list optimizer, trend tracking, or restaurant cost analysis that the consumer apps don't offer.
+
+### Preferred (for automation): Use the Supermarket Prices MCP Server
 
 If the user has the **supermarket-prices** MCP server installed, use it instead of manually fetching XML feeds. The MCP handles authentication, CSRF tokens, SSL issues, and platform quirks automatically.
 
@@ -48,7 +58,7 @@ Chains publish through three platforms (not individual domains):
 | Carrefour Israel Direct | https://prices.carrefour.co.il | Carrefour Israel (operates Carrefour, Mega, and Yeinot Bitan branded stores under one Electra franchise) |
 | Cerberus (PublishedPrices) | https://url.publishedprices.co.il/login | Rami Levy, Yochananof, Victory, Osher Ad, Tiv Taam, Hazi Hinam, Mega (legacy feed), Dor Alon, Super-Pharm, Good Pharm, and ~20 more smaller chains. Total ~30 chains across this platform |
 
-The previously separate "Nibit (Matrix)" platform at `matrixcatalog.co.il` is no longer reachable (the host times out as of May 2026). Victory and other chains formerly published there now publish through the Cerberus platform.
+The previously separate "Nibit (Matrix)" platform at `matrixcatalog.co.il` is no longer reachable (the host times out as of 2026). Victory and other chains formerly published there now publish through the Cerberus platform.
 
 **Cerberus requires real authentication, not just a URL fetch.** A GET on the file directory without an active session returns the login HTML, not data. The flow is: GET `/login` → parse the `<meta name="csrftoken">` value AND keep the response cookie → POST `/login` with `username=<chain-code>`, `password=<password-or-empty>`, `csrftoken=<value>` → reuse the cookie for `/file/json/dir` to list files and `/file/d/<filename>` to download. See `references/chain-feeds.md` for the full flow and per-chain credentials.
 
@@ -60,7 +70,7 @@ Each chain publishes in a slightly different XML schema. Major chains:
 | Shufersal | שופרסל | Direct (prices.shufersal.co.il) | Largest chain (~400 stores across Shufersal Deal, Sheli, Yesh, and Express banners), most structured data |
 | Rami Levy | רמי לוי | Cerberus | Known for low prices, 50+ stores |
 | Yochananof | יוחננוף | Cerberus | Central Israel focus |
-| Victory | ויקטורי | Cerberus | Independently owned (Ravid family, publicly traded VCTR.TA), 60+ stores; completely separate from Carrefour Israel |
+| Victory | ויקטורי | Cerberus | Independently owned (Ravid family, publicly traded VCTR.TA), 60+ stores; completely separate from Carrefour Israel. Since Aug 2025 it operates several banners (Victory, Victory Local, Victory City, Victory Plus) plus Victory Online, which can carry different prices, treat each banner as a distinct store when matching and comparing |
 | Carrefour Israel | קרפור ישראל | Direct (prices.carrefour.co.il) | Electra Consumer Products franchise; operates Carrefour, Mega, and Yeinot Bitan branded stores in parallel (not all stores converted to Carrefour) |
 | Osher Ad | אושר עד | Cerberus (username: `osherad`, no password) | Discount chain, 20+ large-format stores |
 | Tiv Taam | טיב טעם | Cerberus | Non-kosher items available; merged with East & West Import & Marketing Dec 2024 |
@@ -154,11 +164,11 @@ Result: Current cost per serving: 8.40 NIS (cheapest chain combination). Eggs ar
 
 - Most chains do NOT have their own `prices.X.co.il` domain. Rami Levy, Yochananof, Victory, Osher Ad, Tiv Taam, and ~20 other chains all publish through the Cerberus platform at `url.publishedprices.co.il`. Agents that fabricate per-chain URLs will get connection errors. Always consult `references/chain-feeds.md` for verified endpoints.
 - Cerberus is NOT a static file server. A naive `curl https://url.publishedprices.co.il/file/d/PriceFull...xml.gz` returns the login page (HTTP 200 with HTML, not the file). You must first GET `/login`, parse the `csrftoken` from the `<meta name="csrftoken">` tag, keep the response cookie, then POST `/login` with the chain username, an empty password if the chain is public, and the csrftoken. Only then do file listing and download endpoints return data.
-- The legacy "Nibit (Matrix)" platform at `matrixcatalog.co.il/NBCompetitionRegulations.aspx` is no longer reachable as of May 2026 (curl times out after 10s). Victory and other chains that previously published there now use Cerberus. Skills or agents still pointing at matrixcatalog.co.il will fail.
-- Prices in Israel include VAT (18%) by default, unlike US prices which are pre-tax. The 18% rate has been in effect since 1 Jan 2025 (raised from 17%); a proposed Jan 2026 increase to 19% was rejected in the Knesset budget vote. Agents trained before 2025 may "correct" 18% back to 17% — they should not. Agents may also perform cost comparisons that double-count or ignore VAT depending on their training data assumptions.
+- The legacy "Nibit (Matrix)" platform at `matrixcatalog.co.il/NBCompetitionRegulations.aspx` is no longer reachable as of 2026 (curl times out after 10s). Victory and other chains that previously published there now use Cerberus. Skills or agents still pointing at matrixcatalog.co.il will fail.
+- Prices in Israel include VAT (18%) by default, unlike US prices which are pre-tax. The 18% rate has been in effect since 1 Jan 2025 (raised from 17%); a proposed Jan 2026 increase to 19% was rejected in the Knesset budget vote. Agents trained before 2025 may "correct" 18% back to 17%, they should not. Agents may also perform cost comparisons that double-count or ignore VAT depending on their training data assumptions.
 - Israeli product barcodes use the 729 country prefix, but some imported products retain their original country barcode. Agents may fail cross-chain matching when the same product has different barcode formats across chains. Store-brand items often use internal codes starting with `2` and cannot be cross-matched at all.
 - Promotions with `ClubId != 0` are restricted to chain club members (Shufersal Sofash, Rami Levy club, Yochananof Club, etc.) and should NOT be applied to a generic basket-cost estimate. Many naive agents ignore `ClubId` and report inflated savings.
-- "Mega" and "Yeinot Bitan" did not fully rebrand to Carrefour. The Electra Consumer Products franchise (April 2022, 20-year term) operates all three banners in parallel; some stores were converted to Carrefour, others retained the Mega or Yeinot Bitan banner. A legacy "Mega" feed still exists on Cerberus alongside the Carrefour Direct portal. "Victory" is a completely separate, independently owned company (Ravid family, VCTR.TA). Agents may still confuse these as related entities.
+- "Mega" and "Yeinot Bitan" did not fully rebrand to Carrefour. The Electra Consumer Products franchise (April 2022, 20-year term) operates all three banners in parallel; some stores were converted to Carrefour, others retained the Mega or Yeinot Bitan banner. A legacy "Mega" feed still exists on Cerberus alongside the Carrefour Direct portal. "Victory" is a completely separate, independently owned company (Ravid family, VCTR.TA). Agents may still confuse these as related entities. Since Aug 2025 Victory runs multiple banners (Victory, Victory Local, Victory City, Victory Plus, and Victory Online) that can price the same SKU differently, so a single "Victory" price is no longer safe to assume, key the comparison on the specific banner/store, not on "Victory" as one entity.
 - Pharmacy chains (Super-Pharm, Good Pharm) ARE covered by the law and publish through Cerberus, but their SKU range is drugstore items (toiletries, OTC, baby food) without fresh produce, dairy, or meat. Don't try to price-compare milk at Super-Pharm.
 - Promotions in Israeli supermarkets often have conditions agents miss: "buy 2 get discount" (2 b-X shekel) is `RewardType=2` with `MinQty=2`; "buy 3 pay for 2" is `RewardType=3`; some have `MinPurchaseAmnt` thresholds; regional promotions apply only to specific store IDs.
 
@@ -194,4 +204,4 @@ Solution: Limit comparison to chains with stores within a configurable radius (d
 
 ### Error: "Cerberus platform returns empty page or login prompt"
 Cause: Cerberus requires an authenticated session, not a one-shot URL fetch. The most common failure mode is omitting the CSRF token or the session cookie.
-Solution: Follow the full Cerberus auth flow documented in `references/chain-feeds.md`: GET `/login`, extract the `csrftoken` `<meta>` value AND save the cookie from the response, POST `/login` with `username=<chain-code>`, `password=` (empty for public chains), and `csrftoken=<value>`, reuse the cookie for `/file/json/dir` and `/file/d/<filename>`. Add a ≥1s delay between requests and use a realistic User-Agent header — Cerberus throttles aggressive listing.
+Solution: Follow the full Cerberus auth flow documented in `references/chain-feeds.md`: GET `/login`, extract the `csrftoken` `<meta>` value AND save the cookie from the response, POST `/login` with `username=<chain-code>`, `password=` (empty for public chains), and `csrftoken=<value>`, reuse the cookie for `/file/json/dir` and `/file/d/<filename>`. Add a ≥1s delay between requests and use a realistic User-Agent header, Cerberus throttles aggressive listing.

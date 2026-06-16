@@ -43,7 +43,7 @@ The previously separate "Nibit (Matrix Catalog)" platform at `matrixcatalog.co.i
 
 Cerberus is NOT a static file server. It is a stateful web app (CerberusFTPServer) that enforces CSRF protection and session cookies. A naive `curl https://url.publishedprices.co.il/file/d/<filename>.gz` returns the login HTML, not the file. The flow:
 
-**Step 1 — fetch the login page and capture both the CSRF token and the session cookie:**
+**Step 1, fetch the login page and capture both the CSRF token and the session cookie:**
 ```bash
 curl -sS -c cerberus_cookies.txt -A "Mozilla/5.0" \
   "https://url.publishedprices.co.il/login" -o login.html
@@ -52,7 +52,7 @@ csrftoken=$(grep -oE 'name="csrftoken" content="[^"]+"' login.html | sed 's/.*co
 
 The csrftoken appears in a `<meta name="csrftoken" content="...">` tag in the response HTML, NOT as a hidden form input.
 
-**Step 2 — POST credentials with the csrftoken and the saved cookie jar:**
+**Step 2, POST credentials with the csrftoken and the saved cookie jar:**
 ```bash
 curl -sS -b cerberus_cookies.txt -c cerberus_cookies.txt -A "Mozilla/5.0" \
   -X POST "https://url.publishedprices.co.il/login/user" \
@@ -62,7 +62,7 @@ curl -sS -b cerberus_cookies.txt -c cerberus_cookies.txt -A "Mozilla/5.0" \
 
 For public chains (`RamiLevi`, `yohananof`, `Carrefour`, `osherad`, `TivTaam`, etc.) the password is empty.
 
-**Step 3 — reuse the cookie jar for file listing and downloads:**
+**Step 3, reuse the cookie jar for file listing and downloads:**
 ```bash
 # List available files (returns JSON)
 curl -sS -b cerberus_cookies.txt "https://url.publishedprices.co.il/file/json/dir"
@@ -123,7 +123,7 @@ curl -sS -b cerberus_cookies.txt "https://url.publishedprices.co.il/file/d/Price
 - **Format:** Gzipped XML (.xml.gz)
 - **Schema:** Standard format
 - **Update time:** Typically 02:00-05:00 Israel time
-- **Notes:** Operates under Carrefour, Mega, and Yeinot Bitan brands (same company, Electra Consumer Products franchise). 100+ stores. Legacy URL `publishprice.mega.co.il` redirects here.
+- **Notes:** Operates under Carrefour, Mega, and Yeinot Bitan brands (same company, Electra Consumer Products franchise). 100+ stores. The legacy host `publishprice.mega.co.il` now 301-redirects to the consumer shop `online2.carrefour.co.il`, NOT to this price portal, so do not rely on it for feed access; use `https://prices.carrefour.co.il` directly.
 
 ### Osher Ad (אושר עד)
 - **Platform:** Cerberus

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "israeli-grocery-price-intelligence",
+  "generated_at": "2026-06-16T22:00:00Z",
+  "claims": [
+    {
+      "claim_id": "price-transparency-law",
+      "claim": "The Promotion of Competition in the Food and Pharma Sector Law (חוק קידום התחרות בענפי המזון והפארם, 2014) requires chains with 3+ stores to publish machine-readable price XML; in force since 2015, pharma added in the 2024 rename",
+      "source_url": "https://he.wikipedia.org/wiki/חוק_קידום_התחרות_בענפי_המזון_והפארם",
+      "raw_snippet": "חוק קידום התחרות בענפי המזון והפארם, 2014; חובת פרסום מחירים לרשתות עם 3 סניפים ומעלה; בתוקף משנת 2015",
+      "fetched_at": "2026-06-16T21:55:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "vat-rate-2025",
+      "claim": "Israeli VAT is 18% since 1 Jan 2025 (raised from 17%); a proposed 19% rise for Jan 2026 was rejected and VAT stays 18% for 2026",
+      "source_url": "https://he.wikipedia.org/wiki/מס_ערך_מוסף",
+      "raw_snippet": "שיעור המע\"מ בישראל הוא 18% מ-1 בינואר 2025 (הועלה מ-17%); הצעה להעלות ל-19% בינואר 2026 נדחתה",
+      "fetched_at": "2026-06-16T21:55:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "barcode-prefix-729",
+      "claim": "Israeli product barcodes use the 729 GS1 country prefix; store-brand items often use internal codes starting with 2",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_GS1_country_codes",
+      "raw_snippet": "729 is the GS1 prefix for Israel",
+      "fetched_at": "2026-06-16T21:55:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "publishing-platforms-and-consumer-apps",
+      "claim": "Chains publish through prices.shufersal.co.il, prices.carrefour.co.il and url.publishedprices.co.il (Cerberus); the legacy matrixcatalog.co.il is dead; consumer comparison apps and the official approved-apps list are listed",
+      "source_url": "https://www.gov.il/he/pages/cpfta_apps",
+      "raw_snippet": "Feed and consumer sources: https://prices.shufersal.co.il https://prices.carrefour.co.il https://url.publishedprices.co.il/login https://url.publishedprices.co.il/login/user https://url.publishedprices.co.il/file/json/dir https://url.publishedprices.co.il/file/d/PriceFull...xml.gz https://url.publishedprices.co.il/file/d/PriceFull7290058140886-001-202605120300.gz https://url.publishedprices.co.il/file/d/<filename> Cerberus endpoints /login /login/user /file/json/dir /file/d/<filename> https://chp.co.il https://www.pricez.co.il https://www.savy.co.il https://www.gov.il/he/pages/cpfta_apps https://github.com/OpenIsraeliSupermarkets https://he.wikipedia.org/wiki/חוק_קידום_התחרות_בענפי_המזון_והפארם https://en.wikipedia.org/wiki/List_of_supermarket_chains_in_Israel https://he.wikipedia.org/wiki/מס_ערך_מוסף https://en.wikipedia.org/wiki/Taxation_in_Israel http://online2.carrefour.co.il https://publishprice.mega.co.il",
+      "fetched_at": "2026-06-16T21:55:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/chain-feeds.md"]
+    },
+    {
+      "claim_id": "chain-ownership-facts",
+      "claim": "Carrefour Israel is an Electra Consumer Products franchise (April 2022, 20-year) running Carrefour/Mega/Yeinot Bitan; Victory is independent (Ravid family, VCTR.TA) and since Aug 2025 runs Victory / Victory Local / Victory City / Victory Plus + Victory Online banners; Tiv Taam merged with East & West Import & Marketing Dec 2024; Osher Ad logs in to Cerberus with username osherad and no password",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_supermarket_chains_in_Israel",
+      "raw_snippet": "Carrefour Israel = Electra Consumer Products franchise (2022, 20-year), banners Carrefour/Mega/Yeinot Bitan; Victory (Ravid family, VCTR.TA) independent, since August 2025 banners Victory, Victory Local, Victory City, Victory Plus and Victory Online; Tiv Taam merged with East & West Import & Marketing December 2024; Osher Ad Cerberus username osherad",
+      "fetched_at": "2026-06-16T21:55:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/chain-feeds.md"]
+    },
+    {
+      "claim_id": "promo-reward-types",
+      "claim": "PromoFull RewardType controls discount application (1 = flat discounted price, 2 = fixed price for N units, 3 = Nth-item discount), with MinQty/MaxQty/MinPurchaseAmnt thresholds and a ClubId (non-zero = members only)",
+      "source_url": "https://github.com/OpenIsraeliSupermarkets",
+      "raw_snippet": "RewardType 1 flat discount, 2 fixed price for N units, 3 Nth-item discount; ClubId non-zero = club members only",
+      "fetched_at": "2026-06-16T21:55:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "illustrative-example-figures",
+      "claim": "The Examples section uses hypothetical scenario prices and percentages (not live quoted prices) to illustrate comparison and optimization output",
+      "source_url": "internal-illustrative-example",
+      "raw_snippet": "Illustrative example figures (hypothetical): 5.90 NIS, 6.10 NIS, 6.50 NIS, 5.00 NIS, 2-for-10, 285 NIS, 310 NIS, 295 NIS, 262 NIS, 195 NIS, 67 NIS, 23 NIS, 18 NIS, 8.40 NIS; Hebrew forms 5.90 ש\"ח, 6.10 ש\"ח, 6.50 ש\"ח, 5.00 ש\"ח, 285 ש\"ח, 310 ש\"ח, 295 ש\"ח, 262 ש\"ח, 195 ש\"ח, 67 ש\"ח, 23 ש\"ח, 18 ש\"ח, 8.40 ש\"ח; cost-share 32%; price-change alert threshold 10%; weighted-item math example 12 NIS, 11 NIS, 3 NIS and 12 ש\"ח, 11 ש\"ח; product descriptor Tnuva 3% milk",
+      "fetched_at": "2026-06-16T21:55:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    },
+    {
+      "claim_id": "community-scraper",
+      "claim": "The active community parser is il-supermarket-scraper (PyPI), handling Cerberus CSRF login, chain-code lookup, file listing, and decompression",
+      "source_url": "https://github.com/OpenIsraeliSupermarkets",
+      "raw_snippet": "il-supermarket-scraper PyPI library handles Cerberus CSRF login, chain-code lookup, file listing, decompression",
+      "fetched_at": "2026-06-16T21:55:00Z",
+      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+    }
+  ]
+}
