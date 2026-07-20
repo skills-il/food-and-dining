@@ -23,9 +23,17 @@ Rami Levy's terms.
 
 ### Step 1: Verify the CLI and authentication
 
-Run `rami --version`. If the command is unavailable, follow the upstream
-[installation instructions](https://github.com/bornio/rami-levy-cli#install--about-2-minutes).
-Do not improvise direct calls to Rami Levy's private website APIs.
+Run `rami --version`. If the command is unavailable, install the public npm
+package, then rerun the version check:
+
+```sh
+npm install --global rami-levy-cli
+rami --version
+```
+
+See the upstream [installation instructions](https://github.com/bornio/rami-levy-cli#install--about-2-minutes)
+for current requirements. Do not improvise direct calls to Rami Levy's private
+website APIs.
 
 If an operation reports missing or expired authentication, run:
 
@@ -148,7 +156,7 @@ report the server-verified resulting quantity and current price.
 
 Cause: The CLI is not installed or linked on the machine.
 
-Solution: Follow the upstream installation instructions, then rerun
+Solution: Run `npm install --global rami-levy-cli`, then rerun
 `rami --version`. Do not replace the CLI with ad hoc API requests.
 
 ### Error: Authentication is missing or expired

@@ -59,6 +59,17 @@
         "SKILL.md",
         "SKILL_HE.md"
       ]
+    },
+    {
+      "claim_id": "public-npm-package",
+      "claim": "rami-levy-cli version 0.4.0 is publicly installable from the npm registry and exposes the rami executable.",
+      "source_url": "https://registry.npmjs.org/rami-levy-cli/0.4.0",
+      "raw_snippet": "name rami-levy-cli; version 0.4.0; bin rami: src/cli.js",
+      "fetched_at": "2026-07-20T14:06:50Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     }
   ]
 }
