@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "rami-levy-shopper",
+  "generated_at": "2026-07-20T13:13:18Z",
+  "claims": [
+    {
+      "claim_id": "cli-capabilities",
+      "claim": "The rami CLI supports product search, unit-price sorting, previous orders, live cart listing, and add, update, and remove cart operations.",
+      "source_url": "https://github.com/bornio/rami-levy-cli/blob/1c9d1a099bd0de68942b52def4f98d1c6f4ce4b8/README.md",
+      "raw_snippet": "Search products, compare unit prices, inspect previous orders, and manage the live Rami Levy cart from a terminal.",
+      "fetched_at": "2026-07-20T13:13:18Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "metadata.json"
+      ]
+    },
+    {
+      "claim_id": "server-authoritative-cart",
+      "claim": "Every cart command starts from the latest server cart, while mutations fetch, write, refetch, and verify the complete cart.",
+      "source_url": "https://github.com/bornio/rami-levy-cli/blob/1c9d1a099bd0de68942b52def4f98d1c6f4ce4b8/README.md#cart-consistency",
+      "raw_snippet": "The server is the cart authority. The CLI has no cart cache or snapshot. Every cart command fetches the latest server cart first.",
+      "fetched_at": "2026-07-20T13:13:18Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "private-browser-auth",
+      "claim": "Browser login uses a temporary Chrome profile, captures reduced authentication values, validates them read-only, and deletes the temporary profile without receiving the shopper's password.",
+      "source_url": "https://github.com/bornio/rami-levy-cli/blob/1c9d1a099bd0de68942b52def4f98d1c6f4ce4b8/README.md#authentication-safety",
+      "raw_snippet": "Login uses a new temporary Chrome profile. Request observation starts only after the user presses Enter, so password and OTP submission happen first.",
+      "fetched_at": "2026-07-20T13:13:18Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "promotion-and-unit-price-caveats",
+      "claim": "Current-cart promotions affect search sorting only when server-applied, and unit-price comparisons depend on product metadata that may be missing or incorrect.",
+      "source_url": "https://github.com/bornio/rami-levy-cli/blob/1c9d1a099bd0de68942b52def4f98d1c6f4ce4b8/README.md#find-a-product",
+      "raw_snippet": "Offers are conditional and affect sorting only when the server-calculated current cart includes a discount. Unit prices use Rami Levy content metadata, which can be missing or wrong; do not trust them blindly.",
+      "fetched_at": "2026-07-20T13:13:18Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "metadata.json"
+      ]
+    },
+    {
+      "claim_id": "license-and-project-status",
+      "claim": "The rami CLI is an MIT-licensed unofficial community project that is not affiliated with, endorsed by, or supported by Rami Levy.",
+      "source_url": "https://github.com/bornio/rami-levy-cli/blob/1c9d1a099bd0de68942b52def4f98d1c6f4ce4b8/README.md",
+      "raw_snippet": "This is an unofficial community project. It is not affiliated with, endorsed by, or supported by Rami Levy.",
+      "fetched_at": "2026-07-20T13:13:18Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    }
+  ]
+}
