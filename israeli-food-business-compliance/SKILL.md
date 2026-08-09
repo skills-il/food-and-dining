@@ -38,7 +38,7 @@ Kashrut levels:
 - Standard kosher (כשר), basic supervision
 - Mehadrin (מהדרין), stricter standards and more frequent supervision
 - Badatz (בד"ץ), ultra-strict, private certification bodies
-- Tzohar Food Inspection (צהר), an alternative national kashrut authority operating since 2019; absorbed Hashgacha Pratit's businesses. Also recognized under the Kahana 2022 reform that allows certified private corporations to provide kashrut supervision under Chief Rabbinate oversight (rolling implementation from 2023).
+- Tzohar Food Inspection (צהר), an alternative nationwide kashrut supervision body operating alongside the Chief Rabbinate's system, whose supervisors are employed directly by Tzohar rather than by the businesses they inspect. Also recognized under the Kahana 2022 reform that allows certified private corporations to provide kashrut supervision under Chief Rabbinate oversight (rolling implementation from 2023).
 
 Note: Since the 2022 kashrut reform, businesses can choose between Rabbanut, Tzohar, or any approved private supervision corporation; supervision certificates must follow the standardized format set by the Chief Rabbinate.
 
@@ -190,7 +190,7 @@ Result: 32-item inspection checklist organized by priority. Top 5 critical items
 - Ministry of Health, Food Service: https://www.health.gov.il/Subjects/FoodAndNutrition/
 - Front-of-package labeling regulations (Efsharibari): https://efsharibari.health.gov.il/en/governance/legislation/unhealthy-food-labeling-law/
 - Chief Rabbinate of Israel (kashrut): https://www.gov.il/he/departments/the_chief_rabbinate_of_israel
-- Tzohar Food Inspection: https://www.tzohar.org.il/
+- Tzohar Food Inspection: https://www.tzohar.org.il/?page_id=16250
 - Business Licensing Authority (rishyon esek): https://www.gov.il/he/departments/topics/business_licensing
 - Israel Tax Authority (VAT / maam): https://www.gov.il/he/departments/israel_tax_authority
 - Israel Standards Institute (תקני מזון): https://www.sii.org.il/
@@ -204,7 +204,6 @@ Result: 32-item inspection checklist organized by priority. Top 5 critical items
 - Pest control documentation in Israel must come from a licensed company registered with the Ministry of Environmental Protection. Agents may suggest generic pest control solutions that do not meet Israeli regulatory requirements.
 - Kashrut reform 2022 (the "Kahana law") is in rolling implementation through 2026, with the Chief Rabbinate retaining ultimate oversight. Some municipalities (notably Bnei Brak and several Charedi neighborhoods) have been slower to recognize Tzohar and other private corporations' supervision. When advising a business owner, ask which neighborhood the establishment serves before recommending a non-Rabbanut path; consumer recognition still skews to Rabbanut in religious neighborhoods.
 - Israeli "Cooked Food Delivery Regulations" introduced in 2024 require Hebrew allergen labels on prepared foods sold via delivery aggregators (Wolt, 10bis, Cibus). Restaurants that previously skipped paper labels because items were eaten in-house must now print allergen info on each delivery packaging. Aggregator platforms also display allergen warnings in-app and pull data from the merchant's profile.
-- The Ministry of Health's "Galya Index" food-quality grading system (rolling launch from 2025) is voluntary, displayed on prepared foods and snacks. Not a regulatory requirement but increasingly a consumer signal; new SKUs targeting health-conscious buyers should evaluate inclusion.
 - Front-of-package red label thresholds were last revised in 2024. The Scientific Committee at the Ministry of Health publishes any updates and a transition period. Verify your nutrition panel against the latest thresholds at efsharibari.health.gov.il before printing labels at scale.
 
 ## Troubleshooting

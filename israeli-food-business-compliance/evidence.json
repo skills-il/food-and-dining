@@ -9,7 +9,10 @@
       "source_url": "https://www.gov.il/he/departments/israel_tax_authority",
       "raw_snippet": "מע\"מ 18% מ-1 בינואר 2025 / VAT 18% from 1 January 2025",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "front-package-thresholds-2024",
@@ -17,7 +20,10 @@
       "source_url": "https://efsharibari.health.gov.il/en/governance/legislation/unhealthy-food-labeling-law/",
       "raw_snippet": "500 mg, 400 mg, 13.5 g, 5 g, 5 g, 3 g thresholds",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "front-package-launch-2020",
@@ -25,7 +31,10 @@
       "source_url": "https://efsharibari.health.gov.il/en/governance/legislation/unhealthy-food-labeling-law/",
       "raw_snippet": "January 1, 2020 mandatory front-of-package labeling",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "kashrut-reform-2022",
@@ -33,7 +42,10 @@
       "source_url": "https://www.gov.il/he/departments/the_chief_rabbinate_of_israel",
       "raw_snippet": "רפורמת כהנא 2022, צהר, גופי כשרות פרטיים",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "allergen-list-il",
@@ -41,7 +53,10 @@
       "source_url": "https://www.health.gov.il/Subjects/FoodAndNutrition/",
       "raw_snippet": "אלרגנים: גלוטן, סרטנאים, ביצים, דגים, בוטנים, סויה, חלב, אגוזים, סלרי, חרדל, שומשום, סולפיטים, לופין, רכיכות",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "delivery-allergen-labeling-2024",
@@ -49,15 +64,10 @@
       "source_url": "https://www.health.gov.il/Subjects/FoodAndNutrition/",
       "raw_snippet": "תקנות מזון מוכן למשלוח 2024, Wolt, 10bis, סיבוס",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
-    },
-    {
-      "claim_id": "galya-index-2025",
-      "claim": "Galya Index is a voluntary Ministry of Health food-quality grading system launched 2025 for prepared foods and snacks",
-      "source_url": "https://efsharibari.health.gov.il/",
-      "raw_snippet": "Galya Index 2025 voluntary",
-      "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "fresh-produce-zero-vat",
@@ -65,15 +75,21 @@
       "source_url": "https://www.gov.il/he/departments/israel_tax_authority",
       "raw_snippet": "פירות וירקות טריים: שיעור אפס מע\"מ",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
-      "claim_id": "tzohar-since-2019",
-      "claim": "Tzohar Food Inspection operates since 2019 as an alternative national kashrut authority; absorbed Hashgacha Pratit's businesses",
-      "source_url": "https://www.tzohar.org.il/",
-      "raw_snippet": "Tzohar 2019, Hashgacha Pratit",
+      "claim_id": "tzohar-kashrut-system",
+      "claim": "Tzohar runs a nationwide kashrut supervision system operating alongside the Chief Rabbinate's; its supervisors are employed directly by Tzohar, not by the businesses.",
+      "source_url": "https://www.tzohar.org.il/?page_id=16250",
+      "raw_snippet": "משגיחי הכשרות שלנו מועסקים ישירות על ידי כשרות צהר – ולא על ידי בעלי העסקים",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "ref-moh-food",
@@ -81,7 +97,10 @@
       "source_url": "https://www.health.gov.il/Subjects/FoodAndNutrition/",
       "raw_snippet": "Ministry of Health Food",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "ref-efsharibari",
@@ -89,7 +108,10 @@
       "source_url": "https://efsharibari.health.gov.il/en/governance/legislation/unhealthy-food-labeling-law/",
       "raw_snippet": "Efsharibari labeling law",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "ref-chief-rabbinate",
@@ -97,7 +119,10 @@
       "source_url": "https://www.gov.il/he/departments/the_chief_rabbinate_of_israel",
       "raw_snippet": "Chief Rabbinate",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "ref-tzohar",
@@ -105,7 +130,10 @@
       "source_url": "https://www.tzohar.org.il/",
       "raw_snippet": "Tzohar",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "ref-business-licensing",
@@ -113,7 +141,10 @@
       "source_url": "https://www.gov.il/he/departments/topics/business_licensing",
       "raw_snippet": "rishyon esek",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "ref-tax-authority",
@@ -121,7 +152,10 @@
       "source_url": "https://www.gov.il/he/departments/israel_tax_authority",
       "raw_snippet": "Tax Authority",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "ref-sii",
@@ -129,7 +163,10 @@
       "source_url": "https://www.sii.org.il/",
       "raw_snippet": "SII",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "milligrams-grams-thresholds",
@@ -137,7 +174,10 @@
       "source_url": "https://efsharibari.health.gov.il/en/governance/legislation/unhealthy-food-labeling-law/",
       "raw_snippet": "500 mg, 400 mg, 13.5 g, 5 g, 3 g; 510 mg vs 490 mg illustrative borderline example",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "label-storage-temp",
@@ -145,7 +185,10 @@
       "source_url": "https://www.health.gov.il/Subjects/FoodAndNutrition/",
       "raw_snippet": "אחסון בקירור עד 4°C",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "ref-efsharibari-he",
@@ -153,7 +196,9 @@
       "source_url": "https://efsharibari.health.gov.il/he/governance/legislation/unhealthy-food-labeling-law/",
       "raw_snippet": "Efsharibari labeling law Hebrew",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL_HE.md"]
+      "appears_in": [
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "vat-rates-misc",
@@ -161,7 +206,10 @@
       "source_url": "https://www.gov.il/he/departments/israel_tax_authority",
       "raw_snippet": "0% מע\"מ, קנס עד 226,000 ש\"ח / 226,000 NIS",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "inspection-correction-window",
@@ -169,7 +217,10 @@
       "source_url": "https://www.health.gov.il/Subjects/FoodAndNutrition/",
       "raw_snippet": "7-30 days correction window",
       "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     }
   ]
 }
