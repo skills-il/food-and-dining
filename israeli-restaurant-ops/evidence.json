@@ -9,7 +9,11 @@
       "source_url": "https://en.globes.co.il/en/article-hundreds-of-restaurants-quit-as-10bis-ups-fees-1001406979",
       "raw_snippet": "10bis food-delivery commission rose to about 12% on top of a card fee; Wolt restaurant commissions run roughly 25-35% with an additional per-order operating fee; Mishloha operates regionally. Cibus rebranded under Pluxee.",
       "fetched_at": "2026-06-07T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/platform-guides.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/platform-guides.md"
+      ]
     },
     {
       "claim_id": "vat-pricing",
@@ -17,7 +21,10 @@
       "source_url": "https://sovos.com/regulatory-updates/vat/israel-vat-rate-increase-to-18-from-january-1-2025/",
       "raw_snippet": "Israel's standard VAT rate is 18% effective 1 January 2025.",
       "fetched_at": "2026-06-07T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "food-safety-kosher",
@@ -25,7 +32,10 @@
       "source_url": "https://www.gov.il/he/departments/national_food_service",
       "raw_snippet": "Cold storage below 4C and hot holding above 60C (HACCP danger zone 4-60C). Kosher levels כשר / כשר למהדרין / כשר לפסח are distinct certifications.",
       "fetched_at": "2026-06-07T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "food-cost-targets",
@@ -33,15 +43,22 @@
       "source_url": "https://www.gov.il/he/departments/national_food_service",
       "raw_snippet": "Industry food-cost targets: fast/street 25-30%, casual 28-35%, fine dining 30-40%, cloud kitchen 25-32%. Menu engineering: Stars, Puzzles, Plowhorses, Dogs.",
       "fetched_at": "2026-06-07T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     },
     {
       "claim_id": "reference-urls-and-examples",
       "claim": "Reference URLs and illustrative pricing-example figures. Example amounts (food cost 12/17/18 NIS, menu prices 40-70 NIS, schnitzel/hummus examples, packaging 3-8 NIS) and percentages (commission 12%/20%/30%, margins 60%, food-cost 25-40%, photo-conversion 30-50%) are illustrative or indicative, not fixed rates.",
-      "source_url": "https://www.10bis.co.il/",
+      "source_url": "https://www.10bis.co.il/next/restaurants",
       "raw_snippet": "URLs: https://www.10bis.co.il/ https://www.mishloha.co.il/ https://explore.wolt.com/en/isr/merchant/business/restaurants https://www.cibus.co.il/ https://www.gov.il/he/departments/national_food_service https://partner.mishloha.co.il https://restaurant-portal.wolt.com https://restaurant.10bis.co.il . Illustrative example amounts (NIS and shekel forms): 3 ש\"ח, 5 ש\"ח, 8 ש\"ח, 12 NIS, 12 ש\"ח, 17 NIS, 17 ש\"ח, 18 NIS, 18 ש\"ח, 40 NIS, 40 ש\"ח, 45 NIS, 45 ש\"ח, 49 NIS, 49 ש\"ח, 51 NIS, 51.1 NIS, 51 ש\"ח, 56 NIS, 56.3 NIS, 56 ש\"ח, 57 NIS, 57 ש\"ח, 61 NIS, 61 ש\"ח, 64.3 NIS, 65 NIS, 65 ש\"ח, 70 NIS, 70 ש\"ח, 3-8 ש\"ח, ', שקל'; percentages 10%, 12%, 15%, 18%, 20%, 30%, 60%, 30-50%.",
       "fetched_at": "2026-06-07T00:00:00Z",
-      "appears_in": ["SKILL.md", "SKILL_HE.md", "references/platform-guides.md"]
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/platform-guides.md"
+      ]
     }
   ]
 }
