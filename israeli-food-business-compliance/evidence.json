@@ -220,6 +220,32 @@
         "SKILL.md",
         "SKILL_HE.md"
       ]
+    },
+    {
+      "claim_id": "red-label-stage-2-thresholds",
+      "claim": "Second-stage red-label thresholds, in force since January 2021: sodium 400 mg/100 g solid and 300 mg/100 ml liquid; total sugars 10 g and 5 g; saturated fat 4 g and 3 g. The first stage (January 2020) used 500/400, 13.5/5 and 5/3.",
+      "source_url": "https://www.gov.il/he/pages/food-labeling",
+      "raw_snippet": "פעימה שנייה:  פריט סימון כמות ב-100 גרם מזון מוצק כמות ב-100 מ\"ל מזון נוזלי נתרן 400 מ\"ג 300 מ\"ג סך סוכרים 10 גרם 5 גרם סך חומצות שומן רוויות 4 גרם 3 גרם",
+      "fetched_at": "2026-08-11",
+      "verified_via": "gov.il content API",
+      "verified_at": "2026-08-11",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/labeling-requirements.md"
+      ]
+    },
+    {
+      "claim_id": "allergen-eu-1169-transition",
+      "claim": "Israel's current allergen-labelling format applies until the adopted EU legislation takes effect: Amendment 10 to the Public Health Protection (Food) Law 5776-2015 sets a transition period to 01.01.2028 for pre-packed food and 01.01.2032 for food sold in bulk. Under the new format the allergen appears only inside the ingredients list, in bold, replacing the separate box.",
+      "source_url": "https://www.gov.il/he/pages/food-labeling",
+      "raw_snippet": "מתייחס להוראות סימון מזון אשר חלות בישראל טרם אימוץ החקיקה האירופית לעניין זה, אשר לגביה נקבעה תקופת מעבר עד ל – 01.01.2028 בתיקון מס' 10 לחוק הגנה על בריאות הציבור(מזון) התשע\"ו, 2015",
+      "fetched_at": "2026-08-11",
+      "verified_via": "gov.il content API",
+      "verified_at": "2026-08-11",
+      "appears_in": [
+        "references/labeling-requirements.md"
+      ]
     }
   ]
 }

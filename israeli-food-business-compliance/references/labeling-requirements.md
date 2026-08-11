@@ -51,6 +51,18 @@ Israeli regulations require mandatory declaration of these allergens:
 - **Separate warning:** "מכיל: [allergen list]" below ingredients list
 - **May contain (cross-contamination):** "עלול להכיל: [allergen list]", only when genuine cross-contamination risk exists after preventive measures
 
+**Transition to EU Regulation 1169/2011.** The format above is the rule that
+applies in Israel BEFORE the adopted European legislation takes effect. Amendment
+10 to the Public Health Protection (Food) Law 5776-2015 sets a transition period
+running to **01.01.2028** for pre-packed food, and to **01.01.2032** for food sold
+in bulk (delicatessens, bakeries). A business may adopt the new format early.
+Under the new format the separate "מכיל:" box disappears and each allergen is
+marked ONLY inside the ingredients list, in bold, e.g.
+"...סוכר, חיטה (גלוטן), אבקת חלב, מלח...". Where several ingredients derive from
+the same allergen, each relevant ingredient must be marked; there is no
+requirement to state how many times the allergen appears, but any reference must
+be linked to the ingredients list.
+
 ## Nutritional Information Table Format
 
 Standard format per Israeli regulations:
@@ -80,9 +92,9 @@ Mandatory since January 1, 2020. Applies to packaged food sold in Israel. Update
 
 | Nutrient | Solid foods (per 100g) | Liquids (per 100ml) |
 |----------|------------------------|---------------------|
-| Sodium (נתרן) | > 500 mg | > 400 mg |
-| Total sugars (סוכרים) | > 13.5 g | > 5 g |
-| Saturated fat (שומן רווי) | > 5 g | > 3 g |
+| Sodium (נתרן) | > 400 mg | > 300 mg |
+| Total sugars (סוכרים) | > 10 g | > 5 g |
+| Saturated fat (שומן רווי) | > 4 g | > 3 g |
 
 Each exceeded nutrient gets its own red icon. Place on the principal display panel (front of package), not on the back.
 

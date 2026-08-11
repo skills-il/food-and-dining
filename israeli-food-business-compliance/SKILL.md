@@ -79,13 +79,13 @@ See `references/labeling-requirements.md` for detailed format specifications and
 ### Step 4.5: Apply Front-of-Package Red/Green Warning Labels (סימון אדום/ירוק)
 Since January 1, 2020, packaged food products sold in Israel must carry red warning labels on the front of the package when they exceed nutrient thresholds for sodium, sugar, or saturated fat. A voluntary green positive label is also available for products meeting national dietary guidelines. The Scientific Committee at the Ministry of Health updates these criteria periodically (three formal updates between 2020 and 2024).
 
-Red label thresholds (as of 2024, per Ministry of Health regulations):
+Red label thresholds (second stage, in force since January 2021):
 
 | Nutrient | Solid foods (per 100g) | Liquids (per 100ml) |
 |----------|------------------------|---------------------|
-| Sodium (נתרן) | > 500 mg | > 400 mg |
-| Total sugars (סוכרים) | > 13.5 g | > 5 g |
-| Saturated fat (שומן רווי) | > 5 g | > 3 g |
+| Sodium (נתרן) | > 400 mg | > 300 mg |
+| Total sugars (סוכרים) | > 10 g | > 5 g |
+| Saturated fat (שומן רווי) | > 4 g | > 3 g |
 
 Implementation notes:
 - The label is a black-and-red stop-sign-style icon placed on the principal display panel (not on the back).
@@ -94,7 +94,7 @@ Implementation notes:
 - Restaurants and ready-to-eat establishments are not required to apply red labels on prepared dishes, but packaged take-home items follow the regulation.
 - Green positive label is voluntary and is granted only to products that carry no red label and meet additional sodium and processing limits.
 
-When generating a label or evaluating a product, check thresholds against the table above and recommend reformulation if a borderline product can be moved below the threshold (e.g., reducing sodium from 510 to 490 mg/100g eliminates the red label).
+When generating a label or evaluating a product, check thresholds against the table above and recommend reformulation if a borderline product can be moved below the threshold (e.g., reducing sodium from 410 to 390 mg/100g eliminates the red label).
 
 ### Step 5: Guide Food Import Regulations
 Importing food to Israel requires:
