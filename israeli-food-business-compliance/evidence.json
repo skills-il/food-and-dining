@@ -6,24 +6,28 @@
     {
       "claim_id": "vat-18-jan-2025",
       "claim": "Israel standard VAT rate rose from 17% to 18% on January 1, 2025",
-      "source_url": "https://www.gov.il/he/departments/israel_tax_authority",
-      "raw_snippet": "מע\"מ 18% מ-1 בינואר 2025 / VAT 18% from 1 January 2025",
+      "source_url": "https://www.gov.il/he/pages/dec1270-2024",
+      "raw_snippet": "לרשום את הודעת שר האוצר כי בכוונתו לתקן את צו מס ערך מוסף (שיעור המס על עסקה ועל יבוא טובין), התשס\"ה-2005 ולקבוע כי שיעור המס על עסקה ועל יבוא טובין יעלה באחוז אחד, כך שיעמוד על 18% במקום 17% החל מיום 1 בינואר 2025.",
       "fetched_at": "2026-05-25T21:55:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "gov.il content API",
+      "source_fetched_at": "2026-08-11T00:00:00Z"
     },
     {
       "claim_id": "front-package-thresholds-2024",
-      "claim": "Red label thresholds 2024: sodium > 500 mg/100g solids or > 400 mg/100ml liquids; sugars > 13.5 g/100g solids or > 5 g/100ml liquids; saturated fat > 5 g/100g solids or > 3 g/100ml liquids",
+      "claim": "Red-label thresholds, second stage from January 2021: sodium 400 mg/100 g solids or 300 mg/100 ml liquids; total sugars 10 g/100 g or 5 g/100 ml; total saturated fats 4 g/100 g or 3 g/100 ml.",
       "source_url": "https://efsharibari.health.gov.il/en/governance/legislation/unhealthy-food-labeling-law/",
-      "raw_snippet": "500 mg, 400 mg, 13.5 g, 5 g, 5 g, 3 g thresholds",
+      "raw_snippet": "Second stage: January 2021\nLabeled item\nQuantity in 100 g solid food\nQuantity in 100 ml liquid food\nSodium\n400 mg\n300 mg\nTotal sugars\n10 g\n5 g\nTotal saturated fats\n4 g\n3 g",
       "fetched_at": "2026-05-25T21:55:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "curl",
+      "source_fetched_at": "2026-08-11T00:00:00Z"
     },
     {
       "claim_id": "front-package-launch-2020",
@@ -49,36 +53,29 @@
     },
     {
       "claim_id": "allergen-list-il",
-      "claim": "Israeli allergens that must be declared: gluten, crustaceans, eggs, fish, peanuts, soybeans, milk, tree nuts, celery, mustard, sesame, sulfites, lupin, mollusks",
-      "source_url": "https://www.health.gov.il/Subjects/FoodAndNutrition/",
-      "raw_snippet": "אלרגנים: גלוטן, סרטנאים, ביצים, דגים, בוטנים, סויה, חלב, אגוזים, סלרי, חרדל, שומשום, סולפיטים, לופין, רכיכות",
+      "claim": "Allergens present in a food must be highlighted within the ingredients list (for example milk, soy, peanuts or gluten) using bold font, underline or a different background color; the separate \"contains\" box is no longer used.",
+      "source_url": "https://www.gov.il/he/pages/food-labeling?chapterIndex=4",
+      "raw_snippet": "הדגשה בולטת: כל אלרגן המופיע ברשימת הרכיבים (כמו חלב, סויה, בוטנים או גלוטן) חייב להופיע כשהוא מודגש באמצעות גופן בולט, קו תחתון או צבע רקע שונה.",
       "fetched_at": "2026-05-25T21:55:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
-    },
-    {
-      "claim_id": "delivery-allergen-labeling-2024",
-      "claim": "2024 Cooked Food Delivery Regulations require Hebrew allergen labels on prepared foods sold via delivery aggregators (Wolt, 10bis, Cibus)",
-      "source_url": "https://www.health.gov.il/Subjects/FoodAndNutrition/",
-      "raw_snippet": "תקנות מזון מוכן למשלוח 2024, Wolt, 10bis, סיבוס",
-      "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "gov.il content API",
+      "source_fetched_at": "2026-08-11T00:00:00Z"
     },
     {
       "claim_id": "fresh-produce-zero-vat",
-      "claim": "Fresh fruits and vegetables (whole, unprocessed) are zero-rated for VAT in Israel; processed or prepared dishes attract standard 18%",
-      "source_url": "https://www.gov.il/he/departments/israel_tax_authority",
-      "raw_snippet": "פירות וירקות טריים: שיעור אפס מע\"מ",
+      "claim": "Sale of fruits and vegetables of types set by the Finance Minister, on which no processing was performed, carries a zero VAT rate (0%); cleaning, sorting, packing, ripening, storage and cooling do not count as processing.",
+      "source_url": "https://he.wikisource.org/wiki/%D7%97%D7%95%D7%A7_%D7%9E%D7%A1_%D7%A2%D7%A8%D7%9A_%D7%9E%D7%95%D7%A1%D7%A3",
+      "raw_snippet": "(13) מכירת פירות וירקות מסוגים שקבע שר האוצר, שלא נעשה בהם כל עיבוד; לענין זה לא יראו כעיבוד ניקוי, בירור, אריזה, הבחלה, החסנה וקירור;",
       "fetched_at": "2026-05-25T21:55:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "curl",
+      "source_fetched_at": "2026-08-11T00:00:00Z"
     },
     {
       "claim_id": "tzohar-kashrut-system",
@@ -93,25 +90,29 @@
     },
     {
       "claim_id": "ref-moh-food",
-      "claim": "Ministry of Health food service portal",
-      "source_url": "https://www.health.gov.il/Subjects/FoodAndNutrition/",
-      "raw_snippet": "Ministry of Health Food",
+      "claim": "The Ministry of Health food-labeling guide covers product name, contents, allergen labeling, manufacturer/importer details and the ingredients list.",
+      "source_url": "https://www.gov.il/he/pages/food-labeling?chapterIndex=4",
+      "raw_snippet": "משרד הבריאות פועל להבטחת רמה גבוהה של הגנה על בריאות הצרכנים ולמניעת הטעיה, ועל כן אומצה רגולציה המסדירה את אופן מסירת המידע לצרכנים (תקנה 1169/2011).",
       "fetched_at": "2026-05-25T21:55:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "gov.il content API",
+      "source_fetched_at": "2026-08-11T00:00:00Z"
     },
     {
       "claim_id": "ref-efsharibari",
-      "claim": "Efsharibari front-of-package labeling regulations",
+      "claim": "The Efsharibari legislation page explains the red warning labels and gives the two-stage threshold tables for solid and liquid foods.",
       "source_url": "https://efsharibari.health.gov.il/en/governance/legislation/unhealthy-food-labeling-law/",
-      "raw_snippet": "Efsharibari labeling law",
+      "raw_snippet": "Regulations make a distinction between solid and liquid foods, and the process will have two stages where threshold values for labelling will be changed:",
       "fetched_at": "2026-05-25T21:55:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "curl",
+      "source_fetched_at": "2026-08-11T00:00:00Z"
     },
     {
       "claim_id": "ref-chief-rabbinate",
@@ -137,25 +138,29 @@
     },
     {
       "claim_id": "ref-business-licensing",
-      "claim": "Business Licensing Authority portal",
+      "claim": "The Ministry of Health issues approvals under the Business Licensing Order for businesses connected to public health, including restaurants and grocery stores.",
       "source_url": "https://www.gov.il/he/departments/topics/business_licensing",
-      "raw_snippet": "rishyon esek",
+      "raw_snippet": "משרד הבריאות מספק אישור, בהתאם לצו רישוי עסקים, עבור עסקים, להם קשר לבריאות הציבור כדוגמת: בריכות שחיה, מסעדות, מרכולים, גני אירועים, בתי מלון, מקוואות, מתקני טיפול בשפכים, מתקני טיפול במי שתיה ועוד.",
       "fetched_at": "2026-05-25T21:55:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "gov.il content API",
+      "source_fetched_at": "2026-08-11T00:00:00Z"
     },
     {
       "claim_id": "ref-tax-authority",
-      "claim": "Israel Tax Authority",
+      "claim": "The Israel Tax Authority portal offers online reporting and payment of VAT returns for VAT-registered dealers.",
       "source_url": "https://www.gov.il/he/departments/israel_tax_authority",
-      "raw_snippet": "Tax Authority",
+      "raw_snippet": "שירות זה מאפשר לעוסקים רשומים במע\"מ לדווח ולשלם דוחות מע\"מ באופן מקוון.",
       "fetched_at": "2026-05-25T21:55:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "gov.il content API",
+      "source_fetched_at": "2026-08-11T00:00:00Z"
     },
     {
       "claim_id": "ref-sii",
@@ -170,53 +175,47 @@
     },
     {
       "claim_id": "milligrams-grams-thresholds",
-      "claim": "Front-of-package thresholds use mg/g per 100g/100ml units: 500 mg, 400 mg, 13.5 g, 5 g, 3 g",
+      "claim": "Front-of-package thresholds are expressed per 100 g of solid food and per 100 ml of liquid food, in mg for sodium and g for sugars and saturated fats.",
       "source_url": "https://efsharibari.health.gov.il/en/governance/legislation/unhealthy-food-labeling-law/",
-      "raw_snippet": "500 mg, 400 mg, 13.5 g, 5 g, 3 g; 510 mg vs 490 mg illustrative borderline example",
+      "raw_snippet": "Second stage: January 2021\nLabeled item\nQuantity in 100 g solid food\nQuantity in 100 ml liquid food\nSodium\n400 mg\n300 mg\nTotal sugars\n10 g\n5 g\nTotal saturated fats\n4 g\n3 g",
       "fetched_at": "2026-05-25T21:55:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
-    },
-    {
-      "claim_id": "label-storage-temp",
-      "claim": "Storage instruction example temperature 4°C used in illustrative hummus label",
-      "source_url": "https://www.health.gov.il/Subjects/FoodAndNutrition/",
-      "raw_snippet": "אחסון בקירור עד 4°C",
-      "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "curl",
+      "source_fetched_at": "2026-08-11T00:00:00Z"
     },
     {
       "claim_id": "ref-efsharibari-he",
-      "claim": "Efsharibari Hebrew front-of-package labeling regulations page",
-      "source_url": "https://efsharibari.health.gov.il/he/governance/legislation/unhealthy-food-labeling-law/",
-      "raw_snippet": "Efsharibari labeling law Hebrew",
+      "claim": "The Ministry of Health Hebrew food-labeling guide sets out the allergen labeling rules: allergens appear only inside the ingredients list and are highlighted there.",
+      "source_url": "https://www.gov.il/he/pages/food-labeling?chapterIndex=4",
+      "raw_snippet": "האלרגנים יופיעו אך ורק בתוך רשימת הרכיבים. האלרגן יודגש בבירור בתוך הרשימה (למשל על ידי שימוש בגופן מודגש, סגנון שונה או צבע רקע אחר), כדי להבדילו משאר הרכיבים.",
       "fetched_at": "2026-05-25T21:55:00Z",
       "appears_in": [
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "gov.il content API",
+      "source_fetched_at": "2026-08-11T00:00:00Z"
     },
     {
-      "claim_id": "vat-rates-misc",
-      "claim": "Zero VAT rate (0%) applies to fresh fruits and vegetables; criminal/administrative penalty up to 226,000 NIS may apply to severe food-safety violations per Israeli food regulations (illustrative)",
-      "source_url": "https://www.gov.il/he/departments/israel_tax_authority",
-      "raw_snippet": "0% מע\"מ, קנס עד 226,000 ש\"ח / 226,000 NIS",
-      "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
+      "claim_id": "allergen-1169-effective-2028",
+      "claim": "The new allergen labeling rules become mandatory for pre-packed food on 1 January 2028, and for loose/bulk food on 1 January 2032.",
+      "claim_type": "figure",
+      "source_url": "https://www.gov.il/he/pages/food-labeling?chapterIndex=4",
+      "raw_snippet": "תחולה במזון ארוז מראש- הוראות הסימון החדשות נכנסות לתוקף ביום 1 בינואר 2028, כאשר ניתן ליישם את ההוראות גם לפני מועד זה.",
+      "confidence": "high",
+      "source_fetched_at": "2026-08-11T00:00:00Z",
+      "verified_via": "gov.il content API"
     },
     {
-      "claim_id": "inspection-correction-window",
-      "claim": "Health inspector typically allows 7-30 days for correction of critical violations depending on severity",
-      "source_url": "https://www.health.gov.il/Subjects/FoodAndNutrition/",
-      "raw_snippet": "7-30 days correction window",
-      "fetched_at": "2026-05-25T21:55:00Z",
+      "claim_id": "govil-food-labeling-page",
+      "claim": "Ministry of Health food-labeling requirements page (replaces two dead MoH URLs: /Subjects/FoodAndNutrition/ redirects to the MoH 404, and the efsharibari legislation page returns HTTP 200 with an error body).",
+      "source_url": "https://www.gov.il/he/pages/food-labeling",
+      "raw_snippet": ">המידע המופיע בעמוד זה (ובשאר הלשוניות בעמוד)&nbsp;מתייחס להוראות סימון מזון אשר חלות בישראל טרם אימוץ החקיקה האירופית לעניין זה, אשר לגביה נקבעה תקופת מעבר עד ל – 01.01.2028 בתיקון מס' 10 לחוק הגנה על בריאות הציבור(מזון) התשע\\",
+      "fetched_at": "2026-08-11",
+      "verified_via": "gov.il content API",
+      "verified_at": "2026-08-11",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"

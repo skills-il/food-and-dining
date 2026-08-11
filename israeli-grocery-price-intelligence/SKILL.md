@@ -176,13 +176,13 @@ Result: Current cost per serving: 8.40 NIS (cheapest chain combination). Eggs ar
 
 | Source | URL | What to Check |
 |--------|-----|---------------|
-| Wikipedia, Promotion of Competition in Food and Pharma Law (Hebrew) | https://he.wikipedia.org/wiki/חוק_קידום_התחרות_בענפי_המזון_והפארם | Plain-language summary, legislative history, recent amendments |
+| Wikisource, Promotion of Competition in the Food Sector Law (statute text) | https://he.wikisource.org/wiki/חוק_קידום_התחרות_בענף_המזון | Plain-language summary, legislative history, recent amendments |
 | Wikipedia, List of supermarket chains in Israel | https://en.wikipedia.org/wiki/List_of_supermarket_chains_in_Israel | Current chain ownership, store counts, brand consolidations |
 | Shufersal Direct Portal | https://prices.shufersal.co.il | Live PriceFull/PricesPromotions/Stores feeds for Shufersal |
 | Cerberus PublishedPrices Portal | https://url.publishedprices.co.il/login | Live feeds for Rami Levy, Yochananof, Victory, Tiv Taam, Osher Ad, Mega, and ~25 other chains |
 | Carrefour Israel Direct Portal | https://prices.carrefour.co.il | Live feeds for Carrefour / Mega / Yeinot Bitan stores |
 | OpenIsraeliSupermarkets, community parsers | https://github.com/OpenIsraeliSupermarkets | Reference Python scrapers and parsers used by the community. The active library is `il-supermarket-scraper` (PyPI), which handles Cerberus CSRF login, chain-code lookup, file listing, and decompression |
-| Wikipedia, Taxation in Israel | https://en.wikipedia.org/wiki/Taxation_in_Israel | Current Israeli VAT rate (18% since 1 Jan 2025), includes historical rate changes |
+| Israel Tax Authority, Interpretation Directive 01/2025 | https://www.gov.il/BlobFolder/dynamiccollectorresultitem/represent-info-051224-2/he/vat_represent-info-051224-2.pdf | Current Israeli VAT rate (18% since 1 Jan 2025), includes historical rate changes |
 
 ## Troubleshooting
 

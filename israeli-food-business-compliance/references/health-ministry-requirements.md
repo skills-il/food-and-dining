@@ -46,7 +46,7 @@ All food businesses in Israel require a business license (רישיון עסק) u
 
 | Violation | Severity | Typical Penalty |
 |-----------|----------|----------------|
-| Operating without a license | Critical | Closure order + fine (up to 226,000 NIS) |
+| Operating without a license | Critical | Closure order + fine |
 | Temperature abuse (cold food > 5°C) | Critical | Warning + mandatory correction within 24 hours |
 | Pest evidence (droppings, live insects) | Critical | Closure until pest-free certification obtained |
 | Expired products on premises | Major | Fine + product confiscation |

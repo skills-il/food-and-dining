@@ -187,7 +187,7 @@ Result: 32-item inspection checklist organized by priority. Top 5 critical items
 - `references/labeling-requirements.md`: Israeli food labeling regulations, including mandatory fields, allergen declaration requirements, nutritional information format, red/green front-of-package thresholds, Hebrew label template, and import labeling rules. Consult when generating food labels in Step 4 or guiding import regulations in Step 5.
 
 ### Reference Links
-- Ministry of Health, Food Service: https://www.health.gov.il/Subjects/FoodAndNutrition/
+- Ministry of Health, Food Service: https://www.gov.il/he/pages/food-labeling
 - Front-of-package labeling regulations (Efsharibari): https://efsharibari.health.gov.il/en/governance/legislation/unhealthy-food-labeling-law/
 - Chief Rabbinate of Israel (kashrut): https://www.gov.il/he/departments/the_chief_rabbinate_of_israel
 - Tzohar Food Inspection: https://www.tzohar.org.il/?page_id=16250

@@ -170,13 +170,13 @@
 
 | מקור | כתובת | מה לבדוק שם |
 |-------|--------|--------------|
-| ויקיפדיה, חוק קידום התחרות בענפי המזון והפארם | https://he.wikipedia.org/wiki/חוק_קידום_התחרות_בענפי_המזון_והפארם | הסבר בשפה פשוטה, רקע חקיקתי, תיקונים אחרונים |
+| ויקיטקסט, חוק קידום התחרות בענף המזון (נוסח החוק) | https://he.wikisource.org/wiki/חוק_קידום_התחרות_בענף_המזון | הסבר בשפה פשוטה, רקע חקיקתי, תיקונים אחרונים |
 | Wikipedia, רשתות סופרמרקטים בישראל | https://en.wikipedia.org/wiki/List_of_supermarket_chains_in_Israel | בעלות עדכנית של רשתות, מספרי סניפים, מיזוגי מותגים |
 | פורטל שופרסל ישיר | https://prices.shufersal.co.il | פידים פעילים של PriceFull / PricesPromotions / Stores לשופרסל |
 | פורטל Cerberus (PublishedPrices) | https://url.publishedprices.co.il/login | פידים פעילים של רמי לוי, יוחננוף, ויקטורי, טיב טעם, אושר עד, מגה ועוד כ-25 רשתות |
 | פורטל קרפור ישראל ישיר | https://prices.carrefour.co.il | פידים פעילים של חנויות קרפור / מגה / יינות ביתן |
 | OpenIsraeliSupermarkets, פרסרים קהילתיים | https://github.com/OpenIsraeliSupermarkets | סקריפטים פייתוניים לעיבוד הפידים שמתחזקים בקהילה. הספרייה הפעילה היא `il-supermarket-scraper` (PyPI), שמטפלת בהתחברות CSRF ל-Cerberus, חיפוש קוד רשת, הצגת קבצים וביטול דחיסה |
-| ויקיפדיה, מס ערך מוסף | https://he.wikipedia.org/wiki/מס_ערך_מוסף | שיעור המע"מ הנוכחי בישראל (18% מ-1 בינואר 2025) והיסטוריית שינויי השיעור |
+| רשות המסים, הוראת פרשנות 01/2025 | https://www.gov.il/BlobFolder/dynamiccollectorresultitem/represent-info-051224-2/he/vat_represent-info-051224-2.pdf | שיעור המע"מ הנוכחי בישראל (18% מ-1 בינואר 2025) והיסטוריית שינויי השיעור |
 
 ## פתרון בעיות
 

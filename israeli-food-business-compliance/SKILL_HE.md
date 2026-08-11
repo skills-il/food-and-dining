@@ -181,8 +181,8 @@
 - `references/labeling-requirements.md`, תקנות תיוג מזון בישראל: שדות חובה, דרישות הצהרת אלרגנים, פורמט מידע תזונתי, ספי סימון אדום/ירוק על חזית האריזה, תבנית תווית עברית וכללי תיוג ייבוא. תיעזרו בקובץ הזה כשאתם יוצרים תוויות מזון בשלב 4 או עוברים על תקנות ייבוא בשלב 5.
 
 ### קישורים
-- משרד הבריאות, שירות המזון: https://www.health.gov.il/Subjects/FoodAndNutrition/
-- תקנות סימון חזית האריזה (אפשריבריא): https://efsharibari.health.gov.il/he/governance/legislation/unhealthy-food-labeling-law/
+- משרד הבריאות, שירות המזון: https://www.gov.il/he/pages/food-labeling
+- תקנות סימון חזית האריזה (אפשריבריא): https://www.gov.il/he/pages/food-labeling
 - הרבנות הראשית לישראל (כשרות): https://www.gov.il/he/departments/the_chief_rabbinate_of_israel
 - צהר השגחת מזון: https://www.tzohar.org.il/?page_id=16250
 - רשות הרישוי לעסקים (רישיון עסק): https://www.gov.il/he/departments/topics/business_licensing

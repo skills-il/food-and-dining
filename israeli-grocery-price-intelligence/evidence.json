@@ -38,15 +38,17 @@
     },
     {
       "claim_id": "publishing-platforms-and-consumer-apps",
-      "claim": "Chains publish through prices.shufersal.co.il, prices.carrefour.co.il and url.publishedprices.co.il (Cerberus); the legacy matrixcatalog.co.il is dead; consumer comparison apps and the official approved-apps list are listed",
+      "claim": "The Consumer Protection and Fair Trade Authority publishes an official list of price-comparison apps meeting its requirements, which includes PriceZ (pricez.co.il), MySupermarket (mysupermarket.co.il) and CHP (chp.co.il)",
       "source_url": "https://www.gov.il/he/pages/cpfta_apps",
-      "raw_snippet": "Feed and consumer sources: https://prices.shufersal.co.il https://prices.carrefour.co.il https://url.publishedprices.co.il/login https://url.publishedprices.co.il/login/user https://url.publishedprices.co.il/file/json/dir https://url.publishedprices.co.il/file/d/PriceFull...xml.gz https://url.publishedprices.co.il/file/d/PriceFull7290058140886-001-202605120300.gz https://url.publishedprices.co.il/file/d/<filename> Cerberus endpoints /login /login/user /file/json/dir /file/d/<filename> https://chp.co.il https://www.pricez.co.il https://www.savy.co.il https://www.gov.il/he/pages/cpfta_apps https://github.com/OpenIsraeliSupermarkets https://he.wikipedia.org/wiki/חוק_קידום_התחרות_בענפי_המזון_והפארם https://en.wikipedia.org/wiki/List_of_supermarket_chains_in_Israel https://he.wikipedia.org/wiki/מס_ערך_מוסף https://en.wikipedia.org/wiki/Taxation_in_Israel http://online2.carrefour.co.il https://publishprice.mega.co.il",
-      "fetched_at": "2026-06-16T21:55:00Z",
+      "raw_snippet": "העומדות בדרישות הרשות: פריסז אתר אינטרנט https://www.pricez.co.il/ אפליקציית אייפון https://itunes.apple.com/il/app/pricez/id475190969?ls=1&mt=8 אפליקציית אנדרואיד https://play.google.com/store/apps/details?id=il.co.PriceZ.android מיי סופר מרקט אתר אינטרנט https://www.mysupermarket.co.il אפליקציית אייפון http://64560.api-01.com/serve? action=click&publisher_id=64560&site_id=48846&offer_id=277436&sub_campaign=homepage אפליקציית אנדרואיד https://play.google.com/store/apps/details?id=com.mysupermarket.il CHP אתר אינטרנט https://chp.co.il",
+      "fetched_at": "2026-08-11",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/chain-feeds.md"
-      ]
+      ],
+      "verified_via": "gov.il content API",
+      "verified_at": "2026-08-11"
     },
     {
       "claim_id": "chain-ownership-facts",
@@ -88,6 +90,123 @@
       "source_url": "https://github.com/OpenIsraeliSupermarkets",
       "raw_snippet": "il-supermarket-scraper PyPI library handles Cerberus CSRF login, chain-code lookup, file listing, decompression",
       "fetched_at": "2026-06-16T21:55:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-prices-shufersal",
+      "claim": "Shufersal publishes its price files at prices.shufersal.co.il, a price-transparency site listing every branch",
+      "source_url": "https://prices.shufersal.co.il",
+      "raw_snippet": "שופרסל אתר שקיפות מחירים אתר שקיפות מחירים All 1 - שלי ת\"א- בן יהודה 2 - שלי ירושלים- אגרון 3 - שלי גבעתיים- סירקין",
+      "fetched_at": "2026-08-11",
+      "verified_at": "2026-08-11",
+      "verified_via": "curl",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-prices-carrefour",
+      "claim": "Carrefour Israel publishes its price files at prices.carrefour.co.il, with Price, PriceFull, Promo, PromoFull and Stores categories per branch",
+      "source_url": "https://prices.carrefour.co.il",
+      "raw_snippet": "Carrefour - אתר שקיפות מחירים אתר שקיפות מחירים קטגוריה Price PriceFull Promo PromoFull Stores",
+      "fetched_at": "2026-08-11",
+      "verified_at": "2026-08-11",
+      "verified_via": "curl",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "cerberus-login-path",
+      "claim": "url.publishedprices.co.il runs a Cerberus web client whose sign-in page is at /login",
+      "source_url": "https://url.publishedprices.co.il/login",
+      "raw_snippet": "Cerberus Web Client Toggle navigation Cerberus Home Clear List Activity Center Not currently logged in Sign In Home Welcome to Public Published Prices Server Created by NCR L.T.D",
+      "fetched_at": "2026-08-11",
+      "verified_at": "2026-08-11",
+      "verified_via": "curl",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "cerberus-dir-path",
+      "claim": "The Cerberus directory-listing endpoint /file/json/dir exists and returns a 302 redirect when the client is not authenticated",
+      "source_url": "https://url.publishedprices.co.il/file/json/dir",
+      "raw_snippet": "<!DOCTYPE html><html><head><title>302 Redirected</title></head><body><h1>302 Redirected</h1></body></html>",
+      "fetched_at": "2026-08-11",
+      "verified_at": "2026-08-11",
+      "verified_via": "curl",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "cerberus-file-download-path",
+      "claim": "Cerberus serves individual price files from /file/d/<filename>; the path resolves and returns a 302 redirect when the client is not authenticated",
+      "source_url": "https://url.publishedprices.co.il/file/d/PriceFull7290058140886-001-202605120300.gz",
+      "raw_snippet": "<!DOCTYPE html><html><head><title>302 Redirected</title></head><body><h1>302 Redirected</h1></body></html>",
+      "fetched_at": "2026-08-11",
+      "verified_at": "2026-08-11",
+      "verified_via": "curl",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "cerberus-login-user-path",
+      "claim": "The Cerberus login form posts to /login/user; a POST there returns the Cerberus Web Client login page",
+      "source_url": "https://url.publishedprices.co.il/login/user",
+      "raw_snippet": "Cerberus Web Client Toggle navigation Cerberus Home Clear List Activity Center Not currently logged in Sign In Home Welcome to Public Published Prices Server Created by NCR L.T.D",
+      "fetched_at": "2026-08-11",
+      "verified_at": "2026-08-11",
+      "verified_via": "curl",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "url-savy",
+      "claim": "savy.co.il is an Israeli supermarket price-comparison consumer site built on the published price feeds",
+      "source_url": "https://www.savy.co.il",
+      "raw_snippet": "Savy | השוואת מחירי סופרמרקט בישראל | 25+ רשתות כניסה כמה אתם באמת משלמים? 30+ רשתות · 8.5 מיליון מחירים · מתעדכן יומיומית · 2,000 חנויות",
+      "fetched_at": "2026-08-11",
+      "verified_at": "2026-08-11",
+      "verified_via": "curl",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "food-competition-law-text",
+      "claim": "The Promotion of Competition in the Food Sector Law text is published on Wikisource (primary statute text, replacing an encyclopedia citation).",
+      "source_url": "https://he.wikisource.org/wiki/חוק_קידום_התחרות_בענף_המזון",
+      "raw_snippet": "חוק קידום התחרות בענף המזון ) חוק קידום התחרות בענפי המזון והפארם מ",
+      "fetched_at": "2026-08-11",
+      "verified_via": "curl",
+      "verified_at": "2026-08-11",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "vat-18-ita-directive",
+      "claim": "Israel's standard VAT rate rose from 17% to 18% effective 1 January 2025 per ITA Interpretation Directive 01/2025.",
+      "source_url": "https://www.gov.il/BlobFolder/dynamiccollectorresultitem/represent-info-051224-2/he/vat_represent-info-051224-2.pdf",
+      "raw_snippet": "הוראת פרשנות מס' - 01/2025העלאת שיעור המע\"מ מ 17%ל 18%",
+      "fetched_at": "2026-08-11",
+      "verified_via": "pdf",
+      "verified_at": "2026-08-11",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
