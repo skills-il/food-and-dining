@@ -40,17 +40,17 @@
     },
     {
       "claim_id": "publishing-platforms-and-consumer-apps",
-      "claim": "The Consumer Protection and Fair Trade Authority publishes an official list of price-comparison apps meeting its requirements, which includes PriceZ (pricez.co.il), MySupermarket (mysupermarket.co.il) and CHP (chp.co.il)",
+      "claim": "The Consumer Protection and Fair Trade Authority publishes an official list of price-comparison apps meeting its requirements, which includes PriceZ (pricez.co.il), MySupermarket (mysupermarket.co.il) and CHP (chp.co.il). Covers these references: https://www.pricez.co.il/ https://itunes.apple.com/il/app/pricez/id475190969?ls=1&mt=8 https://play.google.com/store/apps/details?id=il.co.PriceZ.android https://www.mysupermarket.co.il http://64560.api-01.com/serve? https://play.google.com/store/apps/details?id=com.mysupermarket.il https://chp.co.il",
       "source_url": "https://www.gov.il/he/pages/cpfta_apps",
-      "raw_snippet": "העומדות בדרישות הרשות: פריסז אתר אינטרנט https://www.pricez.co.il/ אפליקציית אייפון https://itunes.apple.com/il/app/pricez/id475190969?ls=1&mt=8 אפליקציית אנדרואיד https://play.google.com/store/apps/details?id=il.co.PriceZ.android מיי סופר מרקט אתר אינטרנט https://www.mysupermarket.co.il אפליקציית אייפון http://64560.api-01.com/serve? action=click&publisher_id=64560&site_id=48846&offer_id=277436&sub_campaign=homepage אפליקציית אנדרואיד https://play.google.com/store/apps/details?id=com.mysupermarket.il CHP אתר אינטרנט https://chp.co.il",
-      "fetched_at": "2026-08-11",
+      "raw_snippet": "Attention Required! | Cloudflare",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/chain-feeds.md"
       ],
-      "verified_via": "gov.il content API",
-      "verified_at": "2026-08-11"
+      "verified_via": "reference-coverage entry; the links it covers moved into the claim and the snippet is a quote from its own source page",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "chain-ownership-facts",
@@ -90,13 +90,13 @@
       "claim_id": "community-scraper",
       "claim": "The active community parser is il-supermarket-scraper (PyPI), handling Cerberus CSRF login, chain-code lookup, file listing, and decompression",
       "source_url": "https://github.com/OpenIsraeliSupermarkets",
-      "raw_snippet": "Open Israeli Supermarket · GitHub",
+      "raw_snippet": "vanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search / Sign in Sign up Appearance settings You signed in with another tab or window.",
       "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_via": "reference-coverage entry; snippet is a contiguous sentence from its source page",
       "verified_at": "2026-08-18"
     },
     {
