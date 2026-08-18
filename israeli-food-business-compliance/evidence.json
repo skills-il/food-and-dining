@@ -33,12 +33,14 @@
       "claim_id": "front-package-launch-2020",
       "claim": "Front-of-package red and green labeling regulations in force since January 1, 2020; criteria updated three times between 2020 and 2024",
       "source_url": "https://efsharibari.health.gov.il/en/governance/legislation/unhealthy-food-labeling-law/",
-      "raw_snippet": "January 1, 2020 mandatory front-of-package labeling",
-      "fetched_at": "2026-05-25T21:55:00Z",
+      "raw_snippet": "Regulations for Labeling Harmful Food Products - Efsharibari",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "kashrut-reform-2022",

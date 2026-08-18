@@ -90,12 +90,14 @@
       "claim_id": "community-scraper",
       "claim": "The active community parser is il-supermarket-scraper (PyPI), handling Cerberus CSRF login, chain-code lookup, file listing, and decompression",
       "source_url": "https://github.com/OpenIsraeliSupermarkets",
-      "raw_snippet": "il-supermarket-scraper PyPI library handles Cerberus CSRF login, chain-code lookup, file listing, decompression",
-      "fetched_at": "2026-06-16T21:55:00Z",
+      "raw_snippet": "Open Israeli Supermarket · GitHub",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "url-prices-shufersal",
