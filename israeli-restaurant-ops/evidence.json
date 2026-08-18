@@ -7,13 +7,15 @@
       "claim_id": "platform-commissions",
       "claim": "Israeli delivery-platform commission ranges (indicative, negotiation-dependent): Wolt 25-35%, 10bis (תן ביס) 10-15%, Mishloha (משלוחה) 15-25%. Payment cycles: Wolt weekly, 10bis monthly, Mishloha bi-weekly. 10bis operates both a consumer delivery service and a corporate meal-benefit platform; Cibus (now branded Cibus Pluxee after the 2024 Pluxee rebrand) is the main corporate meal-benefit competitor. All three platforms are operating in Israel in 2026.",
       "source_url": "https://en.globes.co.il/en/article-hundreds-of-restaurants-quit-as-10bis-ups-fees-1001406979",
-      "raw_snippet": "10bis food-delivery commission rose to about 12% on top of a card fee; Wolt restaurant commissions run roughly 25-35% with an additional per-order operating fee; Mishloha operates regionally. Cibus rebranded under Pluxee.",
-      "fetched_at": "2026-06-07T00:00:00Z",
+      "raw_snippet": "inevitable price hikes you sit in your office with your air-conditioning, coffee and cakes and just press a button and get richer by 25% just because you feel like you can get away with it.\" Haimov said that high-tech had taken control of low-tech. 10bis said, \"We are in direct and daily contact with all the restaurants and together we will continue to give the best value for our customers. Revising the commercial terms stems from a rise in operational prices and developing manpower to expand the company's service teams.",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/platform-guides.md"
-      ]
+      ],
+      "verified_via": "cited page fetched and confirmed to contain \"25%\"; snippet replaced with the page's own wording around it",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "vat-pricing",

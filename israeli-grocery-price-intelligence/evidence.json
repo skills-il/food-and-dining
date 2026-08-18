@@ -29,12 +29,14 @@
       "claim_id": "barcode-prefix-729",
       "claim": "Israeli product barcodes use the 729 GS1 country prefix; store-brand items often use internal codes starting with 2",
       "source_url": "https://en.wikipedia.org/wiki/List_of_GS1_country_codes",
-      "raw_snippet": "729 is the GS1 prefix for Israel",
-      "fetched_at": "2026-06-16T21:55:00Z",
+      "raw_snippet": "di Arabia 629 United Arab Emirates 630 Qatar 631 Namibia [ 4 ] 632 Rwanda 640–649 Finland 680–681 China 690–699 China 700–709 Norway 729 Israel 730–739 Sweden 740 Guatemala 741 El Salvador 742 Honduras 743 Nicaragua 744 Costa Rica 745 Panama 746 Dominican Republic 750 Mexico 754–755 Canada 759 Venezuela 760–769 Switzerland and Liechtenstein 770–771 Colombia 773 Uruguay 775 Peru 777 Bolivia 778–779 Argentina 780 Chile 784 Paraguay 786 Ecuador 789–790 Brazil 800–839 Italy , San Marino and Vatican City 840–849 Spain and Andorra 85",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "cited page fetched and confirmed to contain \"729\"; snippet replaced with the page's own wording around it",
+      "verified_at": "2026-08-18"
     },
     {
       "claim_id": "publishing-platforms-and-consumer-apps",
