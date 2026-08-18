@@ -5,7 +5,7 @@
   "claims": [
     {
       "claim_id": "platform-commissions",
-      "claim": "Israeli delivery-platform commission ranges (indicative, negotiation-dependent): Wolt 25-35%, 10bis (תן ביס) 10-15%, Mishloha (משלוחה) 15-25%. Payment cycles: Wolt weekly, 10bis monthly, Mishloha bi-weekly. 10bis operates both a consumer delivery service and a corporate meal-benefit platform; Cibus (now branded Cibus Pluxee after the 2024 Pluxee rebrand) is the main corporate meal-benefit competitor. All three platforms are operating in Israel in 2026.",
+      "claim": "Israeli delivery-platform commission ranges (indicative, negotiation-dependent): Wolt 25-35%, 10bis (תן ביס) 10-15%, Mishloha (משלוחה) 15-25%. Payment cycles: Wolt weekly, 10bis monthly, Mishloha bi-weekly. 10bis operates both a consumer delivery service and a corporate meal-benefit platform; Cibus (now branded Cibus Pluxee after the 2024 Pluxee rebrand) is the main corporate meal-benefit competitor. All three platforms are operating in Israel in 2026. Also covers: source_url is a bare homepage (https://www.10bis.co.il/). A homepage can never contain the snippet, so --check-sources can never falsify this claim. Use a deep link. 12 ₪ 17 ₪ 3 ₪ 40 ₪ 45 ₪ 49 ₪ 5 ₪ 51 ₪ 51.1 ₪ 56 ₪ 56.3 ₪ 57 ₪ 61 ₪ 64.3 ₪ 65 ₪ 10%",
       "source_url": "https://en.globes.co.il/en/article-hundreds-of-restaurants-quit-as-10bis-ups-fees-1001406979",
       "raw_snippet": "inevitable price hikes you sit in your office with your air-conditioning, coffee and cakes and just press a button and get richer by 25% just because you feel like you can get away with it.\" Haimov said that high-tech had taken control of low-tech. 10bis said, \"We are in direct and daily contact with all the restaurants and together we will continue to give the best value for our customers. Revising the commercial terms stems from a rise in operational prices and developing manpower to expand the company's service teams.",
       "fetched_at": "2026-08-18",
@@ -52,15 +52,17 @@
     },
     {
       "claim_id": "reference-urls-and-examples",
-      "claim": "Reference URLs and illustrative pricing-example figures. Example amounts (food cost 12/17/18 NIS, menu prices 40-70 NIS, schnitzel/hummus examples, packaging 3-8 NIS) and percentages (commission 12%/20%/30%, margins 60%, food-cost 25-40%, photo-conversion 30-50%) are illustrative or indicative, not fixed rates.",
-      "source_url": "https://www.10bis.co.il/next/restaurants",
-      "raw_snippet": "URLs: https://www.10bis.co.il/ https://www.mishloha.co.il/ https://explore.wolt.com/en/isr/merchant/business/restaurants https://www.cibus.co.il/ https://www.gov.il/he/departments/national_food_service https://partner.mishloha.co.il https://restaurant-portal.wolt.com https://restaurant.10bis.co.il . Illustrative example amounts (NIS and shekel forms): 3 ש\"ח, 5 ש\"ח, 8 ש\"ח, 12 NIS, 12 ש\"ח, 17 NIS, 17 ש\"ח, 18 NIS, 18 ש\"ח, 40 NIS, 40 ש\"ח, 45 NIS, 45 ש\"ח, 49 NIS, 49 ש\"ח, 51 NIS, 51.1 NIS, 51 ש\"ח, 56 NIS, 56.3 NIS, 56 ש\"ח, 57 NIS, 57 ש\"ח, 61 NIS, 61 ש\"ח, 64.3 NIS, 65 NIS, 65 ש\"ח, 70 NIS, 70 ש\"ח, 3-8 ש\"ח, ', שקל'; percentages 10%, 12%, 15%, 18%, 20%, 30%, 60%, 30-50%.",
-      "fetched_at": "2026-06-07T00:00:00Z",
+      "claim": "Reference URLs and illustrative pricing-example figures. Example amounts (food cost 12/17/18 NIS, menu prices 40-70 NIS, schnitzel/hummus examples, packaging 3-8 NIS) and percentages (commission 12%/20%/30%, margins 60%, food-cost 25-40%, photo-conversion 30-50%) are illustrative or indicative, not fixed rates. Covers these references: https://www.10bis.co.il/ https://www.mishloha.co.il/ https://explore.wolt.com/en/isr/merchant/business/restaurants https://www.cibus.co.il/ https://www.gov.il/he/departments/national_food_service https://partner.mishloha.co.il https://restaurant-portal.wolt.com https://restaurant.10bis.co.il",
+      "source_url": "https://explore.wolt.com/en/isr/merchant",
+      "raw_snippet": "er shops Convenience Grocery Pharmacy Alcohol Resources Merchant Blog Success Stories Close navigation menu Grow your business with Wolt Join Wolt and sell to customers already ordering in your area “Customers love the speed and convenience.",
+      "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/platform-guides.md"
-      ]
+      ],
+      "verified_via": "readable source among those the entry covers; snippet copied from it",
+      "verified_at": "2026-08-18"
     }
   ]
 }

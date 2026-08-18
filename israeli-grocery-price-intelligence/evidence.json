@@ -42,14 +42,14 @@
       "claim_id": "publishing-platforms-and-consumer-apps",
       "claim": "The Consumer Protection and Fair Trade Authority publishes an official list of price-comparison apps meeting its requirements, which includes PriceZ (pricez.co.il), MySupermarket (mysupermarket.co.il) and CHP (chp.co.il). Covers these references: https://www.pricez.co.il/ https://itunes.apple.com/il/app/pricez/id475190969?ls=1&mt=8 https://play.google.com/store/apps/details?id=il.co.PriceZ.android https://www.mysupermarket.co.il http://64560.api-01.com/serve? https://play.google.com/store/apps/details?id=com.mysupermarket.il https://chp.co.il",
       "source_url": "https://www.gov.il/he/pages/cpfta_apps",
-      "raw_snippet": "Attention Required! | Cloudflare",
+      "raw_snippet": "לנוחיות הציבור מצורפת בזאת רשימת האפליקציות להשוואת מחירים העומדות בדרישות הרשות.",
       "fetched_at": "2026-08-18",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/chain-feeds.md"
       ],
-      "verified_via": "reference-coverage entry; the links it covers moved into the claim and the snippet is a quote from its own source page",
+      "verified_via": "gov.il consumer-protection page rendered in a browser",
       "verified_at": "2026-08-18"
     },
     {
