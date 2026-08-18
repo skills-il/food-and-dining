@@ -1,0 +1,15 @@
+{
+  "cycles": [
+    {
+      "version": "1.2.1",
+      "date": "2026-06-07",
+      "lessons": [
+        "Commission ranges (Wolt 25-35%, 10bis 10-15%, Mishloha 15-25%), payment cycles, VAT 18%, food-safety temps (cold <4C, hot >60C), and the three kosher levels all verified plausible/correct.",
+        "Fixed dead/wrong reference URLs: Mishloha domain is mishloha.co.il (the skill used the dead mishlocha.co.il), Wolt merchant signup moved to explore.wolt.com/en/isr/merchant/business/restaurants (restaurants.wolt.com/he dead), and the MoH food page (health.gov.il/English/...) 404s -> repointed to the gov.il National Food Service. Noted that the brand is now Cibus Pluxee.",
+        "Kept the 'Mishlocha' transliteration as an alternate spelling (the Hebrew משלוחה is unchanged and the description triggers on it) but pointed all URLs at the correct mishloha.co.il domain.",
+        "Built evidence.json from scratch (legacy skill); stripped em-dashes.",
+        "Context note: Uber Eats was reported launching in Israel - consider adding it as a platform option next cycle if it gains share."
+      ]
+    }
+  ]
+}

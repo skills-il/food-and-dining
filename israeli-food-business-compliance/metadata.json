@@ -1,0 +1,49 @@
+{
+  "author": "skills-il",
+  "version": "1.3.3",
+  "category": "food-and-dining",
+  "tags": {
+    "he": [
+      "בטיחות-מזון",
+      "כשרות",
+      "משרד-הבריאות",
+      "רישוי",
+      "תיוג",
+      "ישראל"
+    ],
+    "en": [
+      "food-safety",
+      "kashrut",
+      "health-ministry",
+      "licensing",
+      "labeling",
+      "israel"
+    ]
+  },
+  "display_name": {
+    "he": "רגולציה לעסקי מזון בישראל",
+    "en": "Israeli Food Business Compliance Guide"
+  },
+  "display_description": {
+    "he": "הסקיל הזה עוזר לעסקי מזון בישראל להסתדר עם הרגולציה: רישוי עסק, כשרות, דרישות משרד הבריאות ותיוג מזון. ריכזנו במקום אחד את התהליכים, הטפסים והדרישות של הרגולטורים.",
+    "en": "Reference guide for Israeli food business regulatory compliance: business licensing, kashrut certification, health ministry requirements, and food labeling. Use when user asks about \"food business license Israel\", \"Misrad HaBriut requirements\", \"kashrut certification process\", \"food labeling Hebrew\", \"restaurant permit Israel\", \"food import regulations\", or \"רישיון עסק מזון\". Covers Ministry of Health licensing by business type, Rabbanut kashrut application process, certification renewal tracking, Hebrew food label requirements, and health inspection preparation. Do NOT use for restaurant daily operations (use israeli-restaurant-ops) or general business compliance."
+  },
+  "openclaw": {
+    "requires": {
+      "bins": [],
+      "env": []
+    },
+    "emoji": "🏥"
+  },
+  "supported_agents": [
+    "claude-code",
+    "cursor",
+    "github-copilot",
+    "windsurf",
+    "opencode",
+    "codex",
+    "openclaw",
+    "antigravity",
+    "gemini-cli"
+  ]
+}
