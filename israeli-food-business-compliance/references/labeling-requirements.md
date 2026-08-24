@@ -6,14 +6,14 @@ Food labeling in Israel is regulated by the Ministry of Health under the Public 
 
 ## Mandatory Label Fields
 
-Every food product label must include the following 12 fields:
+Every food product label must include the mandatory fields below. Row 12 (barcode) is listed for completeness because retailers require it, but it is a commercial requirement and not a legal labelling duty, so do not treat the count as a compliance test:
 
 | # | Field | Hebrew | Notes |
 |---|-------|--------|-------|
 | 1 | Product name | שם המוצר | Must be in Hebrew. Trade name + descriptive name if trade name is not descriptive |
 | 2 | Ingredients list | רשימת מרכיבים | Hebrew, descending order by weight. Compound ingredients must list sub-ingredients |
 | 3 | Allergen declaration | הצהרת אלרגנים | Bold/highlighted in ingredients + separate warning. See allergen section below |
-| 4 | Nutritional information | מידע תזונתי | Per 100g and per serving. See nutrition table format below |
+| 4 | Nutritional information | מידע תזונתי | Per 100g (per 100ml for liquids). A per-serving column is an optional addition, not a mandatory field. See nutrition table format below |
 | 5 | Net weight/volume | משקל/נפח נקי | In grams (g) or milliliters (ml). For solids in liquid, state drained weight |
 | 6 | Country of origin | ארץ מוצא | "תוצרת [country]" or "יוצר ב-[country]" |
 | 7 | Manufacturer details | פרטי יצרן | Name, address, and contact. For imports: importer details required |
@@ -21,13 +21,13 @@ Every food product label must include the following 12 fields:
 | 9 | Expiration date | תאריך תפוגה | "יש לצרוך עד" (use by) or "עדיף לצרוך לפני" (best before) |
 | 10 | Storage instructions | הוראות אחסון | Temperature, conditions (e.g., "יש לאחסן במקום קריר ויבש") |
 | 11 | Kashrut mark | סימן כשרות | Required only if product claims kosher status. Certifying body logo + text |
-| 12 | Barcode | ברקוד | Israeli products: EAN-13 starting with 729 |
+| 12 | Barcode (commercial, not a legal field) | ברקוד | Retail chains require one; it is not a labelling duty, so a direct-sale producer without a barcode is still compliant |
 
 ## Allergen Declaration Requirements
 
-### 14 Mandatory Allergens
+### Mandatory Allergens
 
-Israeli regulations require mandatory declaration of these allergens:
+Israeli regulations require mandatory declaration of these allergens. Fourteen are the European Annex 2 list adopted as-is; broad bean is an Israel-specific addition with its own marking rule.
 
 | # | Allergen | Hebrew | Common Sources |
 |---|----------|--------|---------------|
@@ -45,6 +45,8 @@ Israeli regulations require mandatory declaration of these allergens:
 | 12 | Sulfites (>10 mg/kg) | סולפיטים | Wine, dried fruits, preserved foods |
 | 13 | Lupin | תורמוס | Flour blends, baked goods |
 | 14 | Mollusks | רכיכות | Oysters, mussels, squid |
+
+**Israel-specific: broad bean (פול).** Sensitivity to broad bean is common in the Israeli population, so a marking instruction was set for it that has no European counterpart, regulated in Appendix 3 of the adopted regulation. It is NOT marked in the same way as the fourteen above. Take its marking rule from the Ministry of Health allergen guide at https://www.gov.il/he/pages/allergens-guidance before designing a label.
 
 ### Declaration Format
 - **In ingredients list:** Allergen name in **bold** or UPPERCASE or highlighted
@@ -86,7 +88,6 @@ Standard format per Israeli regulations:
 
 ## Front-of-Package Red/Green Warning Labels
 
-Mandatory since January 1, 2020. Applies to packaged food sold in Israel. Updated periodically by the Ministry of Health Scientific Committee (three formal updates between 2020 and 2024).
 
 ### Red Label Thresholds
 
@@ -115,9 +116,9 @@ Restaurants are not required to display red labels on prepared dishes served to 
 
 ## Hebrew Font and Size Requirements
 
-- **Minimum font size:** 1.2mm x-height for packages up to 80 cm2 surface area; 1.5mm for larger packages
+- **Minimum font size:** the adopted European rule sets a general minimum x-height of 1.2mm, reduced to 0.9mm where the largest surface of the package is under 80 cm2. Earlier versions of this file inverted that exception and added figures that exist in no regime; do not size artwork from memory, take the current values from the regulation before a print run
 - **Allergen text:** Must be at least the same size as ingredients list text, in bold or highlighted
-- **Product name:** Largest text on label (minimum 3mm x-height)
+- **Product name:** must be prominent and legible. The 3mm x-height minimum stated in earlier versions of this file was not traceable to any regulation and has been removed; take the current requirement from the regulation before a print run.
 - **Language:** Hebrew is mandatory. Additional languages permitted alongside Hebrew
 
 ## Import Labeling Rules
@@ -127,7 +128,7 @@ Imported food products must comply with all standard labeling requirements plus:
 - **Hebrew label:** Must be applied before customs clearance (sticker labels acceptable for initial import)
 - **Original label:** Must remain visible alongside Hebrew label
 - **Country of origin:** Must match the country on the health certificate
-- **Pre-approval:** New products require Hebrew label proof submitted to MOH for approval before first import shipment
+- **Label readiness:** the Hebrew label must be compliant before the goods are released. Whether an approval must precede the shipment's arrival depends on the import route and the product, so confirm with the Food Service rather than assuming either way
 
 ## Example Label Template
 

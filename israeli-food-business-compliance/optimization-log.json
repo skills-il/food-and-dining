@@ -1,0 +1,35 @@
+{
+  "cycles": [
+    {
+      "version": "1.4.0",
+      "date": "2026-08-24",
+      "holdout_before": 1.0,
+      "holdout_after": 1.0,
+      "buckets": {
+        "improved": [],
+        "regressed": [],
+        "persistent_fail": [],
+        "stable_success": [
+          "does my product need a red label",
+          "מה צריך לתווית מזון בעברית",
+          "מה שעות הפתיחה של המסעדה שלי (negative, correctly not routed)",
+          "האם המשגיח שלי צריך להיות מועסק על ידי"
+        ]
+      },
+      "lessons": [
+        "The description edit this cycle removed only 'and Tzohar' from a coverage clause; no trigger phrase changed, so the holdout could not move. Treat the recorded 1.0/1.0 as routing-neutral rather than as evidence the description is well tuned.",
+        "Expert MAJOR deferred: accessibility approval (moresheh negishut) is a real gate on a public-facing food licence and appears nowhere in the skill. Add next cycle.",
+        "Expert MAJOR deferred: recall and suspected-food-poisoning reporting duties are absent, and this is the highest-stakes hour in the domain. Add next cycle with a sourced reporting route.",
+        "Expert MAJOR deferred: alcohol licensing conditions and the smoking-restriction duties on the occupier are absent, though Example 1 promises 'all the permits' for a restaurant.",
+        "Expert MAJOR deferred: no approving-authority list, no sequence and no explanation of the preliminary opinion, even though the skill quotes a fee for it. Example 1 still promises a 'roadmap with timeline' the skill does not contain.",
+        "Expert MAJOR deferred: osek patur turnover ceiling is not mentioned, so the smallest operators are told to charge VAT they may not owe.",
+        "Expert MAJOR deferred: the proposed move to self-supervision with a hygiene trustee should be mentioned and expressly flagged as a proposal, not law.",
+        "Expert MAJOR deferred: Step 3 instructs every host to configure scheduled alerts, which only OpenClaw among the nine declared agents can do out of session. Make the JSON export the default path, and reconcile the compatibility line (names three hosts) with supported_agents (nine).",
+        "Expert MINOR deferred: SKILL_HE.md keeps four English Troubleshooting headings, which breaks the Hebrew-line-starts-with-a-Hebrew-letter rule.",
+        "references/health-ministry-requirements.md still carries practitioner figures with no named instrument (water-tank volume, event-permit guest threshold, oven re-certification interval, the whole correction-window table). This cycle labelled them as unverified in the file rather than removing them; next cycle should source or delete them.",
+        "Group 4 licensing item numbers were deliberately not enumerated: the Schedule's item titles could not be read from an authoritative full text this cycle (the uniform-spec PDFs are bot-blocked). Revisit when the Schedule text is reachable; inventing item numbers would be worse than routing to the official search engine.",
+        "Method lesson: a research subagent reported four gov.il URLs dead; browser verification showed the most-cited one was live. Independently, the Judge correctly caught that this cycle's own mashgiach-employment edit stated a 2028 provision as current law. Both directions of error occurred in one cycle."
+      ]
+    }
+  ]
+}

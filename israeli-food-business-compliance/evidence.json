@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "skill": "israeli-food-business-compliance",
-  "generated_at": "2026-05-25T21:55:00Z",
+  "generated_at": "2026-08-24T20:00:00Z",
   "claims": [
     {
       "claim_id": "vat-18-jan-2025",
@@ -31,40 +31,45 @@
     },
     {
       "claim_id": "front-package-launch-2020",
-      "claim": "Front-of-package red and green labeling regulations in force since January 1, 2020; criteria updated three times between 2020 and 2024",
+      "claim": "The red front-of-package warning label was introduced in a first stage from January 2020",
       "source_url": "https://efsharibari.health.gov.il/en/governance/legislation/unhealthy-food-labeling-law/",
-      "raw_snippet": "Regulations for Labeling Harmful Food Products - Efsharibari",
-      "fetched_at": "2026-08-18",
+      "raw_snippet": "First stage: January 2020",
+      "fetched_at": "2026-08-24T21:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
-      "verified_at": "2026-08-18"
+      "verified_via": "curl",
+      "verified_at": "2026-08-24",
+      "source_fetched_at": "2026-08-24T21:00:00Z"
     },
     {
       "claim_id": "kashrut-reform-2022",
-      "claim": "Kahana kashrut reform of 2022 allows certified private corporations (Tzohar et al.) to provide kashrut supervision under Chief Rabbinate oversight; rolling implementation 2023-2026",
-      "source_url": "https://www.gov.il/he/departments/the_chief_rabbinate_of_israel",
-      "raw_snippet": "רפורמת כהנא 2022, צהר, גופי כשרות פרטיים",
-      "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
-    },
-    {
-      "claim_id": "allergen-list-il",
-      "claim": "Allergens present in a food must be highlighted within the ingredients list (for example milk, soy, peanuts or gluten) using bold font, underline or a different background color; the separate \"contains\" box is no longer used.",
-      "source_url": "https://www.gov.il/he/pages/food-labeling?chapterIndex=4",
-      "raw_snippet": "הדגשה בולטת: כל אלרגן המופיע ברשימת הרכיבים (כמו חלב, סויה, בוטנים או גלוטן) חייב להופיע כשהוא מודגש באמצעות גופן בולט, קו תחתון או צבע רקע שונה.",
-      "fetched_at": "2026-05-25T21:55:00Z",
+      "claim": "Amendment No. 5 to the Prohibition of Kashrut Fraud Law was published in Sefer HaChukim 3548 on 19 July 2026, with consequential amendments including to the 2021 Economic Program Law that carried the kashrut reform",
+      "source_url": "https://fs.knesset.gov.il/25/law/25_lsr_14184767.pdf",
+      "raw_snippet": "חוק איסור הונאה בכשרות (תיקון מס' 5), התשפ\"ו-2026",
+      "fetched_at": "2026-08-24T21:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "gov.il content API",
-      "source_fetched_at": "2026-08-11T00:00:00Z"
+      "source_fetched_at": "2026-08-24T21:00:00Z",
+      "verified_via": "pdf",
+      "verified_at": "2026-08-24"
+    },
+    {
+      "claim_id": "allergen-list-il",
+      "claim": "The allergen list and marking requirements are those of Appendix 2 to Regulation 1169/2011, with marking requirements in article 21",
+      "source_url": "https://www.gov.il/he/pages/allergens-guidance",
+      "raw_snippet": "רשימת האלרגנים והחומרים הגורמים לאי סבילות מפורטת בנספח 2 לתקנה",
+      "fetched_at": "2026-08-24T21:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "pdf",
+      "source_fetched_at": "2026-08-24T21:00:00Z",
+      "verified_at": "2026-08-24"
     },
     {
       "claim_id": "fresh-produce-zero-vat",
@@ -80,28 +85,18 @@
       "source_fetched_at": "2026-08-11T00:00:00Z"
     },
     {
-      "claim_id": "tzohar-kashrut-system",
-      "claim": "Tzohar runs a nationwide kashrut supervision system operating alongside the Chief Rabbinate's; its supervisors are employed directly by Tzohar, not by the businesses.",
-      "source_url": "https://www.tzohar.org.il/?page_id=16250",
-      "raw_snippet": "משגיחי הכשרות שלנו מועסקים ישירות על ידי כשרות צהר – ולא על ידי בעלי העסקים",
-      "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
-    },
-    {
       "claim_id": "ref-moh-food",
-      "claim": "The Ministry of Health food-labeling guide covers product name, contents, allergen labeling, manufacturer/importer details and the ingredients list.",
-      "source_url": "https://www.gov.il/he/pages/food-labeling?chapterIndex=4",
-      "raw_snippet": "משרד הבריאות פועל להבטחת רמה גבוהה של הגנה על בריאות הצרכנים ולמניעת הטעיה, ועל כן אומצה רגולציה המסדירה את אופן מסירת המידע לצרכנים (תקנה 1169/2011).",
-      "fetched_at": "2026-05-25T21:55:00Z",
+      "claim": "Ministry of Health food label and nutritional marking guide page",
+      "source_url": "https://www.gov.il/he/pages/food-labeling",
+      "raw_snippet": "סימון המוצר באמצעות תווית המזון הוא בבחינת \"תעודת הזהות\" של המוצר.",
+      "fetched_at": "2026-08-24T21:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "gov.il content API",
-      "source_fetched_at": "2026-08-11T00:00:00Z"
+      "verified_via": "browser",
+      "source_fetched_at": "2026-08-24T21:00:00Z",
+      "verified_at": "2026-08-24"
     },
     {
       "claim_id": "ref-efsharibari",
@@ -118,38 +113,17 @@
     },
     {
       "claim_id": "ref-chief-rabbinate",
-      "claim": "Chief Rabbinate of Israel",
-      "source_url": "https://www.gov.il/he/departments/the_chief_rabbinate_of_israel",
-      "raw_snippet": "Chief Rabbinate",
-      "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
-    },
-    {
-      "claim_id": "ref-tzohar",
-      "claim": "Tzohar Food Inspection",
-      "source_url": "https://www.tzohar.org.il/",
-      "raw_snippet": "Tzohar",
-      "fetched_at": "2026-05-25T21:55:00Z",
-      "appears_in": [
-        "SKILL.md",
-        "SKILL_HE.md"
-      ]
-    },
-    {
-      "claim_id": "ref-business-licensing",
-      "claim": "The Ministry of Health issues approvals under the Business Licensing Order for businesses connected to public health, including restaurants and grocery stores.",
-      "source_url": "https://www.gov.il/he/departments/topics/business_licensing",
-      "raw_snippet": "משרד הבריאות מספק אישור, בהתאם לצו רישוי עסקים, עבור עסקים, להם קשר לבריאות הציבור כדוגמת: בריכות שחיה, מסעדות, מרכולים, גני אירועים, בתי מלון, מקוואות, מתקני טיפול בשפכים, מתקני טיפול במי שתיה ועוד.",
-      "fetched_at": "2026-05-25T21:55:00Z",
+      "claim": "Chief Rabbinate of Israel official gov.il department page",
+      "source_url": "https://www.gov.il/he/departments/chief_rabbinate_of_israel",
+      "raw_snippet": "הרבנות הראשית לישראל",
+      "fetched_at": "2026-08-24T20:00:00Z",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
       ],
-      "verified_via": "gov.il content API",
-      "source_fetched_at": "2026-08-11T00:00:00Z"
+      "source_fetched_at": "2026-08-24T20:00:00Z",
+      "verified_via": "browser",
+      "verified_at": "2026-08-24"
     },
     {
       "claim_id": "ref-tax-authority",
@@ -192,25 +166,28 @@
     },
     {
       "claim_id": "ref-efsharibari-he",
-      "claim": "The Ministry of Health Hebrew food-labeling guide sets out the allergen labeling rules: allergens appear only inside the ingredients list and are highlighted there.",
-      "source_url": "https://www.gov.il/he/pages/food-labeling?chapterIndex=4",
-      "raw_snippet": "האלרגנים יופיעו אך ורק בתוך רשימת הרכיבים. האלרגן יודגש בבירור בתוך הרשימה (למשל על ידי שימוש בגופן מודגש, סגנון שונה או צבע רקע אחר), כדי להבדילו משאר הרכיבים.",
-      "fetched_at": "2026-05-25T21:55:00Z",
+      "claim": "Ministry of Health page listing the mandatory label fields",
+      "source_url": "https://www.gov.il/he/pages/food-labeling",
+      "raw_snippet": "המידע הבא חייב להופיע על גבי אריזת המוצר",
+      "fetched_at": "2026-08-24T21:00:00Z",
       "appears_in": [
         "SKILL_HE.md"
       ],
-      "verified_via": "gov.il content API",
-      "source_fetched_at": "2026-08-11T00:00:00Z"
+      "verified_via": "browser",
+      "source_fetched_at": "2026-08-24T21:00:00Z",
+      "verified_at": "2026-08-24"
     },
     {
       "claim_id": "allergen-1169-effective-2028",
       "claim": "The new allergen labeling rules become mandatory for pre-packed food on 1 January 2028, and for loose/bulk food on 1 January 2032.",
       "claim_type": "figure",
-      "source_url": "https://www.gov.il/he/pages/food-labeling?chapterIndex=4",
-      "raw_snippet": "תחולה במזון ארוז מראש- הוראות הסימון החדשות נכנסות לתוקף ביום 1 בינואר 2028, כאשר ניתן ליישם את ההוראות גם לפני מועד זה.",
+      "source_url": "https://www.gov.il/he/pages/food-labeling",
+      "raw_snippet": "נקבעה תקופת מעבר עד ל – 01.01.2028 בתיקון מס' 10 לחוק הגנה על בריאות הציבור(מזון) התשע\"ו, 2015",
       "confidence": "high",
-      "source_fetched_at": "2026-08-11T00:00:00Z",
-      "verified_via": "gov.il content API"
+      "source_fetched_at": "2026-08-24T21:00:00Z",
+      "verified_via": "browser",
+      "fetched_at": "2026-08-24T21:00:00Z",
+      "verified_at": "2026-08-24"
     },
     {
       "claim_id": "govil-food-labeling-page",
@@ -227,12 +204,12 @@
     },
     {
       "claim_id": "red-label-stage-2-thresholds",
-      "claim": "Second-stage red-label thresholds, in force since January 2021: sodium 400 mg/100 g solid and 300 mg/100 ml liquid; total sugars 10 g and 5 g; saturated fat 4 g and 3 g. The first stage (January 2020) used 500/400, 13.5/5 and 5/3.",
-      "source_url": "https://www.gov.il/he/pages/food-labeling",
-      "raw_snippet": "פעימה שנייה:  פריט סימון כמות ב-100 גרם מזון מוצק כמות ב-100 מ\"ל מזון נוזלי נתרן 400 מ\"ג 300 מ\"ג סך סוכרים 10 גרם 5 גרם סך חומצות שומן רוויות 4 גרם 3 גרם",
+      "claim": "The second stage of the red-label thresholds applies from January 2021",
+      "source_url": "https://efsharibari.health.gov.il/en/governance/legislation/unhealthy-food-labeling-law/",
+      "raw_snippet": "Second stage: January 2021",
       "fetched_at": "2026-08-11",
-      "verified_via": "gov.il content API",
-      "verified_at": "2026-08-11",
+      "verified_via": "curl",
+      "verified_at": "2026-08-24",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
@@ -249,6 +226,192 @@
       "verified_at": "2026-08-11",
       "appears_in": [
         "references/labeling-requirements.md"
+      ]
+    },
+    {
+      "claim_id": "kashrut-mashgiach-employer-2026",
+      "claim": "A body that employed a kashrut supervisor immediately before Amendment No. 5 may continue employing them even where the new conditions are not met",
+      "source_url": "https://fs.knesset.gov.il/25/law/25_lsr_14184767.pdf",
+      "raw_snippet": "רשאים להמשיך להעסיק משגיח",
+      "fetched_at": "2026-08-24T21:00:00Z",
+      "source_fetched_at": "2026-08-24T21:00:00Z",
+      "verified_via": "pdf",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_at": "2026-08-24"
+    },
+    {
+      "claim_id": "kashrut-reform-never-implemented",
+      "claim": "Amendment No. 5 indirectly amends the Economic Program Law (Legislative Amendments for Implementing the Economic Policy for Budget Years 2021 and 2022), which is the law that enacted the kashrut reform",
+      "source_url": "https://fs.knesset.gov.il/25/law/25_lsr_14184767.pdf",
+      "raw_snippet": "חוק התוכנית הכלכלית (תיקוני חקיקה ליישום המדיניות הכלכלית לשנות התקציב 2021 ו–2022)",
+      "fetched_at": "2026-08-24T21:00:00Z",
+      "source_fetched_at": "2026-08-24T21:00:00Z",
+      "verified_via": "pdf",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_at": "2026-08-24"
+    },
+    {
+      "claim_id": "allergen-pol-appendix-3",
+      "claim": "Israel adds broad bean (pol) as an allergen with a unique marking instruction that does not exist in Europe, regulated in Appendix 3 of the adopted regulation, and it is not marked like the Appendix 2 allergens",
+      "source_url": "https://www.gov.il/he/pages/allergens-guidance",
+      "raw_snippet": "בשל השכיחות הגבוהה של הרגישות לפול באוכלוסייה בישראל, נקבעה עבורו הוראת סימון ייחודית שאינה קיימת באירופה, המוסדרת בנספח 3 לתקנה, והוא אינו מסומן בדומה לאלרגנים המפורטים בנספח 2 ובמדריך זה.",
+      "fetched_at": "2026-08-24T20:00:00Z",
+      "source_fetched_at": "2026-08-24T20:00:00Z",
+      "verified_via": "pdf",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/labeling-requirements.md"
+      ],
+      "verified_at": "2026-08-24"
+    },
+    {
+      "claim_id": "allergen-bulk-deferred-2032",
+      "claim": "The duty to mark allergens on non-pre-packed (bulk) food is deferred in Israel to 1.1.2032",
+      "source_url": "https://www.gov.il/he/pages/allergens-guidance",
+      "raw_snippet": "הדרישה לסמנם על מזון בתפזורת נדחית ותחול בישראל החל ב-1.1.2032",
+      "fetched_at": "2026-08-24T20:00:00Z",
+      "source_fetched_at": "2026-08-24T20:00:00Z",
+      "verified_via": "pdf",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/labeling-requirements.md"
+      ],
+      "verified_at": "2026-08-24"
+    },
+    {
+      "claim_id": "licensing-fee-2026",
+      "claim": "From 1 April 2026 the business licensing fee is 381 NIS for a new licence, temporary permit, accelerated permit, renewal, change of ownership, preliminary opinion, objection or cancellation of a defect-correction demand; 190.5 NIS for a replacement copy",
+      "source_url": "https://www.gov.il/he/pages/fee-height",
+      "raw_snippet": "על פי עדכון המדד, משרד האוצר מעדכן את אגרות רישוי עסקים החל מ- 1 באפריל 2026 , כלהלן: א. עבור הבקשות הבאות - האגרה תעמוד על 381 ש''ח:",
+      "fetched_at": "2026-08-24T20:00:00Z",
+      "source_fetched_at": "2026-08-24T20:00:00Z",
+      "verified_via": "pdf",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_at": "2026-08-24"
+    },
+    {
+      "claim_id": "licensing-fee-duplicate-2026",
+      "claim": "A replacement for a lost or damaged licence, temporary permit or accelerated permit costs 190.5 NIS from 1 April 2026",
+      "source_url": "https://www.gov.il/he/pages/fee-height",
+      "raw_snippet": "ב. עבור העתק רישיון, היתר זמני, היתר מזורז שאבד או הושחת - האגרה תעמוד על 190.5 ש''ח.",
+      "fetched_at": "2026-08-24T20:00:00Z",
+      "source_fetched_at": "2026-08-24T20:00:00Z",
+      "verified_via": "pdf",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_at": "2026-08-24"
+    },
+    {
+      "claim_id": "uniform-spec-group-4-food",
+      "claim": "The Ministry of Interior publishes approved uniform specifications by licensing group, where group 4 is food, and hosts the Tzav HaChacham search engine over the Schedule to the licensing order",
+      "source_url": "https://www.gov.il/he/departments/units/reform1/govil-landing-page",
+      "raw_snippet": "הצו החכם – מנוע חיפוש בתוספת לצו רישוי עסקים",
+      "fetched_at": "2026-08-24T20:00:00Z",
+      "source_fetched_at": "2026-08-24T20:00:00Z",
+      "verified_via": "browser",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_at": "2026-08-24"
+    },
+    {
+      "claim_id": "labeling-eu-transition-2028",
+      "claim": "A transition period to 01.01.2028 was set under Amendment No. 10 to the Public Health Protection (Food) Law 2015 for adoption of the European food-labelling rules",
+      "source_url": "https://www.gov.il/he/pages/food-labeling",
+      "raw_snippet": "נקבעה תקופת מעבר עד ל – 01.01.2028 בתיקון מס' 10 לחוק הגנה על בריאות הציבור(מזון) התשע\"ו, 2015",
+      "fetched_at": "2026-08-24T20:00:00Z",
+      "source_fetched_at": "2026-08-24T20:00:00Z",
+      "verified_via": "browser",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/labeling-requirements.md"
+      ],
+      "verified_at": "2026-08-24"
+    },
+    {
+      "claim_id": "mashgiach-pay-commences-2028",
+      "claim": "The commencement of sections 2yd(c) to (e) and 2kh is two years from the date of publication of Amendment No. 5, i.e. 19 July 2028, and the Minister of Religious Services may defer it further",
+      "source_url": "https://fs.knesset.gov.il/25/law/25_lsr_14184767.pdf",
+      "raw_snippet": "שנתיים מיום פרסומו של חוק זה",
+      "fetched_at": "2026-08-24T21:00:00Z",
+      "source_fetched_at": "2026-08-24T21:00:00Z",
+      "verified_at": "2026-08-24",
+      "verified_via": "pdf",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "regulation-1169-2011-adopted",
+      "claim": "Regulation 1169/2011 applies the allergen marking duty, and Israel has adopted it with the bulk-food duty deferred",
+      "source_url": "https://www.gov.il/he/pages/allergens-guidance",
+      "raw_snippet": "תקנה 1169/2011 מחילה את חובת סימון האלרגנים גם על מזון בתפזורת",
+      "fetched_at": "2026-08-24T21:10:00Z",
+      "source_fetched_at": "2026-08-24T21:10:00Z",
+      "verified_at": "2026-08-24",
+      "verified_via": "pdf",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/labeling-requirements.md"
+      ]
+    },
+    {
+      "claim_id": "sanitary-regs-batei-ochel-1983",
+      "claim": "The operative sanitary regulations for eating places are Takanot Rishuy Asakim (Tnaei Tavrua Naotim leVatei Ochel), 5743-1983",
+      "source_url": "https://www.gov.il/he/pages/health-mazon37a",
+      "raw_snippet": "תקנות רישוי עסקים (תנאים תברואה נאותים לבתי אוכל), התשמ\"ג-1983",
+      "fetched_at": "2026-08-24T21:20:00Z",
+      "source_fetched_at": "2026-08-24T21:20:00Z",
+      "verified_at": "2026-08-24",
+      "verified_via": "browser",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "import-routes-reform",
+      "claim": "The food reform is aimed at reducing regulation and easing import while protecting public health, and the Ministry of Health publishes the proper-importer and European import routes",
+      "source_url": "https://www.gov.il/he/pages/food-regulation-european-union",
+      "raw_snippet": "מסלול יבואן נאות וייבוא במסלול אירופי",
+      "fetched_at": "2026-08-24T21:20:00Z",
+      "source_fetched_at": "2026-08-24T21:20:00Z",
+      "verified_at": "2026-08-24",
+      "verified_via": "browser",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "kashrut-local-authority-area",
+      "claim": "A local kashrut authority supplies supervision within the municipality or local council where it was established, and the Minister may authorise a religious council to supply kashrut services in an adjacent area for a period he directs",
+      "source_url": "https://fs.knesset.gov.il/25/law/25_lsr_14184767.pdf",
+      "raw_snippet": "השר יסמיך, לתקופה",
+      "fetched_at": "2026-08-24T22:00:00Z",
+      "source_fetched_at": "2026-08-24T22:00:00Z",
+      "verified_at": "2026-08-24",
+      "verified_via": "pdf",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
       ]
     }
   ]

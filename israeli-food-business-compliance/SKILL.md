@@ -1,6 +1,6 @@
 ---
 name: israeli-food-business-compliance
-description: Guide Israeli food business regulatory compliance, including business licensing, kashrut certification, health ministry requirements, food labeling (with red/green front-of-package labels), and 18% VAT rules. Use when user asks about "food business license Israel", "Misrad HaBriut requirements", "kashrut certification process", "food labeling Hebrew", "restaurant permit Israel", "food import regulations", "red label sugar salt fat", or "רישיון עסק מזון". Covers Ministry of Health licensing by business type, Rabbanut and Tzohar kashrut application process, certification renewal tracking, Hebrew food label generation, front-of-package red/green warning labels, and health inspection preparation. Do NOT use for restaurant daily operations (use israeli-restaurant-ops) or general business compliance.
+description: Guide Israeli food business regulatory compliance, including business licensing, kashrut certification, health ministry requirements, food labeling (with red/green front-of-package labels), and 18% VAT rules. Use when user asks about "food business license Israel", "Misrad HaBriut requirements", "kashrut certification process", "food labeling Hebrew", "restaurant permit Israel", "food import regulations", "red label sugar salt fat", or "רישיון עסק מזון". Covers Ministry of Health licensing by business type, Rabbanut kashrut application process, certification renewal tracking, Hebrew food label generation, front-of-package red/green warning labels, and health inspection preparation. Do NOT use for restaurant daily operations (use israeli-restaurant-ops) or general business compliance.
 license: MIT
 allowed-tools: Bash(python:*) WebFetch
 compatibility: Works with Claude Code, OpenClaw, Cursor. OpenClaw recommended for certification renewal tracking and scheduled compliance alerts.
@@ -25,11 +25,34 @@ Israeli food businesses require a business license (rishyon esek) under the Busi
 
 For each type: identify required documents, inspection criteria, and renewal schedule. See `references/health-ministry-requirements.md` for detailed requirements per business type.
 
+**Resolve the licensing item (פריט) before anything else.** Israeli business licensing keys off a numbered item in the Schedule to Tzav Rishuy Asakim (Asakim Te'unei Rishuy), not off the informal business name. The item determines which authorities must approve, which licensing route applies, how long the licence lasts, and how many fees are due. Food businesses sit in Group 4 (מזון). Do not guess the item number: send the user to the "Tzav HaChacham" search engine on the Ministry of Interior's uniform-specification site (see Reference Links), which searches the Schedule directly.
+
+**Licensing routes.** Beyond the ordinary route, the licensing reform introduced shortened differential routes: rishuy al yesod tatzhir (licence on the basis of a declaration), heter mezoraz A, and heter mezoraz B. Which route a business may use is set per item in the Schedule, so resolve the item first and read its route from there rather than assuming.
+
+**Uniform specification (מפרט אחיד).** Where a uniform specification has been published for an item, it is the binding, nationally consistent list of requirements, and a local authority cannot impose divergent demands for the matters it covers. Published specifications are listed by group on the Ministry of Interior site. Many food items still have no published specification, in which case the municipality's own requirement sheet governs.
+
+**Fees.** The business-licensing fee is a national tariff set by the Ministry of Interior and applied by every local authority, and it is charged **per licensing item**, so a business holding several items pays several fees. From 1 April 2026 the fee is 381 NIS for the main request types, among them a new licence, a licence renewal, a temporary permit, an accelerated permit and a change of ownership; a replacement for a lost or damaged licence or permit is 190.5 NIS. The tariff circular itself carries the full list of request types (see Reference Links). The tariff is re-indexed twice a year, on 1 April and 1 October, so check the current figure before quoting it to a user.
+
+**Licence validity** is set per item in the Schedule and ranges from one year to fifteen. Never state a single blanket validity period; read it from the item.
+
+**Which sanitary rulebook applies.** Eating places (restaurants, cafes, anything serving prepared food) are inspected against Takanot Rishuy Asakim (Tnaei Tavrua Naotim leVatei Ochel), 5743-1983. Food manufacturing sits under a separate sanitary regime and under the Public Health Protection (Food) Law, 5776-2015. Naming the right instrument matters: an owner cannot look up their binding requirement, and cannot hold a useful conversation with an inspector or consultant, without it.
+
+**Two things to say before an owner spends money.** First, planning comes before licensing: a licence cannot be issued for a use the property is not permitted to have, so permitted-use conformity should be checked before signing a lease or fitting out a kitchen, not after a rejection. Second, a licence does not transfer with the business. Someone buying a going restaurant does not inherit the seller's licence and must apply in their own name, which is the single most expensive misunderstanding in this area.
+
 ### Step 2: Guide Kashrut Certification (Rabbanut Application)
-Most Israeli restaurants and food businesses seek kosher certification from the local Rabbanut (rabbinical authority).
+Kashrut certification is voluntary; a business licence is not. A kashrut certificate never substitutes for a health or licensing approval.
+
+**The legal regime changed in July 2026, and most material written between 2022 and 2025 is now wrong.** Amendment No. 5 to the Prohibition of Kashrut Fraud Law repealed the 2021 Kahana reform. Under the amendment only the Rabbanut may grant kashrut. A local kashrut authority supplies supervision within the municipality or local council where it was established; the Minister for Religious Services may authorise a religious council to supply kashrut services in an adjacent area, for a period he directs and only in defined circumstances, such as where no religious council operates there. Two consequences worth stating plainly to a user:
+
+- The route in which a private kashrut corporation certified a business in its own name, as an alternative to the local rabbi, is closed. In practice the 2021 reform was largely never implemented before it was repealed, so businesses that believed they were waiting for it were never able to use it.
+- Private badatzim have not disappeared. They operate as they did before the 2021 reform: as an additional layer on top of the local rabbinate's certificate, not instead of it.
+
+**The mashgiach payment rule is coming, but it is NOT in force yet.** The amendment severs the payment link between the supervised business and its supervisor: a mashgiach's pay is to come from the local kashrut authority, and no other payment or benefit may reach the supervisor from anyone else. Those provisions commence two years after publication, so they bite from 19 July 2028, not today, and the Minister of Religious Services may defer them further. A body that already employed a given supervisor immediately before the amendment may carry on employing them even where the new conditions are not met. Tell an owner this is a 2028 change to plan for, and do NOT tell them to restructure or terminate a lawful supervision arrangement now.
+
+Because the amendment is recent and contested, tell the user the certificate route below is the current one and to confirm the operational details with their local religious council rather than relying on any single published summary.
 
 Process:
-1. Contact local Rabbanut office (varies by municipality)
+1. Contact the local religious council or rabbanut for the municipality where the business physically sits
 2. Submit application with: business license, menu, list of suppliers, kitchen layout
 3. Mashgiach (kosher supervisor) visit, which inspects ingredients, equipment, procedures
 4. Ongoing: mashgiach visits (frequency depends on kashrut level)
@@ -37,10 +60,7 @@ Process:
 Kashrut levels:
 - Standard kosher (כשר), basic supervision
 - Mehadrin (מהדרין), stricter standards and more frequent supervision
-- Badatz (בד"ץ), ultra-strict, private certification bodies
-- Tzohar Food Inspection (צהר), an alternative nationwide kashrut supervision body operating alongside the Chief Rabbinate's system, whose supervisors are employed directly by Tzohar rather than by the businesses they inspect. Also recognized under the Kahana 2022 reform that allows certified private corporations to provide kashrut supervision under Chief Rabbinate oversight (rolling implementation from 2023).
-
-Note: Since the 2022 kashrut reform, businesses can choose between Rabbanut, Tzohar, or any approved private supervision corporation; supervision certificates must follow the standardized format set by the Chief Rabbinate.
+- Badatz (בד"ץ), ultra-strict private certification, layered on top of the rabbinate certificate
 
 Prepare for mashgiach inspection:
 - All ingredient labels visible with kosher certification marks
@@ -48,9 +68,11 @@ Prepare for mashgiach inspection:
 - Shabbat/holiday operation plan (if applicable)
 - No banned ingredients (not listed on approved kosher lists)
 
+Never rule on whether a food, ingredient, or process is kosher. That is a halachic determination reserved to a qualified rabbi. This skill explains how certification works and how to prepare for it.
+
 ### Step 3: Set Up Certification/License Renewal Tracking
 Configure scheduled alerts for renewal dates:
-- Business license: typically annual renewal
+- Business license: the validity period is set per licensing item in the Schedule and ranges from one year to fifteen, so read it off the licence itself rather than assuming an annual cycle
 - Kashrut certificate: annual renewal, requires re-inspection
 - Health inspection: periodic (frequency varies, typically every 6-12 months)
 - Fire safety certificate: annual renewal
@@ -64,20 +86,21 @@ Israeli food labeling requirements (based on regulations from the Ministry of He
 - Ingredients list (in Hebrew, descending order by weight)
 - Allergen declarations (חובת סימון אלרגנים):
   - Must declare: gluten, crustaceans, eggs, fish, peanuts, soybeans, milk, tree nuts, celery, mustard, sesame, sulfites, lupin, mollusks
+  - Israel adds a fifteenth allergen that has no European equivalent: broad bean (פול), regulated in Appendix 3 of the adopted regulation because sensitivity to it is common in the Israeli population. It is NOT marked in the same way as the fourteen in Appendix 2, so do not simply append it to the list. Check the Ministry of Health allergen guide for its specific marking rule.
   - Format: bold or highlighted in ingredients list + separate allergen warning
-- Nutritional information per 100g and per serving
+- Nutritional information per 100g (per 100ml for liquids). A per-serving column may be added alongside it but is an optional extra, not a mandatory field, so do not fail a label for its absence
 - Net weight/volume
 - Country of origin
 - Manufacturer/importer details
 - Production date and expiration date
 - Storage instructions
 - Kashrut mark (if certified)
-- Barcode (Israeli standard)
+- Barcode, where the retailer requires one. This is a commercial requirement imposed by retail chains rather than a labelling duty, so a producer selling direct does not need one to be compliant
 
 See `references/labeling-requirements.md` for detailed format specifications and example label template.
 
 ### Step 4.5: Apply Front-of-Package Red/Green Warning Labels (סימון אדום/ירוק)
-Since January 1, 2020, packaged food products sold in Israel must carry red warning labels on the front of the package when they exceed nutrient thresholds for sodium, sugar, or saturated fat. A voluntary green positive label is also available for products meeting national dietary guidelines. The Scientific Committee at the Ministry of Health updates these criteria periodically (three formal updates between 2020 and 2024).
+Since January 1, 2020, packaged food products sold in Israel must carry red warning labels on the front of the package when they exceed nutrient thresholds for sodium, sugar, or saturated fat. A voluntary green positive label is also available for products meeting national dietary guidelines. The thresholds were set in two stages: the opening values applied from 1 January 2020, and the stricter second-stage values below replaced them from 1 January 2021. They have not moved since.
 
 Red label thresholds (second stage, in force since January 2021):
 
@@ -97,10 +120,12 @@ Implementation notes:
 When generating a label or evaluating a product, check thresholds against the table above and recommend reformulation if a borderline product can be moved below the threshold (e.g., reducing sodium from 410 to 390 mg/100g eliminates the red label).
 
 ### Step 5: Guide Food Import Regulations
+Israel runs two import routes, and which one applies changes the paperwork and the timeline completely. Sensitive food (animal products, supplements, infant food and similar) stays on the stricter prior-approval route. Ordinary food can move on a declaration-based route, and the food reform added a European route for goods already approved in a regulated market, aimed at reducing the import burden. Establish which route the product falls into before quoting any process to the user; there is no single generic Ministry of Health import licence.
+
 Importing food to Israel requires:
 - Import license from Ministry of Health
 - Food item registration (for first-time imports)
-- Hebrew label approval before import
+- Hebrew labelling compliant before the goods are released (confirm with the Food Service whether approval must precede arrival for the specific product; do not assume)
 - Port inspection and sampling
 - Kashrut certification (if kosher market)
 
@@ -117,7 +142,7 @@ Generate inspection preparation checklist by business type.
 General checklist (all food businesses):
 - [ ] Valid business license displayed
 - [ ] Current kashrut certificate displayed (if applicable)
-- [ ] Staff health certificates (teudat briut) up to date
+- [ ] Staff health and food-handler requirements met per the sanitary regulations applying to the business type (confirm the current form these take with the local health bureau rather than assuming a named certificate)
 - [ ] Handwashing stations functional with soap and towels
 - [ ] Temperature logs maintained (refrigerators, freezers, hot holding)
 - [ ] Pest control documentation current
@@ -125,6 +150,8 @@ General checklist (all food businesses):
 - [ ] Cleaning schedule documented and followed
 - [ ] No expired products on premises
 - [ ] First-in-first-out (FIFO) rotation practiced
+
+**What happens when an inspector finds something.** A defect-correction demand is a formal instrument, not an informal note: it names the defects and the period allowed to fix them, and the licensing fee tariff even carries a separate fee for cancelling one, which tells you it is a live administrative act with its own procedure. A business licence can also be suspended or the business closed, and operating without a valid licence is an offence in its own right rather than merely a paperwork lapse. Read the correction period off the notice the business actually received and never quote a generic number of days; if the owner disputes the demand, the objection route is through the licensing authority that issued it.
 
 Additional for restaurants:
 - [ ] Kitchen ventilation functioning
@@ -167,18 +194,18 @@ Actions:
 4. Highlight allergens: sesame (שומשום), chickpeas (note: not in mandatory list but common allergen)
 5. Add storage instructions ("יש לאחסן בקירור עד 4°C")
 6. Format per Israeli labeling regulations
-Result: Complete Hebrew food label ready for printing. Includes: bilingual product name, full ingredients in Hebrew (descending by weight), allergen warning box, nutrition per 100g and per serving, manufacturer details, expiry format, and storage instructions.
+Result: Complete Hebrew food label ready for printing. Includes: bilingual product name, full ingredients in Hebrew (descending by weight), allergen warning box, nutrition per 100g, manufacturer details, expiry format, and storage instructions.
 
 ### Example 3: Preparing for Health Inspection
 User says: "We have a health inspection next week, help me prepare"
 Actions:
 1. Determine business type and last inspection results (if available)
 2. Generate comprehensive inspection checklist
-3. Identify high-priority items: temperature logs, staff health certificates, pest control docs
+3. Identify high-priority items: temperature logs, staff fitness and exclusion records, pest control docs
 4. Walk through common failure points: expired products, improper storage, missing documentation
 5. Create day-of-inspection quick checklist
 6. Suggest last-minute fixes for common issues
-Result: 32-item inspection checklist organized by priority. Top 5 critical items highlighted (temperature logs, health certificates, handwashing stations, food labeling, pest control). Day-of checklist for the morning before inspection.
+Result: 32-item inspection checklist organized by priority. Top 5 critical items highlighted (temperature logs, staff fitness and exclusion records, handwashing stations, food labeling, pest control). Day-of checklist for the morning before inspection.
 
 ## Bundled Resources
 
@@ -187,12 +214,15 @@ Result: 32-item inspection checklist organized by priority. Top 5 critical items
 - `references/labeling-requirements.md`: Israeli food labeling regulations, including mandatory fields, allergen declaration requirements, nutritional information format, red/green front-of-package thresholds, Hebrew label template, and import labeling rules. Consult when generating food labels in Step 4 or guiding import regulations in Step 5.
 
 ### Reference Links
-- Ministry of Health, Food Service: https://www.gov.il/he/pages/food-labeling
+- Ministry of Health, food labeling: https://www.gov.il/he/pages/food-labeling
+- Ministry of Health, allergen marking guide (Regulation 1169/2011): https://www.gov.il/he/pages/allergens-guidance
 - Front-of-package labeling regulations (Efsharibari): https://efsharibari.health.gov.il/en/governance/legislation/unhealthy-food-labeling-law/
-- Chief Rabbinate of Israel (kashrut): https://www.gov.il/he/departments/the_chief_rabbinate_of_israel
-- Tzohar Food Inspection: https://www.tzohar.org.il/?page_id=16250
-- Business Licensing Authority (rishyon esek): https://www.gov.il/he/departments/topics/business_licensing
+- Chief Rabbinate of Israel (kashrut): https://www.gov.il/he/departments/chief_rabbinate_of_israel
+- Uniform specifications + "Tzav HaChacham" item search (Ministry of Interior): https://www.gov.il/he/departments/units/reform1/govil-landing-page
+- Business licensing fee tariff (Ministry of Interior): https://www.gov.il/he/pages/fee-height
 - Israel Tax Authority (VAT / maam): https://www.gov.il/he/departments/israel_tax_authority
+- Sanitary conditions for eating places (regulations, 1983): https://www.gov.il/he/pages/health-mazon37a
+- Food regulation based on the European Union, incl. the importer routes: https://www.gov.il/he/pages/food-regulation-european-union
 - Israel Standards Institute (תקני מזון): https://www.sii.org.il/
 
 ## Gotchas
@@ -200,11 +230,11 @@ Result: 32-item inspection checklist organized by priority. Top 5 critical items
 - Kashrut certification levels (Rabbanut, Mehadrin, Badatz) are not interchangeable. Agents may treat them as equivalent, but each has different supervision requirements, costs, and market implications.
 - Israeli food labeling regulations require allergen declarations in a specific bold/highlighted format that differs from EU and US standards. Agents trained on international labeling norms will produce non-compliant labels.
 - The Ministry of Health business licensing categories changed in recent years, and the classification of food trucks (rechev mazon) now requires a different permit path than a fixed restaurant. Agents may use outdated classification rules.
-- Israeli food import regulations require Hebrew label approval before the goods enter the country, not after. Agents familiar with US/EU import flows may sequence this step incorrectly.
+- Import sequencing in Israel differs from US and EU flows, and the Hebrew label must be compliant and ready before the goods are released. Do not assert that a label approval is required before the shipment physically arrives without checking the specific route with the Food Service; agents state this confidently in both directions.
 - Pest control documentation in Israel must come from a licensed company registered with the Ministry of Environmental Protection. Agents may suggest generic pest control solutions that do not meet Israeli regulatory requirements.
-- Kashrut reform 2022 (the "Kahana law") is in rolling implementation through 2026, with the Chief Rabbinate retaining ultimate oversight. Some municipalities (notably Bnei Brak and several Charedi neighborhoods) have been slower to recognize Tzohar and other private corporations' supervision. When advising a business owner, ask which neighborhood the establishment serves before recommending a non-Rabbanut path; consumer recognition still skews to Rabbanut in religious neighborhoods.
-- Israeli "Cooked Food Delivery Regulations" introduced in 2024 require Hebrew allergen labels on prepared foods sold via delivery aggregators (Wolt, 10bis, Cibus). Restaurants that previously skipped paper labels because items were eaten in-house must now print allergen info on each delivery packaging. Aggregator platforms also display allergen warnings in-app and pull data from the merchant's profile.
-- Front-of-package red label thresholds were last revised in 2024. The Scientific Committee at the Ministry of Health publishes any updates and a transition period. Verify your nutrition panel against the latest thresholds at efsharibari.health.gov.il before printing labels at scale.
+- The 2021 Kahana kashrut reform was repealed in July 2026, and agents trained on 2022-2025 material will confidently describe a competitive certification market that no longer exists (and that largely never operated). Do not tell a business owner they may choose a private kashrut corporation instead of the local rabbinate. Check the date of any kashrut source before relying on it.
+- Allergen marking duties currently attach to pre-packed food. A restaurant meal sold through a delivery aggregator is not pre-packed food, and the duty to mark allergens on non-pre-packed food was deferred to 1 January 2032. Agents asked about delivery platforms tend to invent a delivery-specific labelling regulation; there is none. Say what the duty actually is and when it starts.
+- The front-of-package thresholds have been stable since the second stage took effect in January 2021, but the wider labelling regime is mid-transition to the adopted European rules, with a transition period running to 1 January 2028 for pre-packed food. A rule that takes effect in the future must not be described as if it applies today, and the converse. State which regime a given instruction belongs to.
 
 ## Troubleshooting
 
@@ -218,8 +248,8 @@ Solution: Review mashgiach's report for specific findings. Common issues: suppli
 
 ### Error: "Food label rejected by MOH"
 Cause: Missing required fields or incorrect format.
-Solution: Verify all 12 mandatory fields are present (see Step 4). Common issues: allergen declaration not in correct format (must be bold/highlighted), nutritional info missing per-serving data, Hebrew translation inaccurate. Use references/labeling-requirements.md as checklist.
+Solution: Verify every mandatory field is present (see Step 4). Note that the barcode is a retailer requirement rather than a mandatory legal field, so do not count it when checking compliance, and per-serving nutrition data is optional rather than a rejection cause. Common issues: allergen declaration not in correct format (must be bold/highlighted), Hebrew translation inaccurate. Use references/labeling-requirements.md as checklist.
 
 ### Error: "Health inspection violation notice"
 Cause: Critical violation found during inspection (temperature abuse, pest evidence, expired products).
-Solution: Address critical violations immediately. Temperature abuse: discard affected food, recalibrate thermometers, document corrective action. Pest evidence: call licensed pest control immediately, document treatment. Expired products: remove and document disposal. Inspector typically allows 7-30 days for correction depending on severity.
+Solution: Address critical violations immediately. Temperature abuse: discard affected food, recalibrate thermometers, document corrective action. Pest evidence: call licensed pest control immediately, document treatment. Expired products: remove and document disposal. Correction windows vary by severity and are set by the inspector in the notice itself; do not quote a specific number of days to a user, read it off their notice.
