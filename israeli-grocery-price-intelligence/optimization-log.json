@@ -1,0 +1,16 @@
+{
+  "cycles": [
+    {
+      "version": "1.6.0",
+      "date": "2026-08-27",
+      "lessons": [
+        "Expert MINOR deferred: the parser reads chain/store identity but has no code path for the Stores feed itself, so the (ChainId, SubChainId, StoreId) join it enables is only half-built. Add Stores parsing next cycle to make 'near me' answers actually computable.",
+        "PromotionDays is documented as a validity filter but did not appear in either live PromoFull sample; confirm it against a feed that uses it before relying on the filter.",
+        "laibcatalog.co.il (Victory, Mahsani A'Shuk, Het Cohen) resolves in DNS but refused TCP from our network. Its state is genuinely unknown, not confirmed dead. Re-probe from a different network next cycle before either documenting it as working or writing Victory off.",
+        "Could not retrieve an authoritative list of price-controlled (פיקוח מחירים) products: gov.il is Cloudflare-blocked to non-browser clients. The skill states the risk without enumerating products. Capture the list next cycle if a machine-readable source is found.",
+        "gov.il pages could not be fetched at all this cycle (Cloudflare 403 on curl, and the shared Playwright browser was hijacked by other agents twice). Any future cycle needing the official file spec should budget for a dedicated browser session.",
+        "Discretionary edits deferred over the Phase 4.1 cap: defusedxml/iterparse guidance for large files, polling-cadence and back-off guidance, online-vs-in-store price scoping, and a CBS food-CPI link for Step 5."
+      ]
+    }
+  ]
+}

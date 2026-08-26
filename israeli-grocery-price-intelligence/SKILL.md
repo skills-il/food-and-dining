@@ -2,7 +2,7 @@
 name: israeli-grocery-price-intelligence
 description: Access and compare Israeli supermarket prices using mandatory Price Transparency Law data feeds. Use when user asks about "supermarket prices Israel", "price comparison Shufersal", "Rami Levy prices", "grocery prices", "Price Transparency Law", "shopping list optimizer", "food costs Israel", or "השוואת מחירי סופר". Covers chain-specific XML feed parsing, cross-chain price comparison, shopping list optimization, price trend tracking, and restaurant ingredient cost analysis. Do NOT use for restaurant operations (use israeli-restaurant-ops) or non-food retail prices.
 license: MIT
-allowed-tools: Bash(python:*) WebFetch
+allowed-tools: Bash(python:*) Bash(python3:*) Bash(curl:*) Bash(grep:*) Bash(sed:*) WebFetch
 compatibility: Works with Claude Code, OpenClaw, Cursor. OpenClaw recommended for scheduled price monitoring and automated shopping list optimization.
 ---
 
@@ -28,7 +28,7 @@ If the user has the **supermarket-prices** MCP server installed, use it instead 
 Install instructions: https://agentskills.co.il/he/mcp/supermarket-prices
 
 Available MCP tools:
-- `list_chains` -- list all ~35 chains with data source info (web / publishprice / FTP)
+- `list_chains` -- list the covered chains with data source info (web / publishprice / FTP)
 - `search_products` -- search by product name or barcode
 - `compare_prices` -- cross-chain price comparison, sorted cheapest first
 - `get_promotions` -- current sales and promotions per chain
@@ -46,45 +46,95 @@ Under the Promotion of Competition in the Food and Pharma Sector Law (חוק ק�
   - **Price** -- delta updates between full snapshots
   - **PromoFull** + **Promo** -- full snapshot and deltas of current sales and promotions
   - **StoresFull** + **Stores** -- store locations and details
-- File naming format: `Price{Full}<ChainId>-<StoreId>-<yyyyMMddHHmm>.xml.gz` where ChainId is the 13-digit Israeli EAN prefix and the timestamp is the file generation moment in Israel time
+- **Do not regex on filename shape.** Two shapes are in use, they are NOT split cleanly by platform, and a single chain's listing carries both:
+  - 3-segment: `PriceFull<ChainId>-<StoreId>-<yyyyMMddHHmm>.gz`
+  - 5-segment: `PriceFull<ChainId>-<SubChainId>-<StoreId>-<yyyyMMdd>-<HHmmss>.gz`
+
+  A live Rami Levy listing (Cerberus) held 44 `PriceFull` files in the 3-segment shape and 93 in the 5-segment shape, with the newer files using the 5-segment form. Shufersal and Carrefour also use the 5-segment form. `Stores` files use their own 4-segment shape and are often plain `.xml`. Prefix case is inconsistent even within one listing (`price`, `Price`, `pricefull`, `PriceFull`), so match case-insensitively and parse positionally from the right rather than assuming a segment count. Neither shape ends in `.xml.gz`.
+
+  **Match the LONGER prefix first.** A case-insensitive `startswith("price")` also matches every `PriceFull`, and `startswith("promo")` matches every `PromoFull`, so a filter written for deltas silently ingests full snapshots. Test for `pricefull` / `promofull` before falling through to `price` / `promo`
+- **Feeds are published one file per STORE, not one per chain.** A chain-level file does not exist: a chain with several hundred branches publishes a `PriceFull` per branch per day. Fetching one arbitrary file and calling it "Shufersal's price" is wrong, and every merged dataset needs `(ChainId, SubChainId, StoreId, ItemCode)` as its key, read from the file's own root element. That tuple is also the join back to the `Stores` feed for the branch address, which is what makes any "near me" answer possible.
 - Full snapshots typically refreshed daily (overnight, 01:00-05:00 IL time); delta files may be pushed several times per day
+- **Shufersal downloads are time-limited signed URLs.** The portal root is only a browser UI. List files with `GET https://prices.shufersal.co.il/FileObject/UpdateCategory?catID=<N>&storeId=0` (`catID=1` Price, `2` PriceFull, `3` Promo, `4` PromoFull, `5` Stores), then read the `pricesprodpublic.blob.core.windows.net` links out of the HTML. Those links carry an `se=` expiry roughly half an hour out, pinned to a clock boundary rather than measured from your request, so the window you actually get can be much shorter. Fetch promptly and never cache or bookmark one.
+- **Carrefour** inlines its file list in the portal HTML as a JavaScript `files` array alongside a `path` of `yyyyMMdd`; download at `https://prices.carrefour.co.il/<path>/<filename>`. A wrong filename returns a real 404.
 - See `references/chain-feeds.md` for per-chain endpoints, access methods, and Cerberus authentication
 
-Chains publish through three platforms (not individual domains):
+Chains publish through **several** platforms, not one and not three. Each platform has its own
+access mechanics. Routing a chain to the wrong platform is the single most common cause of an
+agent reporting "this chain publishes nothing". The table below was verified by live probe on
+2026-08-27; treat it as a starting point and re-probe rather than assume:
 
-| Platform | URL | Chains |
-|----------|-----|--------|
-| Shufersal Direct | https://prices.shufersal.co.il | Shufersal |
-| Carrefour Israel Direct | https://prices.carrefour.co.il | Carrefour Israel (operates Carrefour, Mega, and Yeinot Bitan branded stores under one Electra franchise) |
-| Cerberus (PublishedPrices) | https://url.publishedprices.co.il/login | Rami Levy, Yochananof, Victory, Osher Ad, Tiv Taam, Hazi Hinam, Mega (legacy feed), Dor Alon, Super-Pharm, Good Pharm, and ~20 more smaller chains. Total ~30 chains across this platform |
+| Platform | URL | Chains verified on it | Access |
+|----------|-----|----------------------|--------|
+| Shufersal Direct | https://prices.shufersal.co.il | Shufersal | Public listing page; downloads are **expiring signed URLs** (see below) |
+| Carrefour Israel Direct | https://prices.carrefour.co.il | Carrefour Israel (Carrefour / Mega / Yeinot Bitan branded stores) | Public; file list is inlined in the page, downloads at `/<yyyyMMdd>/<filename>` |
+| Cerberus (PublishedPrices) | https://url.publishedprices.co.il/login | Rami Levy, Yochananof, Tiv Taam, Osher Ad, Dor Alon, Keshet Taamim, Fresh Market / Super Dosh, Cofix (`SuperCofixApp`) | Session login + CSRF (see below) |
+| Super-Pharm own portal | http://prices.super-pharm.co.il | Super-Pharm | Public listing page |
+| Bina Projects | https://goodpharm.binaprojects.com/Main.aspx | Good Pharm, and several small chains (King Store, Shuk Ahir, Zol VeBegadol, Bareket) | Public listing page per chain subdomain |
+| Chain's own site | https://shop.hazi-hinam.co.il/Prices | Hazi Hinam | Public file table |
 
-The previously separate "Nibit (Matrix)" platform at `matrixcatalog.co.il` is no longer reachable (the host times out as of 2026). Victory and other chains formerly published there now publish through the Cerberus platform.
+**Chains that are NOT on Cerberus, despite often being listed there.** A Cerberus login for
+`Victory`, `SuperPharm`, `GoodPharm`, `Bareket` or `Mega` fails (the POST returns 200 and
+re-renders the login form rather than the 302 a valid chain code gets). `HaziHinam` logs in but
+its directory listing is empty, while its own site serves a full file table. Do not conclude from
+a Cerberus failure that a chain stopped publishing, look for its own portal first.
 
-**Cerberus requires real authentication, not just a URL fetch.** A GET on the file directory without an active session returns the login HTML, not data. The flow is: GET `/login` → parse the `<meta name="csrftoken">` value AND keep the response cookie → POST `/login` with `username=<chain-code>`, `password=<password-or-empty>`, `csrftoken=<value>` → reuse the cookie for `/file/json/dir` to list files and `/file/d/<filename>` to download. See `references/chain-feeds.md` for the full flow and per-chain credentials.
+Victory and Mahsani A'Shuk moved off the defunct Nibit platform to a successor endpoint
+(`laibcatalog.co.il`). That host resolves but did not accept connections from our probe on
+2026-08-27, so we cannot confirm its current state either way, verify it yourself before relying
+on it. The old `matrixcatalog.co.il` host no longer resolves at all (NXDOMAIN, not a timeout).
+
+**Cerberus requires real authentication, not just a URL fetch, and the directory listing is a
+POST.** The flow is: GET `/login` → parse the `<meta name="csrftoken">` value AND keep the
+response cookie → POST `/login/user` with `username=<chain-code>`, `password=<password-or-empty>`,
+`csrftoken=<value>` (a valid chain code answers **302**; an invalid one answers 200 and re-renders
+the form) → GET `/file` and read the **fresh** csrftoken from that page → **POST** `/file/json/dir`
+with that token plus DataTables paging params to list files → GET `/file/d/<filename>` to download.
+
+A **GET** on `/file/json/dir` returns HTTP 200 with
+`{"aaData":[],"error":"Invalid request method used for this operation."}`. That is an empty list,
+not an error status, so an agent that issues a GET will silently conclude the chain publishes
+nothing. See `references/chain-feeds.md` for the working commands and per-chain codes.
 
 ### Step 2: Parse Chain-Specific Data Formats
 Each chain publishes in a slightly different XML schema. Major chains:
 
 | Chain | Hebrew Name | Platform | Notes |
 |-------|-------------|----------|-------|
-| Shufersal | שופרסל | Direct (prices.shufersal.co.il) | Largest chain (~400 stores across Shufersal Deal, Sheli, Yesh, and Express banners), most structured data |
-| Rami Levy | רמי לוי | Cerberus | Known for low prices, 50+ stores |
+| Shufersal | שופרסל | Direct (prices.shufersal.co.il) | Largest chain, operating the Shufersal Deal, Sheli, Yesh and Express banners; most structured data. Read the `Stores` feed for a current branch count |
+| Rami Levy | רמי לוי | Cerberus (`RamiLevi`) | Known for low prices |
 | Yochananof | יוחננוף | Cerberus | Central Israel focus |
-| Victory | ויקטורי | Cerberus | Independently owned (Ravid family, publicly traded VCTR.TA), 60+ stores; completely separate from Carrefour Israel. Since Aug 2025 it operates several banners (Victory, Victory Local, Victory City, Victory Plus) plus Victory Online, which can carry different prices, treat each banner as a distinct store when matching and comparing |
-| Carrefour Israel | קרפור ישראל | Direct (prices.carrefour.co.il) | Electra Consumer Products franchise; operates Carrefour, Mega, and Yeinot Bitan branded stores in parallel (not all stores converted to Carrefour) |
-| Osher Ad | אושר עד | Cerberus (username: `osherad`, no password) | Discount chain, 20+ large-format stores |
-| Tiv Taam | טיב טעם | Cerberus | Non-kosher items available; merged with East & West Import & Marketing Dec 2024 |
+| Victory | ויקטורי | Not on Cerberus (see platform notes) | A separate company from Carrefour Israel, not a Carrefour banner. It runs several banners (Victory, Victory Local, Victory City, Victory Plus, Victory Online) that can price the same SKU differently, so key comparisons on the specific banner and store rather than on "Victory" as one entity |
+| Carrefour Israel | קרפור ישראל | Direct (prices.carrefour.co.il) | One publisher covering several banners in parallel. Its own `Stores` feed lists `בעיר` and `יינות ביתן` branded stores alongside Carrefour ones, so not every store is Carrefour-branded |
+| Osher Ad | אושר עד | Cerberus (username: `osherad`, no password) | Discount chain, large-format stores |
+| Tiv Taam | טיב טעם | Cerberus (`TivTaam`) | Carries non-kosher items, so its product mix differs from kosher-only chains |
 
 Use `scripts/parse_price_xml.py` to parse feeds into normalized JSON format.
 Key fields: item_code, item_name, manufacturer, price, unit_price, quantity, unit_of_measure, is_weighted, update_date
 
-**Weighted-item math:** when `bIsWeighted=1`, `ItemPrice` is the price per kilogram, NOT the price of the package on the shelf. `Quantity` may be empty or fractional. Cross-chain comparisons must compare per-kg unit prices for these items, otherwise a 250g pack at 12 NIS/kg (= 3 NIS at the till) looks more expensive than a 1kg pack at 11 NIS/kg.
+**Weighted-item math:** when `bIsWeighted=1`, `ItemPrice` is a price per unit of measure rather than the price of the package on the shelf, **and that unit is NOT always a kilogram**. Read `UnitOfMeasure` and normalise by it. On a live Carrefour `PriceFull`, 174 of 560 weighted items declared `100 גרם` rather than a kilogram unit, so treating `ItemPrice` as NIS/kg overstates those by an order of magnitude. Values seen in the wild include `קילוגרם`, `ק"ג`, `1קילוגרם`, `100 גרם` and even `100 ק"ג`, with inconsistent spacing. `Quantity` may be empty or fractional. Normalise every weighted item to a common unit before comparing, otherwise cross-chain rankings are silently wrong.
+
+### Step 2.5: Reconcile Delta Files Against Snapshots
+A `Price` or `Promo` file is a **delta**, containing only rows that changed. Parsing one as if it
+were a catalogue yields a 200-item "chain catalogue" that is really one morning's edits.
+
+- Start from the most recent `PriceFull` for that store, then apply `Price` deltas in filename-timestamp order. Out-of-order application produces fabricated price movements, which is fatal to Step 5 trend tracking.
+- A row absent from a delta is **unchanged**, not deleted.
+- Check `ItemStatus` before treating a row as a live price; do not present a delisted or inactive SKU as purchasable.
+- Reconcile per store. Deltas are keyed by store, so mixing branches silently overwrites prices.
 
 ### Step 3: Cross-Chain Price Comparison
 Match products across chains by:
 - **Barcode** (most reliable, Israeli standard barcode prefix 729)
 - **Item name + manufacturer** (fuzzy matching for naming differences)
 - **Item code** (chain-specific, less reliable for cross-chain)
+
+**Some staples are under statutory price control** (פיקוח מחירים), including controlled dairy
+products, so their shelf price is capped and near-identical across chains. Presenting a
+"switch chains and save" result on a controlled item overstates the achievable saving. We could
+not retrieve a current authoritative list of controlled products (the Ministry of Economy page is
+not machine-fetchable), so check the controlling order before you present savings on a staple
+rather than assuming the spread is real.
 
 Generate comparison table for specific products:
 - Calculate: cheapest chain, average price, price spread (max-min)
@@ -95,7 +145,37 @@ Given a shopping list, find the cheapest option:
 - **Single-store:** cheapest store for entire basket
 - **Multi-store:** optimal split across 2-3 nearby stores (minimize cost + travel)
 
-Factor in current promotions from the `PromoFull` feed. Each promotion has a `RewardType` that controls how the discount applies (1 = flat discounted price, 2 = fixed price for N units, 3 = Nth-item discount, etc.), plus `MinQty` / `MaxQty` thresholds, an optional `MinPurchaseAmnt`, and a `ClubId`. A non-zero `ClubId` means the discount applies only to chain club members (Shufersal Sofash, Rami Levy club, etc.) and should NOT be applied to a guest basket. Handle substitutions: suggest cheaper alternatives for similar products.
+Factor in current promotions from the `PromoFull` feed. **Where the promotion fields live depends
+on the dialect**, and this is where naive parsers silently return nothing:
+
+- **Cerberus dialect** (Rami Levy et al.): `RewardType`, `MinQty`, `DiscountedPrice` and
+  `DiscountRate` sit directly on each `<Promotion>`, and the club id is nested at
+  `Clubs/ClubId` as a bare integer.
+- **Shufersal / Carrefour dialect**: `<Promotion>` carries `PromotionID`, `PromotionDescription`,
+  `MinNoOfItemOffered`, `RedemptionLimit`, `PromotionDays` and a flat `ClubID`, while
+  `RewardType`, `MinQty`, `MaxQty`, `DiscountRate` and `MinPurchaseAmount` live one level deeper,
+  inside `Groups/Group/PromotionItems/PromotionItem`.
+
+`RewardType` values 1, 2, 3, 7 and 9 all occur on live feeds. The commonly-used readings are
+1 = flat discounted price, 2 = fixed price for N units, 3 = Nth-item discount, but we could not
+find an authoritative published mapping for any code, so treat these as conventions to confirm
+against `PromotionDescription` rather than as specified semantics, and never auto-apply a code
+you have not confirmed.
+
+**Club-only handling is dialect-specific.** In the Cerberus dialect `Clubs/ClubId` is an integer
+and `!= 0` means club-only. In the Shufersal dialect `ClubID` is a **string that begins with the
+code**, e.g. `0 - כלל הלקוחות` for an open promotion. Comparing that string to `0` is always
+unequal, so a parser applying the integer rule to Shufersal drops every promotion as club-only.
+Parse the leading integer before the ` - ` separator, then test it. Club-restricted promotions
+should NOT be applied to a guest basket.
+
+**Filter promotions for validity before applying them.** A promotion is live only inside its
+`PromotionStartDate`/`EndDate` window AND its `PromotionStartHour`/`EndHour`, and
+`PromotionDays` can restrict it to particular days of the week. Applying an expired or
+out-of-window promotion produces a basket total the user cannot reproduce at the till, which is
+the most visible wrong answer this skill can give.
+
+Handle substitutions: suggest cheaper alternatives for similar products.
 
 Calculate total basket cost per scenario. Consider user preferences: kosher requirements, organic options, brand preferences.
 
@@ -119,11 +199,17 @@ For restaurant owners: calculate ingredient costs from supermarket data.
 ### Example 1: Compare Milk Prices Across Chains
 User says: "What's the cheapest place to buy Tnuva 3% milk 1 liter?"
 Actions:
-1. Query PricesFull feeds from all chains for item (barcode matching)
-2. Compile prices per chain and store location
-3. Apply any active promotions from PricesPromotions
-4. Generate comparison table sorted by price
-Result: Cheapest: Rami Levy at 5.90 NIS, Osher Ad at 6.10 NIS, Shufersal at 6.50 NIS (but 2-for-10 promo active). With Shufersal promo, buying 2 = 5.00 NIS each. Recommendation: Shufersal if buying 2+, Rami Levy for single.
+1. Query `PriceFull` feeds from the relevant chains and stores for the item (barcode matching)
+2. Compile prices per chain and per store, keyed on `(ChainId, SubChainId, StoreId, ItemCode)`
+3. Apply active promotions from `PromoFull`, filtered for validity window and club restriction
+4. Generate a comparison table sorted by price
+
+**Answer the price-control question first.** 3% milk is a controlled staple, so its shelf price is
+capped and cross-chain spread is near zero. The honest answer here is "this item is price-capped,
+you will not save meaningfully by switching chains for it", and then to point the user at
+uncontrolled items in the same basket where the spread is real. Do not present a "switch and save"
+recommendation on a controlled product, and do not quote prices from memory: read them from the
+live feed, because they change daily.
 
 ### Example 2: Optimize Weekly Shopping List
 User says: "Here's my shopping list for the week, find me the cheapest option near Ramat Gan"
@@ -151,44 +237,47 @@ Result: Current cost per serving: 8.40 NIS (cheapest chain combination). Eggs ar
 - `references/chain-feeds.md` -- Per-chain feed endpoints organized by platform (Shufersal Direct, Carrefour Direct, Cerberus / PublishedPrices). Includes XML schema documentation, update schedules, and known format variations. Consult when accessing chain data in Steps 1-2.
 
 ### Scripts
-- `scripts/parse_price_xml.py` -- Parses Israeli supermarket XML price feeds into normalized JSON. Supports Shufersal, Rami Levy, and other chain formats. Handles gzipped XML files and character encoding. Run: `python scripts/parse_price_xml.py --help`
+- `scripts/parse_price_xml.py` -- Parses `PriceFull` and `PromoFull` feeds into normalized JSON. Auto-detects the XML dialect from the document, so it works for any chain (`--chain` is only a provenance label). Emits chain / sub-chain / store identity, parses promotions in both dialects including the club-id string form, detects gzip by magic bytes and handles UTF-16 with a BOM. Run: `python3 scripts/parse_price_xml.py --help`
 
 ## Recommended MCP Servers
 
 | MCP | What It Adds |
 |-----|-------------|
-| [Israeli Supermarket Prices](https://agentskills.co.il/he/mcp/supermarket-prices) | Wraps the Price Transparency Law feeds across ~35 chains. Handles Shufersal direct, Carrefour publishprice, and Cerberus FTP transports automatically. Use it instead of the manual XML steps when available. |
+| [Israeli Supermarket Prices](https://agentskills.co.il/he/mcp/supermarket-prices) | Wraps the Price Transparency Law feeds across the chains it covers. Handles Shufersal direct, Carrefour publishprice, and Cerberus FTP transports automatically. Use it instead of the manual XML steps when available. |
 | [Shufersal MCP](https://agentskills.co.il/he/mcp/shufersal) | Adds cart automation on shufersal.co.il (search, add to cart, recipe-to-cart). Complements price intelligence with the actual checkout flow. |
 
 ## Gotchas
 
-- Most chains do NOT have their own `prices.X.co.il` domain. Rami Levy, Yochananof, Victory, Osher Ad, Tiv Taam, and ~20 other chains all publish through the Cerberus platform at `url.publishedprices.co.il`. Agents that fabricate per-chain URLs will get connection errors. Always consult `references/chain-feeds.md` for verified endpoints.
-- Cerberus is NOT a static file server. A naive `curl https://url.publishedprices.co.il/file/d/PriceFull...xml.gz` returns the login page (HTTP 200 with HTML, not the file). You must first GET `/login`, parse the `csrftoken` from the `<meta name="csrftoken">` tag, keep the response cookie, then POST `/login` with the chain username, an empty password if the chain is public, and the csrftoken. Only then do file listing and download endpoints return data.
-- The legacy "Nibit (Matrix)" platform at `matrixcatalog.co.il/NBCompetitionRegulations.aspx` is no longer reachable as of 2026 (curl times out after 10s). Victory and other chains that previously published there now use Cerberus. Skills or agents still pointing at matrixcatalog.co.il will fail.
+- Do not assume a chain is on Cerberus. Rami Levy, Yochananof, Osher Ad, Tiv Taam and Dor Alon are; **Victory, Super-Pharm, Good Pharm, Bareket and Mega are not**, and Hazi Hinam logs in to Cerberus with an empty listing while publishing a full file table on its own site. Equally, do not fabricate a `prices.<chain>.co.il` host, most chains have none. Consult `references/chain-feeds.md` and re-probe before concluding a chain stopped publishing.
+- Cerberus is NOT a static file server, and its directory listing is a **POST, not a GET**. A GET on `/file/json/dir` returns HTTP 200 carrying `{"aaData":[],"error":"Invalid request method used for this operation."}`, which reads as "this chain has no files" unless you inspect the `error` key. The listing POST also needs a csrftoken read from `/file` **after** login, not the one from the pre-login page. A `/file/d/<filename>` request with no session answers **HTTP 302** with a short redirect stub rather than the file, so require both a 2xx status and a gzip payload before treating a response as data.
+- The legacy "Nibit (Matrix)" host `matrixcatalog.co.il` no longer resolves at all (NXDOMAIN as of 2026-08-27), so a request fails at DNS rather than timing out. Its successor for Victory and Mahsani A'Shuk is `laibcatalog.co.il`, which resolves but refused connections from our probe; confirm its state before building on it.
 - Prices in Israel include VAT (18%) by default, unlike US prices which are pre-tax. The 18% rate has been in effect since 1 Jan 2025 (raised from 17%); a proposed Jan 2026 increase to 19% was rejected in the Knesset budget vote. Agents trained before 2025 may "correct" 18% back to 17%, they should not. Agents may also perform cost comparisons that double-count or ignore VAT depending on their training data assumptions.
 - Israeli product barcodes use the 729 country prefix, but some imported products retain their original country barcode. Agents may fail cross-chain matching when the same product has different barcode formats across chains. Store-brand items often use internal codes starting with `2` and cannot be cross-matched at all.
-- Promotions with `ClubId != 0` are restricted to chain club members (Shufersal Sofash, Rami Levy club, Yochananof Club, etc.) and should NOT be applied to a generic basket-cost estimate. Many naive agents ignore `ClubId` and report inflated savings.
-- "Mega" and "Yeinot Bitan" did not fully rebrand to Carrefour. The Electra Consumer Products franchise (April 2022, 20-year term) operates all three banners in parallel; some stores were converted to Carrefour, others retained the Mega or Yeinot Bitan banner. A legacy "Mega" feed still exists on Cerberus alongside the Carrefour Direct portal. "Victory" is a completely separate, independently owned company (Ravid family, VCTR.TA). Agents may still confuse these as related entities. Since Aug 2025 Victory runs multiple banners (Victory, Victory Local, Victory City, Victory Plus, and Victory Online) that can price the same SKU differently, so a single "Victory" price is no longer safe to assume, key the comparison on the specific banner/store, not on "Victory" as one entity.
-- Pharmacy chains (Super-Pharm, Good Pharm) ARE covered by the law and publish through Cerberus, but their SKU range is drugstore items (toiletries, OTC, baby food) without fresh produce, dairy, or meat. Don't try to price-compare milk at Super-Pharm.
-- Promotions in Israeli supermarkets often have conditions agents miss: "buy 2 get discount" (2 b-X shekel) is `RewardType=2` with `MinQty=2`; "buy 3 pay for 2" is `RewardType=3`; some have `MinPurchaseAmnt` thresholds; regional promotions apply only to specific store IDs.
+- The club-id field is named and typed differently per dialect: nested integer `Clubs/ClubId` on Cerberus feeds, flat string `ClubID` like `0 - כלל הלקוחות` on Shufersal/Carrefour. Applying the Cerberus integer test to a Shufersal string marks every promotion club-only and silently discards all of them; ignoring the field entirely reports inflated savings. Parse the leading code, then test it.
+- "Mega" and "Yeinot Bitan" did not fully rebrand to Carrefour. One publisher covers all three banners: Carrefour Israel's own `Stores` feed lists `בעיר` and `יינות ביתן` branded stores alongside Carrefour ones. There is no separate working Mega feed to fall back on, the standalone `prices.mega.co.il` host answers 403 and a Cerberus login as `Mega` fails. "Victory" is a different company entirely, not a Carrefour banner, and agents routinely confuse the two. Victory also runs several banners that can price the same SKU differently, so key the comparison on the specific banner and store, not on "Victory" as one entity.
+- Pharmacy chains (Super-Pharm, Good Pharm) ARE covered by the law and do publish, but **not through Cerberus**: Super-Pharm runs its own portal at `prices.super-pharm.co.il` and Good Pharm publishes via Bina Projects. Their SKU range is drugstore items (toiletries, OTC, baby food) without fresh produce, dairy, or meat, so don't try to price-compare milk at Super-Pharm.
+- `RewardType` and its `MinQty` / `MaxQty` / `DiscountRate` siblings sit on the `<Promotion>` element in the Cerberus dialect but one level deeper, on each `PromotionItem` inside `Groups/Group`, in the Shufersal/Carrefour dialect. A parser written to one shape finds nothing in the other and reports zero promotions. Note also `MinPurchaseAmount` (Shufersal) vs `MinPurchaseAmnt`, and `MinNoOfItemOffered` vs `MinNoOfItemOfered`, the spellings genuinely differ between feeds.
 
 ## Reference Links
 
 | Source | URL | What to Check |
 |--------|-----|---------------|
 | Wikisource, Promotion of Competition in the Food Sector Law (statute text) | https://he.wikisource.org/wiki/חוק_קידום_התחרות_בענף_המזון | Plain-language summary, legislative history, recent amendments |
-| Wikipedia, List of supermarket chains in Israel | https://en.wikipedia.org/wiki/List_of_supermarket_chains_in_Israel | Current chain ownership, store counts, brand consolidations |
+| Ministry of Economy, price-publication regulations | https://www.gov.il/he/pages/cpfta_prices_regulations | The file specification behind the six file types, naming and encoding rules. Cloudflare-protected, so open it in a browser |
 | Shufersal Direct Portal | https://prices.shufersal.co.il | Live PriceFull/PricesPromotions/Stores feeds for Shufersal |
-| Cerberus PublishedPrices Portal | https://url.publishedprices.co.il/login | Live feeds for Rami Levy, Yochananof, Victory, Tiv Taam, Osher Ad, Mega, and ~25 other chains |
+| Cerberus PublishedPrices Portal | https://url.publishedprices.co.il/login | Live feeds for Rami Levy, Yochananof, Tiv Taam, Osher Ad, Dor Alon and other Cerberus chains. Victory, Super-Pharm, Good Pharm, Bareket and Mega are NOT here, see the platform table |
 | Carrefour Israel Direct Portal | https://prices.carrefour.co.il | Live feeds for Carrefour / Mega / Yeinot Bitan stores |
-| OpenIsraeliSupermarkets, community parsers | https://github.com/OpenIsraeliSupermarkets | Reference Python scrapers and parsers used by the community. The active library is `il-supermarket-scraper` (PyPI), which handles Cerberus CSRF login, chain-code lookup, file listing, and decompression |
+| OpenIsraeliSupermarkets, community parsers | https://github.com/OpenIsraeliSupermarkets | Reference Python scrapers and parsers used by the community. The active library is `il-supermarket-scraper` (PyPI), which handles Cerberus CSRF login, chain-code lookup, file listing, and decompression. Its scraper classes are also the best available cross-check of which platform each chain currently publishes on |
+| Super-Pharm price portal | http://prices.super-pharm.co.il | Super-Pharm's own feed listing (it is not on Cerberus) |
+| Bina Projects portal (Good Pharm) | https://goodpharm.binaprojects.com/Main.aspx | Good Pharm and several small chains publish here |
+| Hazi Hinam price files | https://shop.hazi-hinam.co.il/Prices | Hazi Hinam's own file table |
 | Israel Tax Authority, Interpretation Directive 01/2025 | https://www.gov.il/BlobFolder/dynamiccollectorresultitem/represent-info-051224-2/he/vat_represent-info-051224-2.pdf | Current Israeli VAT rate (18% since 1 Jan 2025), includes historical rate changes |
 
 ## Troubleshooting
 
 ### Error: "XML feed download failed"
-Cause: Chain's price transparency server is temporarily down or URL has changed.
-Solution: Check if the chain updated their feed URL (this happens occasionally). The Cerberus platform occasionally has SSL certificate issues; try HTTP if HTTPS fails. Feeds are typically most reliable in the morning hours (updated overnight). See `references/chain-feeds.md` for current URLs.
+Cause: for Shufersal specifically, the most likely cause is an **expired signed URL**. Download links from the Shufersal portal are Azure Blob URLs carrying an `se=` expiry about half an hour out and pinned to a clock boundary, so a link captured earlier, cached, or copied from documentation will fail. Otherwise the chain moved platform (see the platform table) or the file genuinely is not published yet.
+Solution: re-list the files immediately before each download rather than reusing a stored URL. For other platforms, re-probe the listing endpoint and check the chain has not migrated. Feeds are refreshed overnight, so a missing PriceFull early in the day is expected rather than an error.
 
 ### Error: "Product not found in cross-chain comparison"
 Cause: Product naming or barcode differs across chains.
@@ -202,6 +291,11 @@ Solution: Check the UpdateDate field in the XML feed. Most chains update overnig
 Cause: Comparing all items across all chains and all stores is computationally expensive.
 Solution: Limit comparison to chains with stores within a configurable radius (default: 5 km). Pre-filter by chains the user actually shops at. Use cached price data instead of fetching fresh for every optimization.
 
-### Error: "Cerberus platform returns empty page or login prompt"
-Cause: Cerberus requires an authenticated session, not a one-shot URL fetch. The most common failure mode is omitting the CSRF token or the session cookie.
-Solution: Follow the full Cerberus auth flow documented in `references/chain-feeds.md`: GET `/login`, extract the `csrftoken` `<meta>` value AND save the cookie from the response, POST `/login` with `username=<chain-code>`, `password=` (empty for public chains), and `csrftoken=<value>`, reuse the cookie for `/file/json/dir` and `/file/d/<filename>`. Add a ≥1s delay between requests and use a realistic User-Agent header, Cerberus throttles aggressive listing.
+### Error: "Cerberus returns an empty file list"
+Cause (verified 2026-08-27): the listing was requested with GET. `/file/json/dir` accepts POST only and answers a GET with HTTP 200 plus `{"aaData":[],"error":"Invalid request method used for this operation."}`. The second verified cause is a stale csrftoken, the listing needs the token rendered on `/file` after login, not the pre-login one.
+Verified NOT to be the cause: an unusual User-Agent. Every probe behind this section ran with the stock `curl` User-Agent and completed login, listing and download without being blocked.
+Solution: follow the flow in `references/chain-feeds.md` and always read the `error` key before treating an empty `aaData` as "no files".
+
+### Error: "Chain logs in to Cerberus but has no files"
+Cause (verified 2026-08-27): the chain does not publish through Cerberus. `Victory`, `SuperPharm`, `GoodPharm`, `Bareket` and `Mega` fail login outright (200 + re-rendered form instead of 302); `HaziHinam` authenticates but lists zero files while serving a full table at `shop.hazi-hinam.co.il/Prices`.
+Solution: look up the chain's real platform in `references/chain-feeds.md` before concluding it stopped publishing. A confident "chain X does not publish" needs a positive search for chain X's own portal.
