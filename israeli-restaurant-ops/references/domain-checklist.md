@@ -8,7 +8,8 @@ Scope: help Israeli restaurant owners with menus, delivery-platform pricing, rev
 - Hebrew menu-copy optimization (natural Hebrew, sensory words, dietary + kosher labels).
 - Review-response templates (positive / quality / delivery / wrong-item) in Hebrew.
 - Food-cost % targets by restaurant type; menu-engineering matrix (Stars/Puzzles/Plowhorses/Dogs).
-- Daily operations: opening/closing checklists, food-safety temperature log (cold <4C, hot >60C), Israeli-calendar scheduling (Shabbat, holidays, Pesach chametz, Yom HaZikaron->HaAtzmaut), Shabbat/holiday labor-pay note.
+- Allergen disclosure in menu copy: Israel's list is the fourteen international allergens plus פול. Item-level allergen data comes from the kitchen, never inferred from a dish description. Full list and marking duties belong to israeli-food-business-compliance.
+- Daily operations: opening/closing checklists, food-safety temperature log using the STATUTORY Israeli figures from תקנות רישוי עסקים (תנאי תברואה נאותים לבתי אוכל), התשמ"ג-1983 (chilled not above 5C per תקנה 50(א), hot holding at least 65C per תקנה 51(א), frozen not above -18C, thawing not above 10C per תקנה 47, cooling curve 20C at one hour and 5C at two hours per תקנה 51(ב)), NOT the US/HACCP 4C/60C figures, Israeli-calendar scheduling (Shabbat, holidays, Pesach chametz, Yom HaZikaron->HaAtzmaut), Shabbat/holiday labor-pay note.
 - Kosher levels: כשר / כשר למהדרין / כשר לפסח are distinct.
 
 ## Should cover (advanced)

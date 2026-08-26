@@ -1,28 +1,28 @@
 {
   "schemaVersion": "1.0",
   "skill": "israeli-restaurant-ops",
-  "generated_at": "2026-06-07T00:00:00Z",
+  "generated_at": "2026-08-26T19:49:00+00:00",
   "claims": [
     {
       "claim_id": "platform-commissions",
-      "claim": "Israeli delivery-platform commission ranges (indicative, negotiation-dependent): Wolt 25-35%, 10bis (תן ביס) 10-15%, Mishloha (משלוחה) 15-25%. Payment cycles: Wolt weekly, 10bis monthly, Mishloha bi-weekly. 10bis operates both a consumer delivery service and a corporate meal-benefit platform; Cibus (now branded Cibus Pluxee after the 2024 Pluxee rebrand) is the main corporate meal-benefit competitor. All three platforms are operating in Israel in 2026. Also covers: source_url is a bare homepage (https://www.10bis.co.il/). A homepage can never contain the snippet, so --check-sources can never falsify this claim. Use a deep link. 12 ₪ 17 ₪ 3 ₪ 40 ₪ 45 ₪ 49 ₪ 5 ₪ 51 ₪ 51.1 ₪ 56 ₪ 56.3 ₪ 57 ₪ 61 ₪ 64.3 ₪ 65 ₪ 10%",
+      "claim": "Merchant commission rates for Wolt, 10bis and Mishloha are NOT published by the platforms. The skill presents roughly 25-35% / 10-15% / 15-25% explicitly as indicative industry ballpark figures to be verified against the restaurant's own contract, and notes that older public reporting cites 7-12% for 10bis. Payment cycles are likewise given as typical, to be verified.",
       "source_url": "https://en.globes.co.il/en/article-hundreds-of-restaurants-quit-as-10bis-ups-fees-1001406979",
-      "raw_snippet": "inevitable price hikes you sit in your office with your air-conditioning, coffee and cakes and just press a button and get richer by 25% just because you feel like you can get away with it.\" Haimov said that high-tech had taken control of low-tech. 10bis said, \"We are in direct and daily contact with all the restaurants and together we will continue to give the best value for our customers. Revising the commercial terms stems from a rise in operational prices and developing manpower to expand the company's service teams.",
-      "fetched_at": "2026-08-18",
+      "raw_snippet": "you sit in your office with your air-conditioning, coffee and cakes and just press a button and get richer by 25%",
+      "fetched_at": "2026-08-26T19:49:00+00:00",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
         "references/platform-guides.md"
       ],
-      "verified_via": "cited page fetched and confirmed to contain \"25%\"; snippet replaced with the page's own wording around it",
-      "verified_at": "2026-08-18"
+      "verified_via": "the platforms publish no merchant commission; the skill therefore states these as unverified indicative ranges and instructs the reader to use the contract rate",
+      "verified_at": "2026-08-26T19:49:00+00:00"
     },
     {
       "claim_id": "vat-pricing",
       "claim": "Israeli VAT is 18% (since 1 January 2025). Delivery menu price formula: Menu Price = target net revenue / (1 - commission rate), then x1.18 for VAT. Packaging/delivery cost typically 3-8 NIS per order. Prices are in NIS, rounded to whole shekels on delivery platforms.",
-      "source_url": "https://sovos.com/regulatory-updates/vat/israel-vat-rate-increase-to-18-from-january-1-2025/",
-      "raw_snippet": "Israel's standard VAT rate is 18% effective 1 January 2025.",
-      "fetched_at": "2026-06-07T00:00:00Z",
+      "source_url": "https://www.kolzchut.org.il/he/הגשת_דו%22חות_תקופתיים_ותשלום_מס_ערך_מוסף",
+      "raw_snippet": "והוא עומד החל מיום 01.01.2025 על 18% ממחיר הרכישה / השירות",
+      "fetched_at": "2026-08-26T19:51:35+00:00",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
@@ -30,10 +30,10 @@
     },
     {
       "claim_id": "food-safety-kosher",
-      "claim": "Food-safety temperature guidance follows the HACCP danger zone: cold storage below 4 C, hot holding above 60 C, received cold goods below 4 C. Kosher certification levels are distinct: כשר (regular kosher), כשר למהדרין (mehadrin / strictly kosher), כשר לפסח (kosher for Passover). Mislabeling carries trust and legal risk.",
-      "source_url": "https://www.gov.il/he/departments/national_food_service",
-      "raw_snippet": "Cold storage below 4C and hot holding above 60C (HACCP danger zone 4-60C). Kosher levels כשר / כשר למהדרין / כשר לפסח are distinct certifications.",
-      "fetched_at": "2026-06-07T00:00:00Z",
+      "claim": "Israeli statutory food temperatures for a בית אוכל: unfrozen bacteria-friendly food not above 5°C (תקנה 50(א)); frozen food and raw ground meat not above minus 18°C (תקנה 50(ב)); food served hot held at at least 65°C until served (תקנה 51(א)); thawing in a place not above 10°C (תקנה 47); after cooking, centre temperature not above 20°C at one hour and not above 5°C at two hours (תקנה 51(ב)); cold-room recording thermometer accurate to ±0.5°C (תקנה 21); a grease separator installed per the director's instructions.",
+      "source_url": "https://he.wikisource.org/wiki/תקנות_רישוי_עסקים_(תנאי_תברואה_נאותים_לבתי_אוכל)",
+      "raw_snippet": "מאכל המיועד להגשה כמאכל חם יוחזק בטמפרטורה של 65 מעלות צלזיוס לפחות, עד למסירתו לידי הסועד",
+      "fetched_at": "2026-08-26T19:49:00+00:00",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
@@ -41,21 +41,23 @@
     },
     {
       "claim_id": "food-cost-targets",
-      "claim": "Target food-cost percentages by restaurant type: fast food / street food 25-30%, casual dining 28-35%, fine dining 30-40%, delivery-only / cloud kitchen 25-32%. Menu-engineering matrix classifies items as Stars / Puzzles / Plowhorses / Dogs by popularity and gross margin.",
-      "source_url": "https://www.gov.il/he/departments/national_food_service",
+      "claim": "Target food-cost percentages by restaurant type (fast food 25-30%, casual 28-35%, fine dining 30-40%, delivery-only 25-32%) and the Stars/Puzzles/Plowhorses/Dogs menu-engineering matrix are industry management conventions, not figures set by any Israeli authority.",
+      "source_url": "self-asserted (industry management convention, no regulatory source)",
       "raw_snippet": "Industry food-cost targets: fast/street 25-30%, casual 28-35%, fine dining 30-40%, cloud kitchen 25-32%. Menu engineering: Stars, Puzzles, Plowhorses, Dogs.",
-      "fetched_at": "2026-06-07T00:00:00Z",
+      "fetched_at": "2026-08-26T19:49:00+00:00",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md"
-      ]
+      ],
+      "verified_via": "convention-inventory entry: these are management rules of thumb the skill states as such, not claims about Israeli law or published rates",
+      "verified_at": "2026-08-26T19:49:00+00:00"
     },
     {
       "claim_id": "reference-urls-and-examples",
-      "claim": "Reference URLs and illustrative pricing-example figures. Example amounts (food cost 12/17/18 NIS, menu prices 40-70 NIS, schnitzel/hummus examples, packaging 3-8 NIS) and percentages (commission 12%/20%/30%, margins 60%, food-cost 25-40%, photo-conversion 30-50%) are illustrative or indicative, not fixed rates. Covers these references: https://www.10bis.co.il/ https://www.mishloha.co.il/ https://explore.wolt.com/en/isr/merchant/business/restaurants https://www.cibus.co.il/ https://www.gov.il/he/departments/national_food_service https://partner.mishloha.co.il https://restaurant-portal.wolt.com https://restaurant.10bis.co.il",
+      "claim": "Reference URLs and illustrative worked-example figures. The pricing examples are arithmetic illustrations, not published rates: food cost 12 ₪ / 17 ₪ / 18 ₪, packaging 3-8 ₪ per order, computed VAT-inclusive display prices 40 ₪, 45 ₪, 49 ₪, 57 ₪, 60 ₪, 65 ₪, 66 ₪, 72 ₪, 76 ₪, 83 ₪, and the counter-example 38.6 ₪ showing a 14% shortfall from publishing 65 ₪ on Wolt, target margin 60%, indicative commissions 10%, 12%, 20%, 30%, and a 30-50% photo-conversion uplift. All are recomputed with the restaurant's own contract rate in use. Reference and platform URLs cited by the skill: https://explore.wolt.com/en/isr/merchant/business/restaurants, https://www.10bis.co.il/, https://www.mishloha.co.il/, https://www.cibus.co.il/, https://www.gov.il/he/departments/national_food_service. Three merchant-portal hostnames previously listed (restaurant-portal.wolt.com, restaurant.10bis.co.il, partner.mishloha.co.il) were removed in v1.3.0 after all three returned NXDOMAIN. All example prices are recomputed by the documented formula Displayed Price = Target Net Revenue x 1.18 / (1 - Commission Rate); they are arithmetic, not published rates.",
       "source_url": "https://explore.wolt.com/en/isr/merchant",
       "raw_snippet": "shops Convenience Grocery Pharmacy Alcohol Resources Merchant Blog Success Stories Close navigation menu Grow your business with Wolt Join Wolt and sell to customers already ordering in your area “Customers love the speed and convenience.",
-      "fetched_at": "2026-08-18",
+      "fetched_at": "2026-08-26T20:09:06+00:00",
       "appears_in": [
         "SKILL.md",
         "SKILL_HE.md",
@@ -63,6 +65,204 @@
       ],
       "verified_via": "readable source among those the entry covers; snippet copied from it",
       "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "tavrua-cold-and-frozen",
+      "claim": "Unfrozen food that is a good medium for bacterial growth is held at not above 5°C, and frozen food and raw ground meat at not above minus 18°C (תקנה 50).",
+      "source_url": "https://he.wikisource.org/wiki/תקנות_רישוי_עסקים_(תנאי_תברואה_נאותים_לבתי_אוכל)",
+      "raw_snippet": "מזון בלתי מוקפא, המהווה קרקע נוחה לריבוי חידקים יוחזק בטמפרטורה שלא תעלה על 5 מעלות צלזיוס",
+      "fetched_at": "2026-08-26T19:49:00+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tavrua-cooling-curve",
+      "claim": "Food cooled after cooking must reach not above 20°C at the centre one hour after cooking and not above 5°C two hours after (תקנה 51(ב)).",
+      "source_url": "https://he.wikisource.org/wiki/תקנות_רישוי_עסקים_(תנאי_תברואה_נאותים_לבתי_אוכל)",
+      "raw_snippet": "כעבור שעה מגמר הבישול מידת החום במרכז המאכל לא תעלה על 20 מעלות צלזיוס",
+      "fetched_at": "2026-08-26T19:49:00+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tavrua-thawing",
+      "claim": "Frozen food is thawed separately from other food, in a place where the temperature is not above 10°C (תקנה 47).",
+      "source_url": "https://he.wikisource.org/wiki/תקנות_רישוי_עסקים_(תנאי_תברואה_נאותים_לבתי_אוכל)",
+      "raw_snippet": "הפשרת מצרכי מזון מוקפאים תיעשה בנפרד מכל מזון אחר ובמקום שהטמפרטורה אינה עולה על 10 מעלות צלזיוס",
+      "fetched_at": "2026-08-26T19:49:00+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tavrua-thermometer-and-separator",
+      "claim": "A cold room carries a recording thermometer with its dial outside at 1.60-1.70m, visible, accurate to ±0.5°C (תקנה 21); and a grease separator is installed per the director's instructions.",
+      "source_url": "https://he.wikisource.org/wiki/תקנות_רישוי_עסקים_(תנאי_תברואה_נאותים_לבתי_אוכל)",
+      "raw_snippet": "תחום הדיוק שלו ±0.5 מעלות צלזיוס",
+      "fetched_at": "2026-08-26T19:49:00+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "kashrut-written-claim-offence",
+      "claim": "Under חוק איסור הונאה בכשרות §3(א) the owner of a בית אוכל may not present it in writing as kosher unless a kashrut certificate has been given, and §3(ב) bars a certified kosher-presented establishment from serving or selling items not covered by a certificate. (סעיף 3).",
+      "source_url": "https://he.wikisource.org/wiki/חוק_איסור_הונאה_בכשרות",
+      "raw_snippet": "בעל בית אוכל לא יציג בכתב את בית האוכל ככשר, אלא אם כן ניתנה לו תעודת הכשר",
+      "fetched_at": "2026-08-26T19:49:00+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "kashrut-penalty",
+      "claim": "The penalty for an offence under sections 3 to 5, 7, 7א, 9 or 10 of חוק איסור הונאה בכשרות is up to one year's imprisonment (§14). (סעיף 14).",
+      "source_url": "https://he.wikisource.org/wiki/חוק_איסור_הונאה_בכשרות",
+      "raw_snippet": "דינו – מאסר שנה.",
+      "fetched_at": "2026-08-26T19:51:08+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "kashrut-display-duty",
+      "claim": "A holder of a kashrut certificate must display it in a visible place at the place of business, and may display it only while it is in force (§10). (סעיף 10).",
+      "source_url": "https://he.wikisource.org/wiki/חוק_איסור_הונאה_בכשרות",
+      "raw_snippet": "מי שבידו תעודת הכשר, יציג אותה במקום גלוי במקום עיסוקו",
+      "fetched_at": "2026-08-26T19:49:00+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "kashrut-who-certifies-2026",
+      "claim": "After תיקון מס' 5 (ס\"ח תשפ\"ו, 778, 19 July 2026), for a בית אוכל the kashrut certificate is given by the local rabbi serving where it is located or by מועצת הרבנות הראשית, and where no local rabbi serves, by a rabbi the Council authorised.",
+      "source_url": "https://he.wikisource.org/wiki/חוק_איסור_הונאה_בכשרות",
+      "raw_snippet": "לעניין בית אוכל, מקום שחיטה או מקום הייצור של מצרך או של מוצר – רב מקומי המכהן במקום שבו הם נמצאים או מועצת הרבנות הראשית",
+      "fetched_at": "2026-08-26T19:49:00+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "licensing-strict-liability",
+      "claim": "An offence under חוק רישוי עסקים §14 is one of strict liability (§14(ד)), and a court may order the business's operation stopped or the premises closed (§16, §17). An administrative stop order may be issued under §20. (סעיף 14, סעיף 14א2, סעיף 16, סעיף 17, סעיף 20).",
+      "source_url": "https://he.wikisource.org/wiki/חוק_רישוי_עסקים",
+      "raw_snippet": "עבירה לפי סעיף זה היא מסוג העבירות של אחריות קפידה",
+      "fetched_at": "2026-08-26T19:49:00+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "hasada-minimum-wage",
+      "claim": "From 01.04.2026 the minimum wage for a full-time employee in the private-sector restaurant industry (ענף ההסעדה) is ₪7,281.55 per month and ₪40 per hour, which is 113% of the general minimum wage, rising to 116% in 2027. Stated in the skill as ₪40.00 per hour.",
+      "source_url": "https://www.kolzchut.org.il/he/שכר_מינימום_לעובדים_בתחום_ההסעדה",
+      "raw_snippet": "החל מיום 01.04.2026, שכר המינימום החודשי של עובד במשרה מלאה בענף ההסעדה במגזר הפרטי הוא 7,281.55 ₪ לחודש ושכר המינימום השעתי הוא 40 ₪ לשעה",
+      "fetched_at": "2026-08-26T19:49:00+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "general-minimum-wage",
+      "claim": "From 01.04.2026 the general minimum wage is ₪6,443.85 per month for a full-time post and ₪35.40 per hour.",
+      "source_url": "https://www.kolzchut.org.il/he/שכר_מינימום",
+      "raw_snippet": "החל מיום 01.04.2026 שכר המינימום הוא",
+      "fetched_at": "2026-08-26T19:49:00+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tips-are-wages",
+      "claim": "Tips given to waiters in restaurants, cafes and bars are considered part of their wage and must appear on the payslip; their inclusion affects Bituach Leumi, pension and income tax. At event halls and gardens tips are not treated as part of the wage.",
+      "source_url": "https://www.kolzchut.org.il/he/תשר_(%22טיפ%22)_למלצרים_במסעדות,_בתי_קפה_וברים",
+      "raw_snippet": "תשלומי \"טיפ\" שניתנים למלצרים במסעדות, בתי קפה וברים, נחשבים חלק משכרם וצריכים להופיע בתלוש השכר",
+      "fetched_at": "2026-08-26T19:49:00+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "overtime-multipliers",
+      "claim": "Under חוק שעות עבודה ומנוחה, התשי\"א-1951 סעיף 16, the first two overtime hours in a day are paid at not less than 1.25 of the regular wage (125%) and each overtime hour after that at not less than 1.5 (150%).",
+      "source_url": "https://he.wikisource.org/wiki/חוק_שעות_עבודה_ומנוחה",
+      "raw_snippet": "ישלם לו המעסיק בעד שתי השעות הנוספות הראשונות שבאותו יום שכר עבודה לא פחות מ־1",
+      "fetched_at": "2026-08-26T19:50:03+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "weekly-rest-premium",
+      "claim": "Under סעיף 17, an employee employed during the weekly rest is paid not less than 1.5 of the regular wage (150%) AND is given compensating rest hours in place of the weekly-rest hours worked; employment during the weekly rest requires a permit.",
+      "source_url": "https://he.wikisource.org/wiki/חוק_שעות_עבודה_ומנוחה",
+      "raw_snippet": "יתן לו המעסיק, במקום שעות המנוחה השבועית שבהן עבד, שעות מנוחה",
+      "fetched_at": "2026-08-26T19:50:03+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "accessibility-catering-reg84",
+      "claim": "תקנה 84 of תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות) requires 10 percent of diner seating (at least two) to be accessible, and requires a catering chain of at least ten branches to supply, on request from a person with a disability, photographs of the common dishes offered.",
+      "source_url": "https://he.wikisource.org/wiki/תקנות_שוויון_זכויות_לאנשים_עם_מוגבלות_(התאמות_נגישות_לשירות)",
+      "raw_snippet": "היה השירות חלק מרשת הסעדה, שבה עשרה סניפים לפחות, יספק החייב, לבקשת אדם עם מוגבלות, תצלומים של המנות הנפוצות",
+      "fetched_at": "2026-08-26T19:50:03+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "licensing-accessibility-precondition",
+      "claim": "Under חוק רישוי עסקים סעיף 8ב(ב) the licensing authority may not grant a licence to a licensable business that is a public place or public service unless the accessibility provisions are met and the accessibility experts' opinions are supplied.",
+      "source_url": "https://he.wikisource.org/wiki/חוק_רישוי_עסקים",
+      "raw_snippet": "רשות הרישוי לא תיתן רישיון",
+      "fetched_at": "2026-08-26T19:50:03+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "food-law-30-percent",
+      "claim": "Under חוק הגנה על בריאות הציבור (מזון), התשע\"ו-2015 סעיף 25(א), preparing food in a בית אוכל does not require a production licence provided that not more than 30% of the food prepared there, on a weekly average, is intended for supply to other bodies rather than to the establishment's own diners.",
+      "source_url": "https://he.wikisource.org/wiki/חוק_הגנה_על_בריאות_הציבור_(מזון)",
+      "raw_snippet": "הכנת מזון בבית אוכל אינה טעונה קבלת רישיון ייצור",
+      "fetched_at": "2026-08-26T19:50:03+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "licensing-item-42",
+      "claim": "פריט 4.2 of צו רישוי עסקים (עסקים טעוני רישוי) covers a בית אוכל, with 4.2א מסעדה and 4.2ב בית קפה/מזנון both expressly 'לרבות משלוח מזון', and 4.2ג covering preparation of food for consumption off the premises, also 'לרבות משלוח מזון'.",
+      "source_url": "https://he.wikisource.org/wiki/צו_רישוי_עסקים_(עסקים_טעוני_רישוי)",
+      "raw_snippet": "מסעדה לרבות משלוח מזון ולרבות הגשת משקאות משכרים לצריכה במקום",
+      "fetched_at": "2026-08-26T19:51:08+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
     }
   ]
 }
