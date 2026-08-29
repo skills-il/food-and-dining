@@ -1,0 +1,51 @@
+{
+  "author": "bornio",
+  "version": "1.0.0",
+  "category": "food-and-dining",
+  "tags": {
+    "he": [
+      "רמי-לוי",
+      "קניות",
+      "סופרמרקט",
+      "עגלה",
+      "מחירים",
+      "מבצעים"
+    ],
+    "en": [
+      "rami-levy",
+      "shopping",
+      "supermarket",
+      "cart",
+      "prices",
+      "promotions"
+    ]
+  },
+  "display_name": {
+    "he": "קניות ברמי לוי דרך שורת הפקודה",
+    "en": "Rami Levy Shopper"
+  },
+  "display_description": {
+    "he": "שימוש ב-CLI הלא רשמי של רמי לוי כדי לחפש ולהשוות מוצרים, לבדוק מחירים ומבצעים עדכניים, להציג הזמנות קודמות ולנהל בבטחה את העגלה החיה של חשבון מחובר. מיועד לבקשות כמו מה יש בעגלה, מצא מוצר, השווה מחיר ליחידה, הוסף, עדכן או הסר מוצר. אינו מיועד להשוואת מחירים בין רשתות או לניתוח פידי שקיפות מחירים.",
+    "en": "Use the unofficial Rami Levy CLI to search and compare products, inspect current prices and promotions, view previous orders, and safely manage the live cart of a signed-in account. Use for requests to list the cart, find products, compare unit prices, or add, update, and remove items. Do not use for cross-chain comparison or raw Price Transparency feeds."
+  },
+  "openclaw": {
+    "requires": {
+      "bins": [
+        "rami"
+      ],
+      "env": []
+    },
+    "emoji": "🛒"
+  },
+  "supported_agents": [
+    "claude-code",
+    "cursor",
+    "github-copilot",
+    "windsurf",
+    "opencode",
+    "codex",
+    "openclaw",
+    "antigravity",
+    "gemini-cli"
+  ]
+}

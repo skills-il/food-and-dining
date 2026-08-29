@@ -11,6 +11,7 @@ Part of [Skills IL](https://github.com/skills-il) — curated AI agent skills fo
 | [israeli-food-business-compliance](./israeli-food-business-compliance/) | Israeli food business regulatory compliance — licensing, kashrut certification, health ministry requirements, and food labeling | -- | `health-ministry-requirements.md`, `labeling-requirements.md` |
 | [israeli-grocery-price-intelligence](./israeli-grocery-price-intelligence/) | Access and compare Israeli supermarket prices using mandatory Price Transparency Law data feeds | `parse_price_xml.py` | `chain-feeds.md` |
 | [israeli-restaurant-ops](./israeli-restaurant-ops/) | Manage Israeli restaurant operations across delivery platforms — Wolt, 10bis, and Mishlocha | -- | `platform-guides.md` |
+| [rami-levy-shopper](./rami-levy-shopper/) | Search products, inspect prices and orders, and safely manage a live Rami Levy cart with the unofficial `rami` CLI | -- | -- |
 
 ## Install
 
@@ -39,6 +40,9 @@ food-and-dining/
 │   ├── SKILL.md
 │   ├── SKILL_HE.md
 │   └── references/
+├── rami-levy-shopper/                   # Rami Levy shopper CLI
+│   ├── SKILL.md
+│   └── SKILL_HE.md
 ├── scripts/validate-skill.sh
 ├── CLAUDE.md
 ├── LICENSE
